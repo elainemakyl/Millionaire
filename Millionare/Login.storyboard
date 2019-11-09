@@ -19,7 +19,7 @@
                                 <rect key="frame" x="20" y="132" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                                 <connections>
                                     <action selector="nameTextField:" destination="eEf-oX-KE6" eventType="editingDidEnd" id="C8y-eO-4h8"/>
                                 </connections>
@@ -28,7 +28,7 @@
                                 <rect key="frame" x="20" y="185" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CGG-gA-FMf">
                                 <rect key="frame" x="20" y="44" width="61" height="21"/>
@@ -44,17 +44,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOe-YQ-7fH">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cOe-YQ-7fH">
                                 <rect key="frame" x="20" y="237" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-eH-tyq">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-eH-tyq">
                                 <rect key="frame" x="20" y="279" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CY-Zu-tDx">
                                 <rect key="frame" x="117" y="450" width="162" height="30"/>
@@ -132,6 +132,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXg-rC-lTn">
                                 <rect key="frame" x="120" y="295" width="174" height="30"/>
                                 <state key="normal" title="No Account? Create One!"/>
+                                <connections>
+                                    <segue destination="ait-du-7EN" kind="show" id="fD6-pN-wCa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.1764705882352941" blue="0.35686274509803922" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,7 +157,6 @@
                     <connections>
                         <outlet property="emailTextField" destination="ZsC-6D-bCN" id="zYt-gV-i3d"/>
                         <outlet property="pwTextField" destination="0UQ-bP-fjD" id="Re2-Ab-4Vn"/>
-                        <segue destination="ait-du-7EN" kind="show" identifier="SignInPage" id="ioP-ff-9Vq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFs-kX-bKt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
