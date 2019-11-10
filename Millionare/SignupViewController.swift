@@ -22,24 +22,29 @@ class SignupViewController: UIViewController {
     @IBOutlet var pwTextField: UITextField!
     @IBOutlet var repwTextField: UITextField!
     
+    
+    @IBAction func facebookButton(_ sender: Any) {
+    }
+    
+    @IBAction func googleButton(_ sender: Any) {
+    }
+    
     @IBAction func CreateAccountButton(_ sender: Any) {
         let signUpManager = FirebaseAuthManager()
-        if let email = emailTextField.text, let password = pwTextField.text {
+        if let email = emailTextField.text, let password = pwTextField.text, let re_password = repwTextField.text {
             signUpManager.createUser(email: email, password: password) {[weak self] (success) in
                 guard self != nil else { return }
                 var message: String = ""
-                if (success) {
+                if (success && password==re_password) {
                     self!.addUser()
-                    message = "User was sucessfully created."
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc =  storyboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-                    self!.present(vc, animated: true, completion: nil)
+                    self!.performSegue(withIdentifier: "loginToHome", sender: nil)
                 } else {
                     message = "There was an error."
+                    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                    self?.present(alertController, animated: true, completion: nil)
                 }
-//                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-//                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-//                self?.present(alertController, animated: true, completion: nil)
+                
                 print(message)
             }
         }
@@ -49,32 +54,32 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-//        FirebaseApp.configure()
+        //        FirebaseApp.configure()
         refUsers = Database.database().reference().child("user");
     }
-//
+    //
     func addUser(){
         //generating a new key inside artists node
         //and also getting the generated key
         let key = refUsers.childByAutoId().key
-
+        
         //creating artist with the given values
         let user = ["id":key,
                     "first_name": firstNameTextField.text! as String,
                     "last_name": lastNameTextField.text! as String,
                     "email" : emailTextField.text! as String
         ]
-
+        
         //adding the artist inside the generated unique key
         refUsers.child(key!).setValue(user)
     }
     /*
-      MARK: - Navigation
+     MARK: - Navigation
      
-      In a storyboard-based application, you will often want to do a little preparation before navigation
+     In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      Get the new view controller using segue.destination.
-      Pass the selected object to the new view controller.
+     Get the new view controller using segue.destination.
+     Pass the selected object to the new view controller.
      }
      */
     

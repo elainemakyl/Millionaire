@@ -274,17 +274,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vZK-kc-8QC">
-                                <rect key="frame" x="20" y="133" width="374" height="34"/>
+                                <rect key="frame" x="20" y="133" width="339" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfg-IL-VlO">
-                                <rect key="frame" x="20" y="216" width="374" height="34"/>
+                                <rect key="frame" x="20" y="216" width="339" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SaQ-UI-S34">
-                                <rect key="frame" x="20" y="174" width="374" height="34"/>
+                                <rect key="frame" x="20" y="174" width="339" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
@@ -301,71 +301,75 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="f0d-Ar-Kob">
-                                <rect key="frame" x="20" y="258" width="374" height="34"/>
+                                <rect key="frame" x="20" y="258" width="339" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxi-8O-iAT">
-                                <rect key="frame" x="126" y="473" width="162" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oxi-8O-iAT">
+                                <rect key="frame" x="106" y="463" width="162" height="30"/>
                                 <state key="normal" title="Connect with Facebook"/>
+                                <connections>
+                                    <action selector="facebookButton:" destination="5O4-s5-rxv" eventType="touchUpInside" id="cE3-Jv-kyE"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkc-WJ-cJJ">
-                                <rect key="frame" x="136" y="501" width="143" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkc-WJ-cJJ">
+                                <rect key="frame" x="116" y="495" width="143" height="30"/>
                                 <state key="normal" title="Connect with Twitter"/>
+                                <connections>
+                                    <action selector="googleButton:" destination="5O4-s5-rxv" eventType="touchUpInside" id="HBr-sZ-0na"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="------------------------OR----------------------" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-8j-Gps">
-                                <rect key="frame" x="20" y="403" width="375" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--------------------OR--------------------" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfk-8j-Gps">
+                                <rect key="frame" x="20" y="403" width="339" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-N8-MRS">
-                                <rect key="frame" x="154" y="352" width="107" height="30"/>
-                                <state key="normal" title="Create Account"/>
-                                <connections>
-                                    <action selector="CreateAccountButton:" destination="5O4-s5-rxv" eventType="touchUpInside" id="6bV-07-dFA"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="Ijx-4Y-xn8"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Re-password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7sm-ZS-MMW">
-                                <rect key="frame" x="21" y="300" width="374" height="34"/>
+                                <rect key="frame" x="21" y="300" width="338" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-N8-MRS">
+                                <rect key="frame" x="110" y="342" width="155" height="30"/>
+                                <state key="normal" title="Create Account"/>
+                                <connections>
+                                    <action selector="CreateAccountButton:" destination="5O4-s5-rxv" eventType="touchUpInside" id="6bV-07-dFA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="centerX" secondItem="1k2-N8-MRS" secondAttribute="centerX" id="3b3-Fs-ZK2"/>
-                            <constraint firstItem="vZK-kc-8QC" firstAttribute="top" secondItem="zCi-Sh-Rea" secondAttribute="bottom" constant="9" id="4cW-qi-NXt"/>
-                            <constraint firstItem="bfg-IL-VlO" firstAttribute="leading" secondItem="f0d-Ar-Kob" secondAttribute="leading" id="5kZ-iX-8ck"/>
-                            <constraint firstItem="SaQ-UI-S34" firstAttribute="trailing" secondItem="bfg-IL-VlO" secondAttribute="trailing" id="6n0-qH-vdS"/>
-                            <constraint firstItem="7sm-ZS-MMW" firstAttribute="centerX" secondItem="1k2-N8-MRS" secondAttribute="centerX" id="B4e-LS-Mc5"/>
-                            <constraint firstItem="UQl-LX-PVF" firstAttribute="trailing" secondItem="Oxi-8O-iAT" secondAttribute="trailing" constant="87" id="CcQ-1r-gEc"/>
-                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="top" secondItem="Mfk-8j-Gps" secondAttribute="bottom" constant="49" id="GHQ-TJ-23g"/>
-                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="top" secondItem="bfg-IL-VlO" secondAttribute="bottom" constant="8" id="H1q-fQ-LKT"/>
-                            <constraint firstItem="vZK-kc-8QC" firstAttribute="leading" secondItem="SaQ-UI-S34" secondAttribute="leading" id="LZa-02-eHv"/>
-                            <constraint firstItem="tkc-WJ-cJJ" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="136" id="Nu1-6Q-4ww"/>
-                            <constraint firstItem="7sm-ZS-MMW" firstAttribute="trailing" secondItem="Mfk-8j-Gps" secondAttribute="trailing" id="Pev-KO-LXt"/>
-                            <constraint firstItem="Mfk-8j-Gps" firstAttribute="centerX" secondItem="Oxi-8O-iAT" secondAttribute="centerX" id="QCH-tK-oDH"/>
-                            <constraint firstItem="Mfk-8j-Gps" firstAttribute="top" secondItem="1k2-N8-MRS" secondAttribute="bottom" constant="21" id="QN1-hU-VMX"/>
-                            <constraint firstItem="SaQ-UI-S34" firstAttribute="leading" secondItem="bfg-IL-VlO" secondAttribute="leading" id="Tnt-C9-Sj3"/>
-                            <constraint firstItem="bfg-IL-VlO" firstAttribute="trailing" secondItem="f0d-Ar-Kob" secondAttribute="trailing" id="XJw-hK-OMx"/>
-                            <constraint firstItem="dfq-ts-qO0" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="20" id="Xno-v2-GGD"/>
-                            <constraint firstItem="bfg-IL-VlO" firstAttribute="top" secondItem="SaQ-UI-S34" secondAttribute="bottom" constant="8" id="aeS-ER-szU"/>
-                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="leading" secondItem="Mfk-8j-Gps" secondAttribute="leading" id="anM-hB-3aK"/>
-                            <constraint firstItem="zCi-Sh-Rea" firstAttribute="top" secondItem="dfq-ts-qO0" secondAttribute="bottom" constant="38" id="bNU-xb-kJ2"/>
-                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="centerX" secondItem="tkc-WJ-cJJ" secondAttribute="centerX" id="bZK-mJ-BpZ"/>
-                            <constraint firstItem="SaQ-UI-S34" firstAttribute="top" secondItem="vZK-kc-8QC" secondAttribute="bottom" constant="7" id="dtE-98-xox"/>
-                            <constraint firstItem="1k2-N8-MRS" firstAttribute="centerX" secondItem="Mfk-8j-Gps" secondAttribute="centerX" id="fBF-1E-Gpb"/>
-                            <constraint firstItem="1k2-N8-MRS" firstAttribute="top" secondItem="7sm-ZS-MMW" secondAttribute="bottom" constant="18" id="izp-Qh-Eix"/>
-                            <constraint firstItem="dfq-ts-qO0" firstAttribute="top" secondItem="UQl-LX-PVF" secondAttribute="top" constant="44" id="jnz-2O-co5"/>
-                            <constraint firstItem="dfq-ts-qO0" firstAttribute="leading" secondItem="zCi-Sh-Rea" secondAttribute="leading" id="kZf-Zy-Ghu"/>
-                            <constraint firstItem="zCi-Sh-Rea" firstAttribute="leading" secondItem="vZK-kc-8QC" secondAttribute="leading" id="mQ3-H8-rGG"/>
-                            <constraint firstItem="1k2-N8-MRS" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="154" id="nRr-I0-ABs"/>
-                            <constraint firstItem="7sm-ZS-MMW" firstAttribute="top" secondItem="f0d-Ar-Kob" secondAttribute="bottom" constant="8" id="qoQ-pJ-zRI"/>
-                            <constraint firstItem="vZK-kc-8QC" firstAttribute="trailing" secondItem="SaQ-UI-S34" secondAttribute="trailing" id="twO-YJ-Uj9"/>
-                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="126" id="vGE-VG-sz8"/>
-                            <constraint firstItem="tkc-WJ-cJJ" firstAttribute="top" secondItem="Mfk-8j-Gps" secondAttribute="bottom" constant="77" id="xIE-M2-QNu"/>
+                            <constraint firstItem="vZK-kc-8QC" firstAttribute="trailing" secondItem="SaQ-UI-S34" secondAttribute="trailing" id="2fv-at-a7b"/>
+                            <constraint firstItem="Mfk-8j-Gps" firstAttribute="top" secondItem="1k2-N8-MRS" secondAttribute="bottom" constant="31" id="3Jr-fb-duJ"/>
+                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="trailing" secondItem="7sm-ZS-MMW" secondAttribute="trailing" id="4QV-uI-eXp"/>
+                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="centerX" secondItem="HkC-oP-Sne" secondAttribute="centerX" id="4yV-Ls-mfZ"/>
+                            <constraint firstItem="dfq-ts-qO0" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="20" id="7jm-JQ-G5b"/>
+                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="top" secondItem="Mfk-8j-Gps" secondAttribute="bottom" constant="39" id="A7I-k2-Lld"/>
+                            <constraint firstItem="dfq-ts-qO0" firstAttribute="leading" secondItem="zCi-Sh-Rea" secondAttribute="leading" id="AyQ-U7-lac"/>
+                            <constraint firstItem="1k2-N8-MRS" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="110" id="BGQ-Oe-Oep"/>
+                            <constraint firstItem="7sm-ZS-MMW" firstAttribute="top" secondItem="f0d-Ar-Kob" secondAttribute="bottom" constant="8" id="CWw-8L-abb"/>
+                            <constraint firstItem="SaQ-UI-S34" firstAttribute="top" secondItem="vZK-kc-8QC" secondAttribute="bottom" constant="7" id="Jsl-di-gd3"/>
+                            <constraint firstItem="vZK-kc-8QC" firstAttribute="trailing" secondItem="HkC-oP-Sne" secondAttribute="trailingMargin" id="LZM-ec-2cO"/>
+                            <constraint firstItem="1k2-N8-MRS" firstAttribute="top" secondItem="7sm-ZS-MMW" secondAttribute="bottom" constant="8" id="Ldp-o4-LLw"/>
+                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="centerX" secondItem="tkc-WJ-cJJ" secondAttribute="centerX" id="LnF-jY-m27"/>
+                            <constraint firstItem="SaQ-UI-S34" firstAttribute="leading" secondItem="bfg-IL-VlO" secondAttribute="leading" id="N64-n0-sqr"/>
+                            <constraint firstItem="1k2-N8-MRS" firstAttribute="centerX" secondItem="Oxi-8O-iAT" secondAttribute="centerX" id="N7N-ZG-MMg"/>
+                            <constraint firstItem="7sm-ZS-MMW" firstAttribute="trailing" secondItem="Mfk-8j-Gps" secondAttribute="trailing" id="NDp-RU-ZU7"/>
+                            <constraint firstItem="zCi-Sh-Rea" firstAttribute="top" secondItem="dfq-ts-qO0" secondAttribute="bottom" constant="38" id="TN1-sV-vtu"/>
+                            <constraint firstItem="bfg-IL-VlO" firstAttribute="trailing" secondItem="f0d-Ar-Kob" secondAttribute="trailing" id="UM6-je-ubq"/>
+                            <constraint firstItem="tkc-WJ-cJJ" firstAttribute="top" secondItem="Oxi-8O-iAT" secondAttribute="bottom" constant="2" id="VZv-C4-N5T"/>
+                            <constraint firstItem="bfg-IL-VlO" firstAttribute="top" secondItem="SaQ-UI-S34" secondAttribute="bottom" constant="8" id="Zme-Ux-C7a"/>
+                            <constraint firstItem="Oxi-8O-iAT" firstAttribute="leading" secondItem="UQl-LX-PVF" secondAttribute="leading" constant="106" id="a8F-yl-VbN"/>
+                            <constraint firstItem="dfq-ts-qO0" firstAttribute="top" secondItem="UQl-LX-PVF" secondAttribute="top" constant="44" id="aD1-Du-223"/>
+                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="top" secondItem="bfg-IL-VlO" secondAttribute="bottom" constant="8" id="dQJ-h4-52f"/>
+                            <constraint firstItem="bfg-IL-VlO" firstAttribute="leading" secondItem="f0d-Ar-Kob" secondAttribute="leading" id="lK8-Gn-ODu"/>
+                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="leading" secondItem="Mfk-8j-Gps" secondAttribute="leading" id="m0P-Az-ULX"/>
+                            <constraint firstItem="zCi-Sh-Rea" firstAttribute="leading" secondItem="vZK-kc-8QC" secondAttribute="leading" id="nBg-aH-4Ix"/>
+                            <constraint firstItem="vZK-kc-8QC" firstAttribute="top" secondItem="zCi-Sh-Rea" secondAttribute="bottom" constant="9" id="sfB-sZ-x5w"/>
+                            <constraint firstItem="f0d-Ar-Kob" firstAttribute="centerX" secondItem="7sm-ZS-MMW" secondAttribute="centerX" id="ueU-D5-R5V"/>
+                            <constraint firstItem="SaQ-UI-S34" firstAttribute="trailing" secondItem="bfg-IL-VlO" secondAttribute="trailing" id="wvZ-uL-FTo"/>
+                            <constraint firstItem="vZK-kc-8QC" firstAttribute="leading" secondItem="SaQ-UI-S34" secondAttribute="leading" id="zwZ-fg-zZO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UQl-LX-PVF"/>
                     </view>
@@ -376,11 +380,12 @@
                         <outlet property="lastNameTextField" destination="SaQ-UI-S34" id="W0j-CL-csf"/>
                         <outlet property="pwTextField" destination="f0d-Ar-Kob" id="7Jk-F7-Y8Y"/>
                         <outlet property="repwTextField" destination="7sm-ZS-MMW" id="t7S-w0-f5e"/>
+                        <segue destination="49e-Tb-3d3" kind="modal" identifier="loginToHome" modalPresentationStyle="fullScreen" id="3FG-HS-iJ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggp-9X-opK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-134" y="-372"/>
+            <point key="canvasLocation" x="-135.19999999999999" y="-372.86356821589209"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="AwK-ID-9jH">
@@ -456,6 +461,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LSh-1o-QPW"/>
+        <segue reference="3FG-HS-iJ9"/>
     </inferredMetricsTieBreakers>
 </document>
