@@ -1,5 +1,5 @@
 //
-//  SpeningViewController.swift
+//  SpendingViewController.swift
 //  Millionare
 //
 //  Created by mat on 10/11/2019.
@@ -10,7 +10,7 @@ import Foundation
 import FirebaseAuth
 import UIKit
 
-class SpeningViewController: UIViewController {
+class SpendingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
