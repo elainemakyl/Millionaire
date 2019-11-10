@@ -24,6 +24,7 @@
 		400853BC2377E2E90071C95D /* SpeningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BB2377E2E90071C95D /* SpeningViewController.swift */; };
 		400853BE2377E2FA0071C95D /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BD2377E2FA0071C95D /* IncomeViewController.swift */; };
 		57CAA1A5427CC82A0154F9ED /* Pods_Millionare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9311AA2F5AED7C7C19CA3 /* Pods_Millionare.framework */; };
+		EA0834652377EC2C00E08CAC /* DetailRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		400853BB2377E2E90071C95D /* SpeningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeningViewController.swift; sourceTree = SOURCE_ROOT; };
 		400853BD2377E2FA0071C95D /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		5F1A92396FF0C0BBE05C8999 /* Pods-Millionare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Millionare.release.xcconfig"; path = "Target Support Files/Pods-Millionare/Pods-Millionare.release.xcconfig"; sourceTree = "<group>"; };
+		EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRankViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				26B971C92373DB78002E1E55 /* Login.storyboard */,
 				26B971CF23740D08002E1E55 /* SignupViewController.swift */,
 				26B971B523715C02002E1E55 /* Main.storyboard */,
+				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */,
 				266315F72374458B00F17CB0 /* GoogleService-Info.plist */,
 				26B971B823715C0B002E1E55 /* Assets.xcassets */,
 				26B971BA23715C0B002E1E55 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 				26B971B423715C02002E1E55 /* RankViewController.swift in Sources */,
 				26B971CE23740C11002E1E55 /* FirebaseAuthManager.swift in Sources */,
 				26B971C42373CDB6002E1E55 /* StatisticsViewController.swift in Sources */,
+				EA0834652377EC2C00E08CAC /* DetailRankViewController.swift in Sources */,
 				26B971B223715C02002E1E55 /* MainViewController.swift in Sources */,
 				26B971AE23715C02002E1E55 /* AppDelegate.swift in Sources */,
 				26B971B023715C02002E1E55 /* SceneDelegate.swift in Sources */,
