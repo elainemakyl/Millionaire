@@ -26,12 +26,16 @@ class LoginViewController: UIViewController {
                 var message: String = ""
                 if (success) {
                     message = "User was sucessfully logged in."
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                       let vc =  storyboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
+                                       self.present(vc, animated: true, completion: nil)
+       
                 } else {
                     message = "There was an error."
+                    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                                    alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                                    self.present(alertController, animated: true, completion: nil)
                 }
-                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
             }
     }
     
