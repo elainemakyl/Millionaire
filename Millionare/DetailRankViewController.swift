@@ -2,7 +2,7 @@
 //  DetailRankViewController.swift
 //  Millionare
 //
-//  Created by Wing Kei Ma on 10/11/2019.
+//  Created by leo on 10/11/2019.
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
