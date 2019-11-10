@@ -17,7 +17,6 @@
 		26B971BC23715C0B002E1E55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B971BA23715C0B002E1E55 /* LaunchScreen.storyboard */; };
 		26B971C42373CDB6002E1E55 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971C32373CDB6002E1E55 /* StatisticsViewController.swift */; };
 		26B971C62373CE38002E1E55 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971C52373CE38002E1E55 /* SettingsViewController.swift */; };
-		26B971CA2373DB78002E1E55 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26B971C92373DB78002E1E55 /* Login.storyboard */; };
 		26B971CC2373E220002E1E55 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CB2373E220002E1E55 /* LoginViewController.swift */; };
 		26B971CE23740C11002E1E55 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */; };
 		26B971D023740D08002E1E55 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CF23740D08002E1E55 /* SignupViewController.swift */; };
@@ -40,7 +39,6 @@
 		26B971BD23715C0B002E1E55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26B971C32373CDB6002E1E55 /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		26B971C52373CE38002E1E55 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		26B971C92373DB78002E1E55 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		26B971CB2373E220002E1E55 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		26B971CF23740D08002E1E55 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				26B971C52373CE38002E1E55 /* SettingsViewController.swift */,
 				26B971CB2373E220002E1E55 /* LoginViewController.swift */,
 				26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */,
-				26B971C92373DB78002E1E55 /* Login.storyboard */,
 				26B971CF23740D08002E1E55 /* SignupViewController.swift */,
 				26B971B523715C02002E1E55 /* Main.storyboard */,
 				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */,
@@ -188,7 +185,6 @@
 				26B971BC23715C0B002E1E55 /* LaunchScreen.storyboard in Resources */,
 				26B971B923715C0B002E1E55 /* Assets.xcassets in Resources */,
 				266315F82374458B00F17CB0 /* GoogleService-Info.plist in Resources */,
-				26B971CA2373DB78002E1E55 /* Login.storyboard in Resources */,
 				26B971B723715C02002E1E55 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

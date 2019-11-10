@@ -25,10 +25,8 @@ class LoginViewController: UIViewController {
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {
-                    message = "User was sucessfully logged in."
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                                       let vc =  storyboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-                                       self.present(vc, animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "loginToHome", sender: nil)
+               
        
                 } else {
                     message = "There was an error."
@@ -45,7 +43,16 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        Auth.auth().addStateDidChangeListener() { auth, user in
+//           // 2
+//           if user != nil {
+//             // 3
+//
+//            self.performSegue(withIdentifier: "loginToHome", sender: nil)
+//             self.emailTextField.text = nil
+//             self.pwTextField.text = nil
+//           }
+//         }
         // Do any additional setup after loading the view.
     }
     
