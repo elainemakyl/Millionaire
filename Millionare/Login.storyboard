@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjQ-om-kjF">
-                                <rect key="frame" x="20" y="132" width="374" height="34"/>
+                                <rect key="frame" x="20" y="133" width="374" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
@@ -136,7 +136,7 @@
                                 <rect key="frame" x="120" y="295" width="174" height="30"/>
                                 <state key="normal" title="No Account? Create One!"/>
                                 <connections>
-                                    <segue destination="ait-du-7EN" kind="show" id="x2I-BJ-jDJ"/>
+                                    <segue destination="ait-du-7EN" kind="show" id="TmN-HW-mme"/>
                                 </connections>
                             </button>
                         </subviews>

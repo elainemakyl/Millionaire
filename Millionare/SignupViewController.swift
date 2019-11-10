@@ -45,32 +45,32 @@ class SignupViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         refUsers = Database.database().reference().child("user");
     }
-    
+//
     func addUser(){
         //generating a new key inside artists node
         //and also getting the generated key
         let key = refUsers.childByAutoId().key
-        
+
         //creating artist with the given values
         let user = ["id":key,
                     "first_name": firstNameTextField.text! as String,
                     "last_name": lastNameTextField.text! as String,
                     "email" : emailTextField.text! as String
         ]
-        
+
         //adding the artist inside the generated unique key
         refUsers.child(key!).setValue(user)
     }
     /*
-     // MARK: - Navigation
+      MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+      In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+      Get the new view controller using segue.destination.
+      Pass the selected object to the new view controller.
      }
      */
     
