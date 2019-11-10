@@ -136,7 +136,7 @@
                                 <rect key="frame" x="120" y="295" width="174" height="30"/>
                                 <state key="normal" title="No Account? Create One!"/>
                                 <connections>
-                                    <segue destination="ait-du-7EN" kind="show" id="fD6-pN-wCa"/>
+                                    <segue destination="ait-du-7EN" kind="show" id="x2I-BJ-jDJ"/>
                                 </connections>
                             </button>
                         </subviews>
