@@ -11,6 +11,7 @@ import Firebase
 
 import FirebaseAuth
 import FirebaseDatabase
+import GoogleSignIn
 
 class SignupViewController: UIViewController {
     
@@ -21,13 +22,10 @@ class SignupViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var pwTextField: UITextField!
     @IBOutlet var repwTextField: UITextField!
+
+  
     
-    
-    @IBAction func facebookButton(_ sender: Any) {
-    }
-    
-    @IBAction func googleButton(_ sender: Any) {
-    }
+ 
     
     @IBAction func CreateAccountButton(_ sender: Any) {
         let signUpManager = FirebaseAuthManager()
