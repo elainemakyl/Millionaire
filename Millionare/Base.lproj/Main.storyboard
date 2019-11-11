@@ -357,7 +357,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="H95-Bc-fJm">
-                                <rect key="frame" x="-33" y="517" width="469.00000000000011" height="110"/>
+                                <rect key="frame" x="-33" y="517" width="469" height="220"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-N8-MRS">
                                 <rect key="frame" x="136" y="410" width="107" height="30"/>
@@ -451,7 +451,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP0-4C-38S">
-                                <rect key="frame" x="100.5" y="251" width="174" height="30"/>
+                                <rect key="frame" x="100.5" y="251" width="174" height="0.0"/>
                                 <state key="normal" title="No Account? Create One!"/>
                                 <connections>
                                     <segue destination="5O4-s5-rxv" kind="show" destinationCreationSelector="goToSignup" id="k8c-O9-9k1"/>
@@ -509,7 +509,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-NF-c7A">
-                                <rect key="frame" x="-33" y="511" width="469.00000000000011" height="136"/>
+                                <rect key="frame" x="-33" y="460" width="469" height="187"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-kF-fzR">
                                 <rect key="frame" x="16" y="20" width="94" height="43"/>
