@@ -102,6 +102,8 @@
 				26F8ACA22379424C00C6684D /* BlogViewController.swift */,
                 EA083468237929B900E08CAC /* RankTableViewCell.swift */,
 				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */,
+				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift
+ */,				EA083468237929B900E08CAC /* RankTableViewCell.swift */,
 				266315F72374458B00F17CB0 /* GoogleService-Info.plist */,
 				26B971B823715C0B002E1E55 /* Assets.xcassets */,
 				26B971BA23715C0B002E1E55 /* LaunchScreen.storyboard */,
