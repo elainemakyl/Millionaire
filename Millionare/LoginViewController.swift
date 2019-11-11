@@ -20,7 +20,7 @@ import FBSDKLoginKit
 typealias FIRUser = FirebaseAuth.User
 
 class LoginViewController: UIViewController, GIDSignInDelegate {
-  
+    var refUsers: DatabaseReference!
 
     @IBOutlet var pwTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
@@ -63,10 +63,10 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        GIDSignIn.sharedInstance()?.presentingViewController = self
-//        GIDSignIn.sharedInstance().delegate = self
-//
+         refUsers = Database.database().reference().child("user");
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().delegate = self
+
 //
 //
 ////         Automatically sign in google the user.
@@ -109,6 +109,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             var message: String = ""
             if (success) {
                 message = "User was sucessfully logged in."
+                self.addUser()
+                
                 
                   self.performSegue(withIdentifier: "loginToHome", sender: nil)
             } else {
@@ -145,6 +147,7 @@ extension LoginViewController: FUIAuthDelegate {
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
         // ...
         let user: FIRUser? = Auth.auth().currentUser
+        
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -160,7 +163,15 @@ extension LoginViewController: FUIAuthDelegate {
         print(error.localizedDescription)
         } else {
         print("Login Successful.")
-            print(user.profile.email)
+            let userID = Auth.auth().currentUser?.uid
+            let firstname = self.refUsers.child(userID!).child("first_name")
+            firstname.observeSingleEvent(of : .value, with : {(Snapshot) in
+                if let firstname = Snapshot.value as? String{
+                    print(firstname)
+                }else{
+                    self.addUser()
+                }})
+        
         //This is where you should add the functionality of successful login
         //i.e. dismissing this view or push the home view controller etc
              self.performSegue(withIdentifier: "loginToHome", sender: nil)
@@ -168,7 +179,21 @@ extension LoginViewController: FUIAuthDelegate {
         }
         }
     }
-    
+    func addUser() {
+       
+                       let userid = Auth.auth().currentUser?.uid
+                       let firstname = Auth.auth().currentUser?.displayName
+                       let email = Auth.auth().currentUser?.email
+                       
+                       let user = ["id":userid,
+                                   "first_name": firstname,
+                                   "last_name": "",
+                                   "email" : email
+                              ]
+                              
+                              //adding the artist inside the generated unique key
+                       self.refUsers.child(userid!).setValue(user)
+    }
     
 }
 
