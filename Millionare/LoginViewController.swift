@@ -64,25 +64,27 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance().delegate = self
-
-        
-
-        // Automatically sign in google the user.
+//        GIDSignIn.sharedInstance()?.presentingViewController = self
+//        GIDSignIn.sharedInstance().delegate = self
+//
+//
+//
+////         Automatically sign in google the user.
 //        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
         
-        //Auto sign in email
-//        Auth.auth().addStateDidChangeListener() { auth, user in
-//           // 2
-//           if user != nil {
-//             // 3
-//
-//            self.performSegue(withIdentifier: "loginToHome", sender: nil)
-//             self.emailTextField.text = nil
-//             self.pwTextField.text = nil
-//           }
-//         }
+    
+        
+//        Auto sign in email
+        Auth.auth().addStateDidChangeListener() { auth, user in
+           // 2
+           if user != nil {
+             // 3
+            print(user?.email)
+            self.performSegue(withIdentifier: "loginToHome", sender: nil)
+             self.emailTextField.text = nil
+             self.pwTextField.text = nil
+           }
+         }
         
         
         // Do any additional setup after loading the view.
@@ -107,13 +109,12 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             var message: String = ""
             if (success) {
                 message = "User was sucessfully logged in."
+                
                   self.performSegue(withIdentifier: "loginToHome", sender: nil)
             } else {
                 message = "There was an error."
             }
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-            self.present(alertController, animated:true)
+            print(message)
         }
     }
     }
@@ -159,9 +160,11 @@ extension LoginViewController: FUIAuthDelegate {
         print(error.localizedDescription)
         } else {
         print("Login Successful.")
+            print(user.profile.email)
         //This is where you should add the functionality of successful login
         //i.e. dismissing this view or push the home view controller etc
              self.performSegue(withIdentifier: "loginToHome", sender: nil)
+            
         }
         }
     }
