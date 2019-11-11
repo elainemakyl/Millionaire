@@ -59,17 +59,17 @@ class SignupViewController: UIViewController {
     func addUser(){
         //generating a new key inside artists node
         //and also getting the generated key
-        let key = refUsers.childByAutoId().key
         
+        let userid = Auth.auth().currentUser?.uid
         //creating artist with the given values
-        let user = ["id":key,
+        let user = ["id":userid,
                     "first_name": firstNameTextField.text! as String,
                     "last_name": lastNameTextField.text! as String,
                     "email" : emailTextField.text! as String
         ]
         
         //adding the artist inside the generated unique key
-        refUsers.child(key!).setValue(user)
+        refUsers.child(userid!).setValue(user)
     }
     /*
      MARK: - Navigation
