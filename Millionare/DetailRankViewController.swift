@@ -10,9 +10,16 @@ import UIKit
 
 class DetailRankViewController: UIViewController {
 
+    
+    @IBOutlet var label: UILabel!
+    
+    
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    label.text = "error"
         // Do any additional setup after loading the view.
     }
     
