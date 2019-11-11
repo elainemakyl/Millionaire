@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
                     if let first = Snapshot.value as? String{ self.usernameTextField.text = first + " "}})
             lastname.observeSingleEvent(of : .value, with : {(Snapshot) in
                 if let last = Snapshot.value as? String{ self.usernameTextField.text?.append(last)}})
-          
+          //ewe
             
            
         }
