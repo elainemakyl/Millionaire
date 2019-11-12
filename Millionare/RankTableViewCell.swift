@@ -11,7 +11,8 @@ import UIKit
 class RankTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var onlineLabel: UILabel!
+    @IBOutlet var rankLabel: UILabel!
+    
     
     
     

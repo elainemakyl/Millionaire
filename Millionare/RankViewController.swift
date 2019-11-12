@@ -11,6 +11,8 @@ import UIKit
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let items:[String] = ["test","456","ac","999"]
+    let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com"]
+    
     @IBOutlet var table: UITableView!
     
 
@@ -33,6 +35,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
    //  cell.textLabel?.text = items[indexPath.row]
         
         cell.nameLabel.text = items[indexPath.row]
+        cell.emailLabel.text = email[indexPath.row]
+        cell.rankLabel.text = "Rank " + String(indexPath.row + 1)
         return cell
         
     }
