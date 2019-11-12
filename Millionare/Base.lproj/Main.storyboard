@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,6 +110,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Main" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="userButton" destination="gRC-cR-Hgu" id="eJQ-H0-EtK"/>
                         <outlet property="usernameTextField" destination="3bD-gB-0eG" id="i7X-7p-6le"/>
                         <segue destination="eKH-1e-Xbs" kind="modal" identifier="mainToLogin" modalPresentationStyle="fullScreen" id="us6-xZ-7Oo"/>
                         <segue destination="BXL-se-N6H" kind="modal" identifier="goToSettings" id="0vJ-Pc-ECz"/>
@@ -474,10 +475,9 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxm-71-aQu">
                                 <rect key="frame" x="111" y="218" width="153" height="30"/>
                                 <state key="normal" title="Change profile picture"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5J-Yb-m0p">
-                                <rect key="frame" x="171" y="403" width="30" height="30"/>
-                                <state key="normal" title="FAQ"/>
+                                <connections>
+                                    <action selector="changeIconButton:" destination="BXL-se-N6H" eventType="touchUpInside" id="II1-a9-3QE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-0H-Ka1">
                                 <rect key="frame" x="155" y="450" width="64" height="30"/>
@@ -498,15 +498,12 @@
                             <constraint firstItem="Ien-0H-Ka1" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="155" id="3Ic-Qf-e2w"/>
                             <constraint firstItem="OYF-v6-8pC" firstAttribute="top" secondItem="ELP-5A-yhY" secondAttribute="top" constant="167" id="5Pe-ln-4Af"/>
                             <constraint firstItem="vk2-nJ-Fmm" firstAttribute="bottom" secondItem="Ien-0H-Ka1" secondAttribute="bottom" constant="167" id="6Xd-wm-DP1"/>
-                            <constraint firstItem="Ien-0H-Ka1" firstAttribute="top" secondItem="j5J-Yb-m0p" secondAttribute="bottom" constant="17" id="6ow-Hh-nbG"/>
                             <constraint firstItem="mxm-71-aQu" firstAttribute="top" secondItem="OYF-v6-8pC" secondAttribute="bottom" constant="21" id="Cf5-ym-0kZ"/>
                             <constraint firstItem="mxm-71-aQu" firstAttribute="centerX" secondItem="Ien-0H-Ka1" secondAttribute="centerX" id="FgP-2B-tMF"/>
                             <constraint firstItem="mxm-71-aQu" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="111" id="MOZ-Ag-PLH"/>
                             <constraint firstItem="OYF-v6-8pC" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="125" id="QoR-ye-M4l"/>
-                            <constraint firstItem="OYF-v6-8pC" firstAttribute="centerX" secondItem="j5J-Yb-m0p" secondAttribute="centerX" id="YfX-Ty-wl1"/>
                             <constraint firstItem="OYF-v6-8pC" firstAttribute="top" secondItem="lPb-Ua-KLM" secondAttribute="bottom" constant="23" id="cDg-Z2-4r1"/>
                             <constraint firstItem="vk2-nJ-Fmm" firstAttribute="trailing" secondItem="OYF-v6-8pC" secondAttribute="trailing" constant="127" id="d4j-bQ-ZSF"/>
-                            <constraint firstItem="j5J-Yb-m0p" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="171" id="lz3-zw-fBc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vk2-nJ-Fmm"/>
                     </view>
