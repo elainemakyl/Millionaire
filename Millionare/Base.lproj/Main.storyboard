@@ -404,16 +404,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPb-Ua-KLM">
-                                <rect key="frame" x="138" y="104" width="98" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYF-v6-8pC">
+                                <rect key="frame" x="125" y="167" width="123" height="30"/>
+                                <state key="normal" title="Change password"/>
+                                <connections>
+                                    <action selector="changePwButton:" destination="BXL-se-N6H" eventType="touchUpInside" id="Lxk-sa-P8U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxm-71-aQu">
+                                <rect key="frame" x="111" y="218" width="153" height="30"/>
+                                <state key="normal" title="Change profile picture"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5J-Yb-m0p">
+                                <rect key="frame" x="171" y="403" width="30" height="30"/>
+                                <state key="normal" title="FAQ"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ien-0H-Ka1">
+                                <rect key="frame" x="155" y="450" width="64" height="30"/>
+                                <state key="normal" title="About Us"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPb-Ua-KLM">
+                                <rect key="frame" x="138" y="114" width="98" height="30"/>
                                 <state key="normal" title="Change Name"/>
                                 <connections>
-                                    <action selector="changePwButton:" destination="BXL-se-N6H" eventType="touchUpInside" id="0mE-7z-KZ0"/>
+                                    <action selector="changeNameButton:" destination="BXL-se-N6H" eventType="touchUpInside" id="pN9-9h-6xt"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="mxm-71-aQu" firstAttribute="centerX" secondItem="lPb-Ua-KLM" secondAttribute="centerX" id="27V-DJ-6Ac"/>
+                            <constraint firstItem="OYF-v6-8pC" firstAttribute="centerX" secondItem="lPb-Ua-KLM" secondAttribute="centerX" id="2U2-Db-hH9"/>
+                            <constraint firstItem="Ien-0H-Ka1" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="155" id="3Ic-Qf-e2w"/>
+                            <constraint firstItem="OYF-v6-8pC" firstAttribute="top" secondItem="ELP-5A-yhY" secondAttribute="top" constant="167" id="5Pe-ln-4Af"/>
+                            <constraint firstItem="vk2-nJ-Fmm" firstAttribute="bottom" secondItem="Ien-0H-Ka1" secondAttribute="bottom" constant="167" id="6Xd-wm-DP1"/>
+                            <constraint firstItem="Ien-0H-Ka1" firstAttribute="top" secondItem="j5J-Yb-m0p" secondAttribute="bottom" constant="17" id="6ow-Hh-nbG"/>
+                            <constraint firstItem="mxm-71-aQu" firstAttribute="top" secondItem="OYF-v6-8pC" secondAttribute="bottom" constant="21" id="Cf5-ym-0kZ"/>
+                            <constraint firstItem="mxm-71-aQu" firstAttribute="centerX" secondItem="Ien-0H-Ka1" secondAttribute="centerX" id="FgP-2B-tMF"/>
+                            <constraint firstItem="mxm-71-aQu" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="111" id="MOZ-Ag-PLH"/>
+                            <constraint firstItem="OYF-v6-8pC" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="125" id="QoR-ye-M4l"/>
+                            <constraint firstItem="OYF-v6-8pC" firstAttribute="centerX" secondItem="j5J-Yb-m0p" secondAttribute="centerX" id="YfX-Ty-wl1"/>
+                            <constraint firstItem="OYF-v6-8pC" firstAttribute="top" secondItem="lPb-Ua-KLM" secondAttribute="bottom" constant="23" id="cDg-Z2-4r1"/>
+                            <constraint firstItem="vk2-nJ-Fmm" firstAttribute="trailing" secondItem="OYF-v6-8pC" secondAttribute="trailing" constant="127" id="d4j-bQ-ZSF"/>
+                            <constraint firstItem="j5J-Yb-m0p" firstAttribute="leading" secondItem="vk2-nJ-Fmm" secondAttribute="leading" constant="171" id="lz3-zw-fBc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vk2-nJ-Fmm"/>
                     </view>
                 </viewController>

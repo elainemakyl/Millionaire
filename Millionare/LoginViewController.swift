@@ -71,10 +71,8 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
 //
 ////         Automatically sign in google the user.
 //        GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-        
-    
-        
-//        Auto sign in email
+
+//        Auto sign in
         Auth.auth().addStateDidChangeListener() { auth, user in
            // 2
            if user != nil {
@@ -109,7 +107,14 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
             var message: String = ""
             if (success) {
                 message = "User was sucessfully logged in."
-                self.addUser()
+                 let userID = Auth.auth().currentUser?.uid
+                           let firstname = self.refUsers.child(userID!).child("first_name")
+                           firstname.observeSingleEvent(of : .value, with : {(Snapshot) in
+                               if let firstname = Snapshot.value as? String{
+                                   print(firstname)
+                               }else{
+                                   self.addUser()
+                               }})
                 
                 
                   self.performSegue(withIdentifier: "loginToHome", sender: nil)

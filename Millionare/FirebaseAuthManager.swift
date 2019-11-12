@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseAuth
 import UIKit
+
 class FirebaseAuthManager {
     func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
