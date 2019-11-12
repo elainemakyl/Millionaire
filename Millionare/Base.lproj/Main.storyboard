@@ -590,7 +590,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="H95-Bc-fJm">
-                                <rect key="frame" x="-33" y="517" width="469.00000000000011" height="110"/>
+                                <rect key="frame" x="-33" y="517" width="469" height="220"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-N8-MRS">
                                 <rect key="frame" x="136" y="410" width="107" height="30"/>
@@ -664,7 +664,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bx4-QX-ME4">
-                                <rect key="frame" x="16" y="151" width="343" height="34"/>
+                                <rect key="frame" x="16" y="151" width="252" height="34"/>
                                 <color key="backgroundColor" red="0.13725490196078433" green="0.14117647058823529" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="IYY-wL-ilP"/>
@@ -674,7 +674,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW2-8H-JZe">
-                                <rect key="frame" x="160.5" y="213" width="54" height="30"/>
+                                <rect key="frame" x="115" y="213" width="54" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Ty2-UQ-aLF"/>
                                 </constraints>
@@ -684,14 +684,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP0-4C-38S">
-                                <rect key="frame" x="100.5" y="251" width="174" height="30"/>
+                                <rect key="frame" x="55" y="251" width="174" height="0.0"/>
                                 <state key="normal" title="No Account? Create One!"/>
                                 <connections>
                                     <segue destination="5O4-s5-rxv" kind="show" destinationCreationSelector="goToSignup" id="k8c-O9-9k1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjs-k4-PVZ">
-                                <rect key="frame" x="61" y="360.5" width="253" height="56"/>
+                                <rect key="frame" x="61" y="310" width="162" height="56"/>
                                 <color key="backgroundColor" red="0.23529411764705882" green="0.3529411764705882" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="bzs-JO-kA0"/>
@@ -709,7 +709,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5B-iR-PxT">
-                                <rect key="frame" x="61" y="424.5" width="253" height="58"/>
+                                <rect key="frame" x="61" y="374" width="162" height="58"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="PfR-kT-gmq"/>
@@ -727,22 +727,22 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orsymbol" translatesAutoresizingMaskIntoConstraints="NO" id="xKS-O0-MUF">
-                                <rect key="frame" x="23" y="269" width="144" height="116.5"/>
+                                <rect key="frame" x="23" y="269" width="144" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="gx2-sl-PNm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orsymbol" translatesAutoresizingMaskIntoConstraints="NO" id="mao-qa-Qu1">
-                                <rect key="frame" x="207.5" y="269" width="143.5" height="116.5"/>
+                                <rect key="frame" x="162" y="269" width="189" height="36"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRP-1j-Xo6">
-                                <rect key="frame" x="176" y="317" width="23.5" height="20.5"/>
+                                <rect key="frame" x="130.5" y="287" width="23.5" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-NF-c7A">
-                                <rect key="frame" x="-33" y="510.5" width="469.00000000000011" height="136.5"/>
+                                <rect key="frame" x="-33" y="460" width="469" height="187"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oCd-kF-fzR">
                                 <rect key="frame" x="16" y="20" width="94" height="43"/>
