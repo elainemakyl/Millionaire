@@ -20,6 +20,8 @@
 		26B971CC2373E220002E1E55 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CB2373E220002E1E55 /* LoginViewController.swift */; };
 		26B971CE23740C11002E1E55 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */; };
 		26B971D023740D08002E1E55 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971CF23740D08002E1E55 /* SignupViewController.swift */; };
+		26C6BEAB237A960B004DF6B0 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6BEAA237A960B004DF6B0 /* RoundedButton.swift */; };
+		26C6BEB1237AC71E004DF6B0 /* AttachmentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C6BEB0237AC71E004DF6B0 /* AttachmentHandler.swift */; };
 		26F8ACA32379424C00C6684D /* BlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8ACA22379424C00C6684D /* BlogViewController.swift */; };
 		400853BC2377E2E90071C95D /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BB2377E2E90071C95D /* SpendingViewController.swift */; };
 		400853BE2377E2FA0071C95D /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BD2377E2FA0071C95D /* IncomeViewController.swift */; };
@@ -44,6 +46,8 @@
 		26B971CB2373E220002E1E55 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
 		26B971CF23740D08002E1E55 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		26C6BEAA237A960B004DF6B0 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		26C6BEB0237AC71E004DF6B0 /* AttachmentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHandler.swift; sourceTree = "<group>"; };
 		26F8ACA22379424C00C6684D /* BlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewController.swift; sourceTree = "<group>"; };
 		2C29E764A5C1CC8267205AB8 /* Pods-Millionare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Millionare.debug.xcconfig"; path = "Target Support Files/Pods-Millionare/Pods-Millionare.debug.xcconfig"; sourceTree = "<group>"; };
 		35A9311AA2F5AED7C7C19CA3 /* Pods_Millionare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Millionare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +91,7 @@
 		26B971AC23715C02002E1E55 /* Millionare */ = {
 			isa = PBXGroup;
 			children = (
+				26C6BEB0237AC71E004DF6B0 /* AttachmentHandler.swift */,
 				400853BB2377E2E90071C95D /* SpendingViewController.swift */,
 				400853BD2377E2FA0071C95D /* IncomeViewController.swift */,
 				26B971AD23715C02002E1E55 /* AppDelegate.swift */,
@@ -100,12 +105,11 @@
 				26B971CF23740D08002E1E55 /* SignupViewController.swift */,
 				26B971B523715C02002E1E55 /* Main.storyboard */,
 				26F8ACA22379424C00C6684D /* BlogViewController.swift */,
-                EA083468237929B900E08CAC /* RankTableViewCell.swift */,
 				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */,
-				EA0834642377EC2C00E08CAC /* DetailRankViewController.swift
- */,				EA083468237929B900E08CAC /* RankTableViewCell.swift */,
+				EA083468237929B900E08CAC /* RankTableViewCell.swift */,
 				266315F72374458B00F17CB0 /* GoogleService-Info.plist */,
 				26B971B823715C0B002E1E55 /* Assets.xcassets */,
+				26C6BEAA237A960B004DF6B0 /* RoundedButton.swift */,
 				26B971BA23715C0B002E1E55 /* LaunchScreen.storyboard */,
 				26B971BD23715C0B002E1E55 /* Info.plist */,
 			);
@@ -264,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				400853BE2377E2FA0071C95D /* IncomeViewController.swift in Sources */,
+				26C6BEAB237A960B004DF6B0 /* RoundedButton.swift in Sources */,
 				26B971D023740D08002E1E55 /* SignupViewController.swift in Sources */,
 				26F8ACA32379424C00C6684D /* BlogViewController.swift in Sources */,
 				400853BC2377E2E90071C95D /* SpendingViewController.swift in Sources */,
@@ -271,6 +276,7 @@
 				26B971B423715C02002E1E55 /* RankViewController.swift in Sources */,
 				26B971CE23740C11002E1E55 /* FirebaseAuthManager.swift in Sources */,
 				26B971C42373CDB6002E1E55 /* StatisticsViewController.swift in Sources */,
+				26C6BEB1237AC71E004DF6B0 /* AttachmentHandler.swift in Sources */,
 				EA0834652377EC2C00E08CAC /* DetailRankViewController.swift in Sources */,
 				26B971B223715C02002E1E55 /* MainViewController.swift in Sources */,
 				26B971AE23715C02002E1E55 /* AppDelegate.swift in Sources */,

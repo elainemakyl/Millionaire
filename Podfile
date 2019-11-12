@@ -23,4 +23,6 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 
+pod 'Firebase/Storage'
+
 end

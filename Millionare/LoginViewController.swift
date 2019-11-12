@@ -77,7 +77,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
            // 2
            if user != nil {
              // 3
-            print(user?.email)
+           
             self.performSegue(withIdentifier: "loginToHome", sender: nil)
              self.emailTextField.text = nil
              self.pwTextField.text = nil
@@ -151,7 +151,7 @@ extension LoginViewController: FUIAuthDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
         // ...
-        let user: FIRUser? = Auth.auth().currentUser
+    
         
     }
     
@@ -193,7 +193,8 @@ extension LoginViewController: FUIAuthDelegate {
                        let user = ["id":userid,
                                    "first_name": firstname,
                                    "last_name": "",
-                                   "email" : email
+                                   "email" : email,
+                                   "userPhoto" : ""
                               ]
                               
                               //adding the artist inside the generated unique key

@@ -61,11 +61,15 @@ class SignupViewController: UIViewController {
         //and also getting the generated key
         
         let userid = Auth.auth().currentUser?.uid
+        
+        
         //creating artist with the given values
         let user = ["id":userid,
                     "first_name": firstNameTextField.text! as String,
                     "last_name": lastNameTextField.text! as String,
-                    "email" : emailTextField.text! as String
+                    "email" : emailTextField.text! as String,
+                    "userPhoto" : ""
+            
         ]
         
         //adding the artist inside the generated unique key

@@ -9,9 +9,12 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 class SettingsViewController: UIViewController {
     var refUsers: DatabaseReference!
+    var storageRef: StorageReference!
+    var storage: Storage!
     
     @IBAction func changeNameButton(_ sender: Any) {
         //Creating UIAlertController and
@@ -129,22 +132,47 @@ class SettingsViewController: UIViewController {
             //finally presenting the dialog box
             self.present(alertController, animated: false, completion: nil)
             
-        }
-        
-        
-        
-        
-        
-        
-        
-        
+        }        
     }
     
     
+    @IBAction func changeIconButton(_ sender: Any) {
+        AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
+        AttachmentHandler.shared.imagePickedBlock = { (image) in
+          
+            
+            var data = Data()
+            data = image.jpegData(compressionQuality: 0.8)! 
+            // set upload path
+            let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
+            self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }else{
+                    
+                    //store downloadURL
+                    let downloadURL = metaData!.path!
+                    //store downloadURL at database
+                    self.refUsers.child(Auth.auth().currentUser!.uid).updateChildValues(["userPhoto": downloadURL as String])
+                }
+                
+            }
+            
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        
     }
     
     func displayErrorMessage (title: String = "Error", message: String) {
