@@ -41,11 +41,12 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         storage = Storage.storage()
         storageRef = storage.reference()
         refUsers = Database.database().reference().child("user");
-    }
-    override func viewWillAppear(_ animated: Bool) {
         // Do any additional setup after loading the view.
         let user = Auth.auth().currentUser
         let userID = user?.uid
