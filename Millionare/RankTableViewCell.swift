@@ -2,7 +2,7 @@
 //  RankTableViewCell.swift
 //  Millionare
 //
-//  Created by Wing Kei Ma on 11/11/2019.
+//  
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
