@@ -21,11 +21,56 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
     @IBOutlet var blogIcon: UIImageView!
     
     @IBAction func uploadphoto(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = true
-        self.present(image,animated:true){}
+     //   let image = UIImagePickerController()
+      //  image.delegate = self
+       // image.sourceType = UIImagePickerController.SourceType.photoLibrary
+       // image.allowsEditing = true
+       // self.present(image,animated:true){}
+       
+             let imagePickerController = UIImagePickerController()
+        
+             
+             imagePickerController.delegate = self
+        
+            
+             let imagePickerAlertController = UIAlertController(title: "Image Upload", message: "Please select the image to upload", preferredStyle: .actionSheet)
+        
+            
+             let imageFromLibAction = UIAlertAction(title: "Gallery", style: .default) { (Void) in
+        
+               
+                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        
+                     
+                     imagePickerController.sourceType = .photoLibrary
+                     self.present(imagePickerController, animated: true, completion: nil)
+                 }
+             }
+             let imageFromCameraAction = UIAlertAction(title: "Camera", style: .default) { (Void) in
+        
+                 
+                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        
+                     
+                     imagePickerController.sourceType = .camera
+                     self.present(imagePickerController, animated: true, completion: nil)
+                 }
+             }
+        
+             
+             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (Void) in
+        
+                 imagePickerAlertController.dismiss(animated: true, completion: nil)
+             }
+        
+             
+             imagePickerAlertController.addAction(imageFromLibAction)
+             imagePickerAlertController.addAction(imageFromCameraAction)
+             imagePickerAlertController.addAction(cancelAction)
+        
+             
+             present(imagePickerAlertController, animated: true, completion: nil)
+        
         
     }
     
@@ -34,13 +79,7 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
     
     
     
-    
-    
-    
-    
-    
-    
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             blogIcon.image = image
             
