@@ -29,6 +29,7 @@
 		57CAA1A5427CC82A0154F9ED /* Pods_Millionare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9311AA2F5AED7C7C19CA3 /* Pods_Millionare.framework */; };
 		6F50712D237C0A8200726F84 /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50712C237C0A8200726F84 /* AddBlogViewController.swift */; };
 		EA03826F237BF20C00EA2FED /* RankingCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA03826E237BF20C00EA2FED /* RankingCalc.swift */; };
+		EA038273237C2D4A00EA2FED /* DatabaseUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA038272237C2D4A00EA2FED /* DatabaseUtil.swift */; };
 		EA0834652377EC2C00E08CAC /* DetailRankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */; };
 		EA083469237929B900E08CAC /* RankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA083468237929B900E08CAC /* RankTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -60,6 +61,7 @@
 		5F1A92396FF0C0BBE05C8999 /* Pods-Millionare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Millionare.release.xcconfig"; path = "Target Support Files/Pods-Millionare/Pods-Millionare.release.xcconfig"; sourceTree = "<group>"; };
 		6F50712C237C0A8200726F84 /* AddBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlogViewController.swift; sourceTree = "<group>"; };
 		EA03826E237BF20C00EA2FED /* RankingCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCalc.swift; sourceTree = "<group>"; };
+		EA038272237C2D4A00EA2FED /* DatabaseUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseUtil.swift; sourceTree = "<group>"; };
 		EA0834642377EC2C00E08CAC /* DetailRankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRankViewController.swift; sourceTree = "<group>"; };
 		EA083468237929B900E08CAC /* RankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 				26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */,
 				26B971CF23740D08002E1E55 /* SignupViewController.swift */,
 				26B971B523715C02002E1E55 /* Main.storyboard */,
+				EA038272237C2D4A00EA2FED /* DatabaseUtil.swift */,
 				6F50712C237C0A8200726F84 /* AddBlogViewController.swift */,
 				26C6BEB8237B1FC5004DF6B0 /* AttachmentHandler.swift */,
 				26C6BEBA237B2141004DF6B0 /* RoundButton.swift */,
@@ -288,6 +291,7 @@
 				26C6BEB9237B1FC5004DF6B0 /* AttachmentHandler.swift in Sources */,
 				26B971C42373CDB6002E1E55 /* StatisticsViewController.swift in Sources */,
 				EA0834652377EC2C00E08CAC /* DetailRankViewController.swift in Sources */,
+				EA038273237C2D4A00EA2FED /* DatabaseUtil.swift in Sources */,
 				26B971B223715C02002E1E55 /* MainViewController.swift in Sources */,
 				26B971AE23715C02002E1E55 /* AppDelegate.swift in Sources */,
 				26B971B023715C02002E1E55 /* SceneDelegate.swift in Sources */,

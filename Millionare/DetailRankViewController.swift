@@ -25,6 +25,8 @@ class DetailRankViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         nameLabel.text = name
+        let data = DatabaseUtil.data.getData()
+        spending.text = data[0]
     }
     
 
