@@ -30,6 +30,7 @@ class DetailRankViewController: UIViewController {
         nameLabel.text = name
         ranking.text = DatabaseUtil.data.getName()
         spending.text = data[0]
+       
     }
     
 
