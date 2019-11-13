@@ -32,6 +32,14 @@ class IncomeViewController: UIViewController {
     @IBOutlet var valueText: UITextField!
     @IBOutlet var date: UIDatePicker!
     
+    @IBAction func salary(_ sender: AnyObject) {categoryInput(input: "salary")}
+    @IBAction func bonus(_ sender: AnyObject) {categoryInput(input: "bonus")}
+    @IBAction func investment(_ sender: AnyObject) {categoryInput(input: "investment")}
+    @IBAction func allowance(_ sender: AnyObject) {categoryInput(input: "allowance")}
+    @IBAction func gift(_ sender: AnyObject) {categoryInput(input: "gift")}
+    @IBAction func others(_ sender: AnyObject) {categoryInput(input: "others")}
+    
+    var category: String = ""
     var year: String = ""
     var month: String = ""
     var day: String = ""
@@ -70,6 +78,10 @@ class IncomeViewController: UIViewController {
         value = 0.0
     }
     
+    func categoryInput(input: String){
+        category = input
+    }
+    
     func showAlert(){
         let alert = UIAlertController(title: "Data Validation Error", message: "There was an error.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
@@ -97,7 +109,8 @@ class IncomeViewController: UIViewController {
                       "value": String(value),
                       "day": day,
                       "month": month,
-                      "year": year
+                      "year": year,
+                      "category": category
                         ]
     
         //adding the income record inside the generated unique key

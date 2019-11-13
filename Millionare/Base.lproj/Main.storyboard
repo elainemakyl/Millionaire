@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -336,7 +336,7 @@
                                                                 <fragment content="Food">
                                                                     <attributes>
                                                                         <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
@@ -353,6 +353,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="food:" destination="Shu-AG-a7p" eventType="touchUpInside" id="U7a-LG-M9d"/>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="CLw-mQ-ZdO"/>
                                                         </connections>
                                                     </button>
@@ -369,7 +370,7 @@
                                                                 <fragment content="Cloth">
                                                                     <attributes>
                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -387,6 +388,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="cloth:" destination="Shu-AG-a7p" eventType="touchUpInside" id="vyU-eo-iOF"/>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="h8H-uT-hmi"/>
                                                         </connections>
                                                     </button>
@@ -404,7 +406,7 @@
                                                                 <fragment content="Entertainment">
                                                                     <attributes>
                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -422,6 +424,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
+                                                            <action selector="entertainment:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Dd4-XB-vnD"/>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="x9H-TA-BXV"/>
                                                         </connections>
                                                     </button>
@@ -444,7 +447,7 @@
                                                                 <fragment content="Necessary">
                                                                     <attributes>
                                                                         <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                        <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -463,6 +466,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Xcw-UL-oGd"/>
+                                                            <action selector="necessary:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Bto-vP-7jc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9a-yO-cal">
@@ -478,7 +482,7 @@
                                                                 <fragment content="Traffic">
                                                                     <attributes>
                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -497,6 +501,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Blh-HQ-nh1"/>
+                                                            <action selector="trafics:" destination="Shu-AG-a7p" eventType="touchUpInside" id="K0q-3P-tjL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Tt-Ml-wsf">
@@ -513,7 +518,7 @@
                                                                 <fragment content="Others">
                                                                     <attributes>
                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                        <font key="NSFont" metaFont="system" size="18"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -532,6 +537,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Sjj-3M-IQe"/>
+                                                            <action selector="others:" destination="Shu-AG-a7p" eventType="touchUpInside" id="WZr-hX-QdC"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -570,9 +576,15 @@
                     <navigationItem key="navigationItem" id="SUX-nu-c3c">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="OGM-zF-dhE" userLabel="Save">
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="save:" destination="Shu-AG-a7p" id="Zwf-SW-ilO"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="date" destination="kkF-dt-LxJ" id="P0J-vC-nLf"/>
+                        <outlet property="titleText" destination="4pu-J7-Kft" id="vzS-Nq-4ED"/>
+                        <outlet property="valueText" destination="EUP-KE-2FW" id="98X-9P-AeS"/>
                         <outletCollection property="buttonSelected" destination="0iM-M0-y3S" collectionClass="NSMutableArray" id="yif-Vq-asO"/>
                         <outletCollection property="buttonSelected" destination="Axh-nZ-mbB" collectionClass="NSMutableArray" id="nZF-pk-wXZ"/>
                         <outletCollection property="buttonSelected" destination="Vyg-zE-5kw" collectionClass="NSMutableArray" id="pLv-GY-VJg"/>
@@ -1169,7 +1181,7 @@
                                                                         <fragment content="Salary">
                                                                             <attributes>
                                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1188,6 +1200,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Cf0-rI-47h"/>
+                                                                    <action selector="salary:" destination="pOW-uK-5KL" eventType="touchUpInside" id="5QD-J0-bxx"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSV-Xz-UnN">
@@ -1203,7 +1216,7 @@
                                                                         <fragment content="Bonus">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1221,6 +1234,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
+                                                                    <action selector="bonus:" destination="pOW-uK-5KL" eventType="touchUpInside" id="uAs-Dd-Uml"/>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="9hb-Cy-a4J"/>
                                                                 </connections>
                                                             </button>
@@ -1238,7 +1252,7 @@
                                                                         <fragment content="Investment">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" size="13" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1257,6 +1271,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="W3e-Rr-Am9"/>
+                                                                    <action selector="investment:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Mzo-d3-biJ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1278,7 +1293,7 @@
                                                                         <fragment content="Allowance">
                                                                             <attributes>
                                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                                <font key="NSFont" size="16" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system" size="16"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1296,6 +1311,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
+                                                                    <action selector="allowance:" destination="pOW-uK-5KL" eventType="touchUpInside" id="l7a-0L-XFi"/>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="zj4-cw-NKh"/>
                                                                 </connections>
                                                             </button>
@@ -1312,7 +1328,7 @@
                                                                         <fragment content="Gift">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1330,6 +1346,7 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
+                                                                    <action selector="gift:" destination="pOW-uK-5KL" eventType="touchUpInside" id="1wQ-QP-kfv"/>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Nh7-pY-EKs"/>
                                                                 </connections>
                                                             </button>
@@ -1347,7 +1364,7 @@
                                                                         <fragment content="Others">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                                <font key="NSFont" metaFont="system" size="18"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
@@ -1366,6 +1383,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="HDM-sl-46r"/>
+                                                                    <action selector="others:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Oce-fS-Um5"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1408,9 +1426,15 @@
                     <navigationItem key="navigationItem" id="DRz-rn-UjH">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="GhV-cH-ygy">
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="save:" destination="pOW-uK-5KL" id="P4f-GN-LDX"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="date" destination="NFl-5T-RzX" id="4Y0-Je-cBS"/>
+                        <outlet property="titleText" destination="3XB-oL-FCv" id="a1O-Zq-6Yw"/>
+                        <outlet property="valueText" destination="ezm-Qd-afK" id="16U-Wg-HMg"/>
                         <outletCollection property="buttonSelected" destination="WXf-Z7-3yQ" collectionClass="NSMutableArray" id="aGe-cC-0YZ"/>
                         <outletCollection property="buttonSelected" destination="JSV-Xz-UnN" collectionClass="NSMutableArray" id="a6l-ep-vPT"/>
                         <outletCollection property="buttonSelected" destination="9e9-nS-lGC" collectionClass="NSMutableArray" id="LbQ-zu-uI6"/>
