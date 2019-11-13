@@ -19,7 +19,7 @@ class SpendingViewController: UIViewController {
     var storage: Storage!
     
     @IBOutlet var valueText: UITextField!
-    @IBOutlet var categoryText: UITextView!
+//    @IBOutlet var categoryText: UITextView!
     @IBOutlet var date: UIDatePicker!
     @IBOutlet var titleText: UITextField!
     
@@ -31,7 +31,17 @@ class SpendingViewController: UIViewController {
     var id = 0
     var value:Double = 0.0
     var count = 0
-
+    
+    @IBOutlet var buttonSelected: [UIButton]!
+    
+    // Grey one button if user pressed
+    @IBAction func greySelectedButton(_ sender: UIButton) {
+        for button in buttonSelected{
+            button.backgroundColor = UIColor.clear
+        }
+        sender.backgroundColor = UIColor.gray
+    }
+    
     @IBAction func food(_ sender:AnyObject) {categoryInput(input: "food")}
     @IBAction func cloth(_ sender:AnyObject) {categoryInput(input: "cloth")}
     @IBAction func trafics(_ sender:AnyObject) {categoryInput(input: "trafics")}
@@ -41,7 +51,7 @@ class SpendingViewController: UIViewController {
     
     func categoryInput(input: String){
         category = input
-        categoryText.text = input
+//        categoryText.text = input
     }
     
     @IBAction func save(_ sender:AnyObject){
@@ -80,7 +90,7 @@ class SpendingViewController: UIViewController {
     @IBAction func cancel(_ sender: AnyObject){
         titleText.text = ""
         valueText.text = ""
-        categoryText.text = ""
+//        categoryText.text = ""
         category = ""
         year = ""
         month = ""

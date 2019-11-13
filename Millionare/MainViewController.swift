@@ -88,9 +88,12 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
     }
     
-    // hide navigation bar on this page
+    // show navigation bar again on other pages
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
         super.viewWillDisappear(animated)
     }
 }
