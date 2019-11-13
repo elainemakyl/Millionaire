@@ -14,7 +14,9 @@ import FirebaseStorage
 
 class IncomeViewController: UIViewController {
     
-    var refUser: FIRDatabaseReference!
+    var refUser: DatabaseReference!
+    var storageRef: StorageReference!
+    var storage: Storage!
 
     @IBOutlet var titleText: UITextField!
     @IBOutlet var valueText: UITextField!
@@ -67,7 +69,7 @@ class IncomeViewController: UIViewController {
     func addIncomeRecord(){
         storage = Storage.storage()
         storageRef = storage.reference()
-        refUsers = Database.database().reference().child("user");
+        refUser = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
         let user = Auth.auth().currentUser
         let userID = user?.uid
@@ -76,10 +78,10 @@ class IncomeViewController: UIViewController {
         //and also getting the generated key
         refUser = Database.database().reference().child("income")
         
-        refUser.child(userID).observe(DataEventType.value, with: { (snapshot) in
+        refUser.child(userID!).observe(DataEventType.value, with: { (snapshot) in
           print(snapshot.childrenCount)
+            self.count = Int(snapshot.childrenCount)
         })
-        count = snapshot.childrenCount
         
         if count<1{
             refUser.setValue(userID)
@@ -88,20 +90,17 @@ class IncomeViewController: UIViewController {
         count=count+1
         
         //creating artist with the given values
-        let income = ["id": count! as String,
+        let income = ["id": String(count),
                         "title": titleOp,
-                        "value": value! as String,
+                        "value": String(value),
                         "day": day,
                         "month": month,
                         "year": year
                         ]
     
         //adding the artist inside the generated unique key
-        refUser.child(userID).setValue(count)
-        refUser.child(userID).child(count).setValue(income)
-        
-        //displaying message
-        labelMessage.text = "Income Added"
+        refUser.child(userID!).setValue(count)
+        refUser.child(userID!).child(String(count)).setValue(income)
     }
     
     override func viewDidLoad() {
