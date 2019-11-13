@@ -159,8 +159,7 @@ class SettingsViewController: UIViewController {
                     let downloadURL = metaData!.path!
                     //store downloadURL at database
                     self.refUsers.child(Auth.auth().currentUser!.uid).updateChildValues(["userPhoto": downloadURL as String])
-//                      self.viewDidLoad()
-//                    self.viewWillAppear(true)
+                   
 //                            self.view.setNeedsDisplay()
                     //
                 }
