@@ -108,21 +108,12 @@ class SpendingViewController: UIViewController {
         
         //generating a new key inside artists node
         //and also getting the generated key
-        refUser = Database.database().reference().child("spending")
+        refUser = Database.database().reference().child("spending").child(String(userID!))
         
-        refUser.child(userID!).observe(DataEventType.value, with: { (snapshot) in
-          print(snapshot.childrenCount)
-            self.count = Int(snapshot.childrenCount)
-        })
-        
-        if count<1{
-            refUser.setValue(userID)
-        }
-        
-        count=count+1
-        
+        let key = refUser.childByAutoId().key
         //creating artist with the given values
-        let spending = ["id": String(count),
+        let spending = ["id": key,
+                        "userID": String(userID!),
                         "category": category,
                         "title": titleOp,
                         "value": String(value),
@@ -132,8 +123,7 @@ class SpendingViewController: UIViewController {
                         ]
     
         //adding the artist inside the generated unique key
-        refUser.child(userID!).setValue(count)
-        refUser.child(userID!).child(String(count)).setValue(spending)
+        refUser.child(String(key!)).setValue(spending)
     }
     
     override func viewDidLoad() {

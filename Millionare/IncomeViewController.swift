@@ -38,7 +38,7 @@ class IncomeViewController: UIViewController {
     var titleOp: String = ""
     var id = 0
     var value:Double = 0.0
-    var count = 0
+    
     
     @IBAction func save(_ sender:AnyObject){
         if let tmp = Double(valueText.text!) {              //value input is a value
@@ -87,31 +87,22 @@ class IncomeViewController: UIViewController {
         
         //generating a new key inside artists node
         //and also getting the generated key
-        refUser = Database.database().reference().child("income")
+        refUser = Database.database().reference().child("income").child(String(userID!))
         
-        refUser.child(userID!).observe(DataEventType.value, with: { (snapshot) in
-          print(snapshot.childrenCount)
-            self.count = Int(snapshot.childrenCount)
-        })
-        
-        if count<1{
-            refUser.setValue(userID)
-        }
-        
-        count=count+1
-        
+        let key = refUser.childByAutoId().key
         //creating artist with the given values
-        let income = ["id": String(count),
-                        "title": titleOp,
-                        "value": String(value),
-                        "day": day,
-                        "month": month,
-                        "year": year
+        
+        let income = ["id": key,
+                      "userID": String(userID!),
+                      "title": titleOp,
+                      "value": String(value),
+                      "day": day,
+                      "month": month,
+                      "year": year
                         ]
     
-        //adding the artist inside the generated unique key
-        refUser.child(userID!).setValue(count)
-        refUser.child(userID!).child(String(count)).setValue(income)
+        //adding the income record inside the generated unique key
+        refUser.child(String(key!)).setValue(income)
     }
     
     override func viewDidLoad() {
