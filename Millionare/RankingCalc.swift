@@ -23,7 +23,6 @@ class RankingCalc {
         Ranking = "1"
 }
     
-    
     func getRanking() ->String {
         return Ranking
 }
