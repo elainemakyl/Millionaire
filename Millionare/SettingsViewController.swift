@@ -176,7 +176,7 @@ class SettingsViewController: UIViewController {
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
         storage = Storage.storage()
-        storageRef = storage.reference()
+        storageRef = storage.reference(withPath: "gs://millionaire-94030.appspot.com")
         
         
     }
