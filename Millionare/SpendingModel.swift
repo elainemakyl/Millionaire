@@ -1,5 +1,5 @@
 //
-//  IncomeModel.swift
+//  SpendingModel.swift
 //  Millionare
 //
 //  Created by mat on 13/11/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class IncomeModel {
+class SpendingModel {
     
     var userID: String?
     var title: String?

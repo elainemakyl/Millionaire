@@ -17,6 +17,10 @@ class StatisticsViewController: UIViewController {
         // abc
     }
     
+    func pieChartGen(){
+        
+    }
+    
 
     /*
     // MARK: - Navigation

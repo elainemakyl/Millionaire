@@ -26,6 +26,7 @@
 		400853BC2377E2E90071C95D /* SpendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BB2377E2E90071C95D /* SpendingViewController.swift */; };
 		400853BE2377E2FA0071C95D /* IncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400853BD2377E2FA0071C95D /* IncomeViewController.swift */; };
 		404BAA22237BE7020095BCE6 /* IncomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404BAA21237BE7020095BCE6 /* IncomeModel.swift */; };
+		4056EB33237C4EF50032E2BC /* SpendingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4056EB32237C4EF50032E2BC /* SpendingModel.swift */; };
 		57CAA1A5427CC82A0154F9ED /* Pods_Millionare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9311AA2F5AED7C7C19CA3 /* Pods_Millionare.framework */; };
 		6F50712D237C0A8200726F84 /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50712C237C0A8200726F84 /* AddBlogViewController.swift */; };
 		EA03826F237BF20C00EA2FED /* RankingCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA03826E237BF20C00EA2FED /* RankingCalc.swift */; };
@@ -58,6 +59,7 @@
 		400853BB2377E2E90071C95D /* SpendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingViewController.swift; sourceTree = SOURCE_ROOT; };
 		400853BD2377E2FA0071C95D /* IncomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewController.swift; sourceTree = "<group>"; };
 		404BAA21237BE7020095BCE6 /* IncomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeModel.swift; sourceTree = "<group>"; };
+		4056EB32237C4EF50032E2BC /* SpendingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingModel.swift; sourceTree = "<group>"; };
 		5F1A92396FF0C0BBE05C8999 /* Pods-Millionare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Millionare.release.xcconfig"; path = "Target Support Files/Pods-Millionare/Pods-Millionare.release.xcconfig"; sourceTree = "<group>"; };
 		6F50712C237C0A8200726F84 /* AddBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlogViewController.swift; sourceTree = "<group>"; };
 		EA03826E237BF20C00EA2FED /* RankingCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCalc.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				400853BB2377E2E90071C95D /* SpendingViewController.swift */,
 				400853BD2377E2FA0071C95D /* IncomeViewController.swift */,
 				404BAA21237BE7020095BCE6 /* IncomeModel.swift */,
+				4056EB32237C4EF50032E2BC /* SpendingModel.swift */,
 				26B971AD23715C02002E1E55 /* AppDelegate.swift */,
 				26B971AF23715C02002E1E55 /* SceneDelegate.swift */,
 				26B971B123715C02002E1E55 /* MainViewController.swift */,
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4056EB33237C4EF50032E2BC /* SpendingModel.swift in Sources */,
 				26C6BEBB237B2141004DF6B0 /* RoundButton.swift in Sources */,
 				400853BE2377E2FA0071C95D /* IncomeViewController.swift in Sources */,
 				26B971D023740D08002E1E55 /* SignupViewController.swift in Sources */,
