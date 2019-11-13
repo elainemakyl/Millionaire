@@ -16,6 +16,9 @@ class SettingsViewController: UIViewController {
     var storageRef: StorageReference!
     var storage: Storage!
     
+    @IBOutlet var iconButton: UIButton!
+    @IBOutlet var usernameLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
     @IBAction func changeNameButton(_ sender: Any) {
         //Creating UIAlertController and
         //Setting title and message for the alert dialog
@@ -139,7 +142,7 @@ class SettingsViewController: UIViewController {
     @IBAction func changeIconButton(_ sender: Any) {
         AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
         AttachmentHandler.shared.imagePickedBlock = { (image) in
-          
+            
             
             var data = Data()
             data = image.jpegData(compressionQuality: 0.8)!
@@ -172,6 +175,27 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         storage = Storage.storage()
         storageRef = storage.reference()
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        refUsers = Database.database().reference().child("user");
+        // Do any additional setup after loading the view.
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
+        
+        let username = refUsers.child(userID!).child("username")
+        let email = refUsers.child(userID!).child("email")
+        
+        
+        username.observe(.value, with : {(Snapshot) in
+            if let usernameString = Snapshot.value as? String{ self.usernameLabel.text = usernameString}})
+        email.observe(.value, with : {(Snapshot) in
+            if let emailString = Snapshot.value as? String{ self.emailLabel.text? = emailString}
+        })
         
     }
     

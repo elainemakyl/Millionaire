@@ -16,6 +16,7 @@ import UIKit
         set {
             layer.borderWidth = newValue
             layer.masksToBounds = true
+            layer.cornerRadius = bounds.size.width/2
         }
         get {
             return layer.borderWidth
@@ -23,6 +24,7 @@ import UIKit
     }
     
     @IBInspectable var cornerRadius: CGFloat {
+        
         set {
             layer.cornerRadius = newValue
         }
