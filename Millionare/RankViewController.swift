@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
@@ -17,6 +18,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 
     @IBOutlet var searchBar: UISearchBar!
+    
+    
     
     var filterData: [String]!
     
@@ -44,10 +47,11 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier ==  "ShowRankSegue", let destination = segue.destination as? DetailRankViewController, let rankindex = table.indexPathForSelectedRow?.row {
-      //     destination.label.text = "ok"
+        if segue.identifier ==  "ShowRankSegue"{
+            let destination = segue.destination as! DetailRankViewController
+            let rankindex = table.indexPathForSelectedRow?.row
+            destination.name = filterData[rankindex!]
         }
-    
     }
     
     

@@ -150,7 +150,7 @@ DEPENDENCIES:
   - GoogleSignIn
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AppAuth
     - Charts
     - FacebookCore
@@ -212,4 +212,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0e624cc3034fec5b95901f80636259a263bf495e
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4

@@ -11,16 +11,20 @@ import UIKit
 class DetailRankViewController: UIViewController {
 
     
-    @IBOutlet var label: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     
+    @IBOutlet var rating: UILabel!
+    @IBOutlet var spending: UILabel!
+    @IBOutlet var saving: UILabel!
+    @IBOutlet var ranking: UILabel!
     
-
+    var name:String? = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    label.text = "error"
         // Do any additional setup after loading the view.
+        nameLabel.text = name
     }
     
 
