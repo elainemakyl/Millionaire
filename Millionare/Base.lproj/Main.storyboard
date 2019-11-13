@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -997,6 +997,9 @@
                                         <state key="normal" title="✕">
                                             <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="Exit:" destination="olo-tm-atK" eventType="touchUpInside" id="eEK-iD-KdD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1021,6 +1024,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="submit:" destination="olo-tm-atK" eventType="touchUpInside" id="IHm-To-eAj"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blog Title:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJt-d7-1S1">
                                         <rect key="frame" x="8" y="8" width="108" height="30"/>
@@ -1052,32 +1058,44 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="son-yJ-Moz">
-                                        <rect key="frame" x="116" y="298" width="143" height="143"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="son-yJ-Moz">
+                                        <rect key="frame" x="8" y="298" width="109" height="109"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axZ-wZ-8lB">
+                                        <rect key="frame" x="140.5" y="335" width="94" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="Upload">
+                                            <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="uploadphoto:" destination="olo-tm-atK" eventType="touchUpInside" id="9Ge-un-Gbj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="o8z-0R-y1K" firstAttribute="top" secondItem="son-yJ-Moz" secondAttribute="bottom" constant="18.5" id="05P-vt-cwx"/>
+                                    <constraint firstAttribute="trailing" secondItem="axZ-wZ-8lB" secondAttribute="trailing" constant="140.5" id="4bf-Fo-GWM"/>
                                     <constraint firstItem="2Hm-Re-n6w" firstAttribute="top" secondItem="xgT-VA-SFf" secondAttribute="bottom" constant="14" id="5l8-AL-H62"/>
-                                    <constraint firstAttribute="trailing" secondItem="son-yJ-Moz" secondAttribute="trailing" constant="116" id="5md-7x-DHH"/>
+                                    <constraint firstItem="son-yJ-Moz" firstAttribute="top" secondItem="bB9-CK-3t8" secondAttribute="bottom" constant="8" id="6uo-Rm-4E2"/>
                                     <constraint firstAttribute="trailing" secondItem="bYE-KD-ImH" secondAttribute="trailing" constant="8" id="7t6-oY-8YI"/>
                                     <constraint firstItem="qJt-d7-1S1" firstAttribute="top" secondItem="z4l-HA-HgU" secondAttribute="top" constant="8" id="8OF-3v-0I8"/>
-                                    <constraint firstItem="son-yJ-Moz" firstAttribute="top" secondItem="2Hm-Re-n6w" secondAttribute="bottom" constant="46" id="BNE-CM-Zh8"/>
+                                    <constraint firstItem="o8z-0R-y1K" firstAttribute="top" secondItem="son-yJ-Moz" secondAttribute="bottom" constant="52.5" id="C0f-5f-htW"/>
                                     <constraint firstItem="bYE-KD-ImH" firstAttribute="top" secondItem="qJt-d7-1S1" secondAttribute="bottom" constant="14" id="EJ3-gA-zcd"/>
-                                    <constraint firstItem="son-yJ-Moz" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="116" id="F93-VL-ea7"/>
                                     <constraint firstItem="o8z-0R-y1K" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="46" id="GO0-l4-NOq"/>
                                     <constraint firstItem="o8z-0R-y1K" firstAttribute="top" secondItem="bB9-CK-3t8" secondAttribute="bottom" constant="169.5" id="JHZ-fG-4c1"/>
                                     <constraint firstItem="2Hm-Re-n6w" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="K7h-dN-tHj"/>
                                     <constraint firstAttribute="trailing" secondItem="o8z-0R-y1K" secondAttribute="trailing" constant="47" id="Lum-lt-QWd"/>
+                                    <constraint firstItem="axZ-wZ-8lB" firstAttribute="centerX" secondItem="z4l-HA-HgU" secondAttribute="centerX" id="Or5-zy-prR"/>
                                     <constraint firstItem="xgT-VA-SFf" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="P8H-ie-ter"/>
                                     <constraint firstAttribute="bottom" secondItem="o8z-0R-y1K" secondAttribute="bottom" constant="10" id="PpZ-6U-2Vc"/>
                                     <constraint firstItem="qJt-d7-1S1" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="Qre-kD-d6o"/>
                                     <constraint firstAttribute="trailing" secondItem="2Hm-Re-n6w" secondAttribute="trailing" constant="8" id="SkW-gn-iJe"/>
                                     <constraint firstItem="bYE-KD-ImH" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="UBU-Sg-TMn"/>
+                                    <constraint firstItem="axZ-wZ-8lB" firstAttribute="top" secondItem="2Hm-Re-n6w" secondAttribute="bottom" constant="83" id="XZM-UH-83u"/>
+                                    <constraint firstItem="son-yJ-Moz" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="gSe-jN-1em"/>
                                     <constraint firstItem="bB9-CK-3t8" firstAttribute="leading" secondItem="z4l-HA-HgU" secondAttribute="leading" constant="8" id="gzc-bu-qcw"/>
-                                    <constraint firstItem="son-yJ-Moz" firstAttribute="centerX" secondItem="z4l-HA-HgU" secondAttribute="centerX" id="hWf-dr-v9M"/>
                                     <constraint firstItem="bB9-CK-3t8" firstAttribute="top" secondItem="2Hm-Re-n6w" secondAttribute="bottom" constant="8" id="jtZ-ZL-BN7"/>
+                                    <constraint firstItem="axZ-wZ-8lB" firstAttribute="leading" secondItem="son-yJ-Moz" secondAttribute="trailing" constant="23.5" id="mPa-fH-E3e"/>
                                     <constraint firstItem="xgT-VA-SFf" firstAttribute="top" secondItem="bYE-KD-ImH" secondAttribute="bottom" constant="8" id="oIa-aO-0de"/>
                                 </constraints>
                             </view>
@@ -1096,6 +1114,11 @@
                         <viewLayoutGuide key="safeArea" id="e1B-3r-PRJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="w07-xa-kxP"/>
+                    <connections>
+                        <outlet property="blogIcon" destination="son-yJ-Moz" id="wY2-qI-Xdv"/>
+                        <outlet property="blogcontentInput" destination="2Hm-Re-n6w" id="mmL-8H-OZq"/>
+                        <outlet property="blogtitleInput" destination="bYE-KD-ImH" id="N2s-9I-76z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToQ-bB-dGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

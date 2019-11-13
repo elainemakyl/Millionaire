@@ -8,7 +8,49 @@
 
 import UIKit
 
-class AddBlogViewController: UIViewController {
+class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
+
+    @IBAction func Exit(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    @IBOutlet var blogtitleInput: UITextField!
+    @IBOutlet var blogcontentInput: UITextView!
+    @IBOutlet var blogIcon: UIImageView!
+    
+    @IBAction func uploadphoto(_ sender: Any) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+        image.allowsEditing = true
+        self.present(image,animated:true){}
+        
+    }
+    
+    @IBAction func submit(_ sender: Any) {
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            blogIcon.image = image
+            
+        }else{
+            
+            
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
