@@ -19,7 +19,6 @@ class SpendingViewController: UIViewController {
     var storage: Storage!
     
     @IBOutlet var valueText: UITextField!
-//    @IBOutlet var categoryText: UITextView!
     @IBOutlet var date: UIDatePicker!
     @IBOutlet var titleText: UITextField!
     
@@ -51,7 +50,6 @@ class SpendingViewController: UIViewController {
     
     func categoryInput(input: String){
         category = input
-//        categoryText.text = input
     }
     
     @IBAction func save(_ sender:AnyObject){
@@ -90,7 +88,6 @@ class SpendingViewController: UIViewController {
     @IBAction func cancel(_ sender: AnyObject){
         titleText.text = ""
         valueText.text = ""
-//        categoryText.text = ""
         category = ""
         year = ""
         month = ""

@@ -39,7 +39,6 @@ class IncomeViewController: UIViewController {
     var id = 0
     var value:Double = 0.0
     
-    
     @IBAction func save(_ sender:AnyObject){
         if let tmp = Double(valueText.text!) {              //value input is a value
             if titleText.text == ""{                        //have no title
