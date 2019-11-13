@@ -7,19 +7,18 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     let items:[String] = ["test","456","ac","999"]
     let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com"]
-    
     @IBOutlet var table: UITableView!
     
 
     @IBOutlet var searchBar: UISearchBar!
     
     var filterData: [String]!
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -44,10 +43,11 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier ==  "ShowRankSegue", let destination = segue.destination as? DetailRankViewController, let rankindex = table.indexPathForSelectedRow?.row {
-      //     destination.label.text = "ok"
+        if segue.identifier ==  "ShowRankSegue"{
+            let destination = segue.destination as! DetailRankViewController
+            let rankindex = table.indexPathForSelectedRow?.row
+            destination.name = filterData[rankindex!]
         }
-    
     }
     
     
@@ -81,6 +81,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.dataSource = self
         searchBar.delegate = self
         filterData = items
+        
+        let Ranking = RankingCalc(inputname: items, inputemail: email)
+
     }
 
     
