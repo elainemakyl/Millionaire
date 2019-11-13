@@ -352,6 +352,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="CLw-mQ-ZdO"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Axh-nZ-mbB">
                                                         <rect key="frame" x="88" y="0.0" width="80" height="80"/>
@@ -383,6 +386,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="h8H-uT-hmi"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vyg-zE-5kw">
                                                         <rect key="frame" x="176" y="0.0" width="80" height="80"/>
@@ -415,6 +421,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="x9H-TA-BXV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -452,6 +461,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Xcw-UL-oGd"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9a-yO-cal">
                                                         <rect key="frame" x="88" y="0.0" width="80" height="80"/>
@@ -483,6 +495,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Blh-HQ-nh1"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Tt-Ml-wsf">
                                                         <rect key="frame" x="176" y="0.0" width="80" height="80"/>
@@ -515,6 +530,9 @@
                                                                 <real key="value" value="5"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="greySelectedButton:" destination="Shu-AG-a7p" eventType="touchUpInside" id="Sjj-3M-IQe"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -554,6 +572,14 @@
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outletCollection property="buttonSelected" destination="0iM-M0-y3S" collectionClass="NSMutableArray" id="yif-Vq-asO"/>
+                        <outletCollection property="buttonSelected" destination="Axh-nZ-mbB" collectionClass="NSMutableArray" id="nZF-pk-wXZ"/>
+                        <outletCollection property="buttonSelected" destination="Vyg-zE-5kw" collectionClass="NSMutableArray" id="pLv-GY-VJg"/>
+                        <outletCollection property="buttonSelected" destination="wc1-P3-AgZ" collectionClass="NSMutableArray" id="2eS-Ht-XK2"/>
+                        <outletCollection property="buttonSelected" destination="n9a-yO-cal" collectionClass="NSMutableArray" id="vNi-mU-N7K"/>
+                        <outletCollection property="buttonSelected" destination="9Tt-Ml-wsf" collectionClass="NSMutableArray" id="No9-ZF-XFD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSf-aa-VEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1160,6 +1186,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Cf0-rI-47h"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSV-Xz-UnN">
                                                                 <rect key="frame" x="88" y="0.0" width="80" height="80"/>
@@ -1191,6 +1220,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="9hb-Cy-a4J"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9e9-nS-lGC">
                                                                 <rect key="frame" x="176" y="0.0" width="80" height="80"/>
@@ -1223,6 +1255,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="W3e-Rr-Am9"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1260,6 +1295,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="zj4-cw-NKh"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OeJ-Av-aZX">
                                                                 <rect key="frame" x="88" y="0.0" width="80" height="80"/>
@@ -1291,6 +1329,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="Nh7-pY-EKs"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQP-A3-nhp">
                                                                 <rect key="frame" x="176" y="0.0" width="80" height="80"/>
@@ -1323,6 +1364,9 @@
                                                                         <real key="value" value="5"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="greySelectedButton:" destination="pOW-uK-5KL" eventType="touchUpInside" id="HDM-sl-46r"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -1366,6 +1410,14 @@
                             <color key="tintColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outletCollection property="buttonSelected" destination="WXf-Z7-3yQ" collectionClass="NSMutableArray" id="aGe-cC-0YZ"/>
+                        <outletCollection property="buttonSelected" destination="JSV-Xz-UnN" collectionClass="NSMutableArray" id="a6l-ep-vPT"/>
+                        <outletCollection property="buttonSelected" destination="9e9-nS-lGC" collectionClass="NSMutableArray" id="LbQ-zu-uI6"/>
+                        <outletCollection property="buttonSelected" destination="lOK-kN-Y5B" collectionClass="NSMutableArray" id="fGh-2p-36e"/>
+                        <outletCollection property="buttonSelected" destination="OeJ-Av-aZX" collectionClass="NSMutableArray" id="aXU-Ao-486"/>
+                        <outletCollection property="buttonSelected" destination="dQP-A3-nhp" collectionClass="NSMutableArray" id="6N8-sM-iUz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7Q-ga-dEf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

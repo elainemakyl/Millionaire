@@ -17,7 +17,17 @@ class IncomeViewController: UIViewController {
     var refUser: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
-
+    
+    @IBOutlet var buttonSelected: [UIButton]!
+    
+    // Grey one button if user pressed
+    @IBAction func greySelectedButton(_ sender: UIButton) {
+        for button in buttonSelected{
+            button.backgroundColor = UIColor.clear
+        }
+        sender.backgroundColor = UIColor.gray
+    }
+    
     @IBOutlet var titleText: UITextField!
     @IBOutlet var valueText: UITextField!
     @IBOutlet var date: UIDatePicker!
