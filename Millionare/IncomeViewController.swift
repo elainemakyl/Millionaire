@@ -12,6 +12,8 @@ import FirebaseDatabase
 import UIKit
 
 class IncomeViewController: UIViewController {
+    
+    var refUser: FIRDatabaseReference!
 
     @IBOutlet var titleText: UITextField!
     @IBOutlet var valueText: UITextField!
@@ -51,6 +53,25 @@ class IncomeViewController: UIViewController {
         let alert = UIAlertController(title: "Data Validation Error", message: "There was an error.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func addIncomeRecord(){
+        //generating a new key inside artists node
+        //and also getting the generated key
+        refUser = Database.database().reference().child("income")
+        let key = refUser.childByAutoId().key
+        
+        //creating artist with the given values
+        let artist = ["id":key,
+                        "artistName": textFieldName.text! as String,
+                        "artistGenre": textFieldGenre.text! as String
+                        ]
+    
+        //adding the artist inside the generated unique key
+        refArtists.child(key).setValue(artist)
+        
+        //displaying message
+        labelMessage.text = "Artist Added"
     }
     
     override func viewDidLoad() {
