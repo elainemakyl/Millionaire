@@ -10,6 +10,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 import UIKit
+import FirebaseStorage
 
 class IncomeViewController: UIViewController {
     
@@ -25,6 +26,7 @@ class IncomeViewController: UIViewController {
     var titleOp: String = ""
     var id = 0
     var value:Double = 0.0
+    var count = 0
     
     @IBAction func save(_ sender:AnyObject){
         if let tmp = Double(valueText.text!) {              //value input is a value
@@ -37,6 +39,13 @@ class IncomeViewController: UIViewController {
                                                             //update database
         } else {
             showAlert()                                     //value input is not value
+        }
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day,.month,.year], from: date.date)
+        if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
+            day = String(dayGet)
+            month = String(monthGet)
+            year = String(yearGet)
         }
     }
     
@@ -56,22 +65,43 @@ class IncomeViewController: UIViewController {
     }
     
     func addIncomeRecord(){
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        refUsers = Database.database().reference().child("user");
+        // Do any additional setup after loading the view.
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
+        
         //generating a new key inside artists node
         //and also getting the generated key
         refUser = Database.database().reference().child("income")
-        let key = refUser.childByAutoId().key
+        
+        refUser.child(userID).observe(DataEventType.value, with: { (snapshot) in
+          print(snapshot.childrenCount)
+        })
+        count = snapshot.childrenCount
+        
+        if count<1{
+            refUser.setValue(userID)
+        }
+        
+        count=count+1
         
         //creating artist with the given values
-        let artist = ["id":key,
-                        "artistName": textFieldName.text! as String,
-                        "artistGenre": textFieldGenre.text! as String
+        let income = ["id": count! as String,
+                        "title": titleOp,
+                        "value": value! as String,
+                        "day": day,
+                        "month": month,
+                        "year": year
                         ]
     
         //adding the artist inside the generated unique key
-        refArtists.child(key).setValue(artist)
+        refUser.child(userID).setValue(count)
+        refUser.child(userID).child(count).setValue(income)
         
         //displaying message
-        labelMessage.text = "Artist Added"
+        labelMessage.text = "Income Added"
     }
     
     override func viewDidLoad() {
