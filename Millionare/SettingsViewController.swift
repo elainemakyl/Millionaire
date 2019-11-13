@@ -17,7 +17,6 @@ class SettingsViewController: UIViewController {
     var storage: Storage!
     
     @IBOutlet var iconButton: UIButton!
-    @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBAction func changeNameButton(_ sender: Any) {
         //Creating UIAlertController and
@@ -160,6 +159,10 @@ class SettingsViewController: UIViewController {
                     let downloadURL = metaData!.path!
                     //store downloadURL at database
                     self.refUsers.child(Auth.auth().currentUser!.uid).updateChildValues(["userPhoto": downloadURL as String])
+//                      self.viewDidLoad()
+//                    self.viewWillAppear(true)
+//                            self.view.setNeedsDisplay()
+                    //
                 }
                 
             }
@@ -187,16 +190,29 @@ class SettingsViewController: UIViewController {
         let user = Auth.auth().currentUser
         let userID = user?.uid
         
-        let username = refUsers.child(userID!).child("username")
+        
         let email = refUsers.child(userID!).child("email")
         
         
-        username.observe(.value, with : {(Snapshot) in
-            if let usernameString = Snapshot.value as? String{ self.usernameLabel.text = usernameString}})
+     
         email.observe(.value, with : {(Snapshot) in
             if let emailString = Snapshot.value as? String{ self.emailLabel.text? = emailString}
         })
         
+        refUsers.child(userID!).observe(.value, with: { (snapshot) in
+                  // check if user has photo
+                  if snapshot.hasChild("userPhoto"){
+                      // set image locatin
+                      let filePath = "\(userID!)/\("userPhoto")"
+                      // Assuming a < 10MB file, though you can change that
+                      self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+                          
+                          let userPhoto = UIImage(data: data!)
+                          self.iconButton.setBackgroundImage(userPhoto, for: .normal)
+                      })
+                  }
+              })
+      
     }
     
     func displayErrorMessage (title: String = "Error", message: String) {

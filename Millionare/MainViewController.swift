@@ -76,9 +76,12 @@ class MainViewController: UIViewController {
                     
                     let userPhoto = UIImage(data: data!)
                     self.userButton.setBackgroundImage(userPhoto, for: .normal)
+                    self.viewDidLoad()
+                    self.viewWillAppear(true)
                 })
             }
         })
+        self.userButton.reloadInputViews()
     }
     
 }
