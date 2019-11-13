@@ -24,8 +24,11 @@ class DetailRankViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        nameLabel.text = name
+        
         let data = DatabaseUtil.data.getData()
+        
+        nameLabel.text = name
+        ranking.text = DatabaseUtil.data.getName()
         spending.text = data[0]
     }
     

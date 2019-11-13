@@ -11,8 +11,11 @@ import FirebaseDatabase
 
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
-    let items:[String] = ["test","456","ac","999"]
-    let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com"]
+    //let items:[String] = ["test","456","ac","999"]
+    let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com","abc@gmail.com", "noob@gmail.com"]
+    let items:[String] = DatabaseUtil.data.getAllUser()
+ //  let email:[String] = DatabaseUtil.data.getAllEmail()
+    
     @IBOutlet var table: UITableView!
     
 
