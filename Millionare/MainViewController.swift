@@ -82,7 +82,16 @@ class MainViewController: UIViewController {
             }
         })
         self.userButton.reloadInputViews()
+        
+        // hide navigation bar on this page
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        super.viewWillAppear(animated)
     }
     
+    // hide navigation bar on this page
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        super.viewWillDisappear(animated)
+    }
 }
 
