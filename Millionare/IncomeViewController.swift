@@ -49,6 +49,7 @@ class IncomeViewController: UIViewController {
             month = String(monthGet)
             year = String(yearGet)
         }
+        addIncomeRecord()
     }
     
     @IBAction func cancel(_ sender: AnyObject){
