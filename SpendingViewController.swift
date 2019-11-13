@@ -61,6 +61,14 @@ class SpendingViewController: UIViewController {
         } else {                                            //value input is not value
             showAlert()
         }
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.day,.month,.year], from: date.date)
+        if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
+            day = String(dayGet)
+            month = String(monthGet)
+            year = String(yearGet)
+        }
+        addSpendingRecord()
     }
     
     func showAlert(){
