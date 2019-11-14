@@ -22,5 +22,6 @@ pod 'Firebase/Storage'
 pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
+pod 'Floaty'
 
 end

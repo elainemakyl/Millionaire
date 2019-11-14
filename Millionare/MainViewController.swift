@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import Floaty
 
 class MainViewController: UIViewController {
     
@@ -18,6 +19,7 @@ class MainViewController: UIViewController {
     var storage: Storage!
     
     @IBOutlet var userButton: UIButton!
+    @IBOutlet weak var floaty: Floaty!
     
     @IBAction func iconButton(_ sender: Any) {
         let optionMenu = UIAlertController(title: "Action", message: "Please select the action", preferredStyle: .actionSheet)
@@ -64,6 +66,15 @@ class MainViewController: UIViewController {
                 })
             }
         })
+        
+        // Floating Action Button
+        floaty.addItem(title: "Add Spending Record", handler: {_ in
+            self.performSegue(withIdentifier: "MainToSpending", sender: self)
+        })
+        floaty.addItem(title: "Add Income Record", handler: {_ in
+            self.performSegue(withIdentifier: "MainToIncome", sender: self)
+        })
+        self.view.addSubview(floaty)
     }
     override func viewWillAppear(_ animated: Bool) {
         storage = Storage.storage()

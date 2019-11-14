@@ -15,40 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNg-IX-vs3">
-                                <rect key="frame" x="280" y="542" width="58" height="58"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="I+"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="29"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="pOW-uK-5KL" kind="show" id="0dw-MV-zDK"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54C-un-Dkk">
-                                <rect key="frame" x="195" y="542" width="58" height="58"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="58" id="TA9-hc-voi"/>
-                                    <constraint firstAttribute="height" constant="58" id="cXL-B2-2jA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="S+"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="29"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="Shu-AG-a7p" kind="show" id="GoE-2S-GPl"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="rSB-gZ-vjP" userLabel="header">
                                 <rect key="frame" x="0.0" y="44" width="375" height="200"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -113,28 +79,31 @@
                                     <action selector="iconButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="arX-EU-cle"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8du-ft-NCU" customClass="Floaty" customModule="Floaty">
+                                <rect key="frame" x="305" y="548" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="H7H-n8-Iso"/>
+                                    <constraint firstAttribute="width" constant="55" id="ssX-uS-OfT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="2N1-O2-xPl"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="3xi-Gs-6RW"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="8Aa-a4-kDq"/>
-                            <constraint firstItem="54C-un-Dkk" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="195" id="Cf1-jU-mza"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="54C-un-Dkk" secondAttribute="bottom" constant="18" id="Fx2-Gt-5GN"/>
                             <constraint firstAttribute="bottom" secondItem="RjR-Ob-Qcj" secondAttribute="bottom" constant="267" id="G9z-qT-i5h"/>
                             <constraint firstItem="RjR-Ob-Qcj" firstAttribute="top" secondItem="gRC-cR-Hgu" secondAttribute="bottom" constant="52" id="H13-md-otm"/>
                             <constraint firstItem="gRC-cR-Hgu" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="Ii5-No-pNe"/>
                             <constraint firstItem="5SW-12-Edu" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="Kq9-Ii-m0C"/>
                             <constraint firstItem="gRC-cR-Hgu" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="68" id="Ku2-Uw-j6v"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="trailing" secondItem="RjR-Ob-Qcj" secondAttribute="trailing" id="LFz-uo-w0z"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="nNg-IX-vs3" secondAttribute="trailing" constant="37" id="NBk-gX-Rdd"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="leading" secondItem="RjR-Ob-Qcj" secondAttribute="leading" id="OPz-wo-fVy"/>
                             <constraint firstItem="5SW-12-Edu" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="89" id="Rvx-ti-Nsj"/>
-                            <constraint firstItem="54C-un-Dkk" firstAttribute="baseline" secondItem="nNg-IX-vs3" secondAttribute="firstBaseline" id="Yqp-zo-eUc"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="8du-ft-NCU" secondAttribute="trailing" constant="15" id="bym-T2-HLo"/>
                             <constraint firstItem="RjR-Ob-Qcj" firstAttribute="top" secondItem="rSB-gZ-vjP" secondAttribute="bottom" id="eFM-hl-sdv"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="fmr-YK-tBM"/>
-                            <constraint firstItem="nNg-IX-vs3" firstAttribute="leading" secondItem="54C-un-Dkk" secondAttribute="trailing" constant="27" id="isK-sV-m3U"/>
-                            <constraint firstItem="54C-un-Dkk" firstAttribute="top" secondItem="nNg-IX-vs3" secondAttribute="top" id="qdd-8f-4Da"/>
+                            <constraint firstItem="8du-ft-NCU" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" constant="-15" id="h86-2j-x9c"/>
                             <constraint firstItem="rSB-gZ-vjP" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="vWi-ib-a84"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
@@ -143,10 +112,13 @@
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="pur-a7-wLa"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="floaty" destination="8du-ft-NCU" id="Nav-ox-7p5"/>
                         <outlet property="userButton" destination="gRC-cR-Hgu" id="eJQ-H0-EtK"/>
                         <outlet property="usernameTextField" destination="3bD-gB-0eG" id="i7X-7p-6le"/>
                         <segue destination="eKH-1e-Xbs" kind="modal" identifier="mainToLogin" modalPresentationStyle="fullScreen" id="us6-xZ-7Oo"/>
                         <segue destination="BXL-se-N6H" kind="presentation" identifier="goToSettings" id="IAS-n2-abd"/>
+                        <segue destination="Shu-AG-a7p" kind="show" identifier="MainToSpending" id="FkT-2d-vbL"/>
+                        <segue destination="pOW-uK-5KL" kind="show" identifier="MainToIncome" id="6RD-vR-QYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
