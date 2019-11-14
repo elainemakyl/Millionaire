@@ -23,5 +23,7 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'Floaty'
+pod 'AppCenter'
+
 
 end

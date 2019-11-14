@@ -9,6 +9,9 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import AppCenter
+import AppCenterAnalytics
+import AppCenterCrashes
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
@@ -24,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         Database.database().isPersistenceEnabled = true
       
+        MSAppCenter.start("aa7a81c0-edbd-4683-be7c-a517f312435a", withServices:[
+          MSAnalytics.self,
+          MSCrashes.self
+        ])
 //        // 1
 //        let storyboard = UIStoryboard(name: "Login", bundle: .main)
 //

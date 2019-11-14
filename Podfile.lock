@@ -4,6 +4,14 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.2.0)
   - AppAuth/Core (1.2.0)
   - AppAuth/ExternalUserAgent (1.2.0)
+  - AppCenter (2.5.1):
+    - AppCenter/Analytics (= 2.5.1)
+    - AppCenter/Crashes (= 2.5.1)
+  - AppCenter/Analytics (2.5.1):
+    - AppCenter/Core
+  - AppCenter/Core (2.5.1)
+  - AppCenter/Crashes (2.5.1):
+    - AppCenter/Core
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -139,6 +147,7 @@ PODS:
   - nanopb/encode (0.3.9011)
 
 DEPENDENCIES:
+  - AppCenter
   - Charts
   - FacebookCore
   - FacebookLogin
@@ -155,6 +164,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AppAuth
+    - AppCenter
     - Charts
     - FacebookCore
     - FacebookLogin
@@ -186,6 +196,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
+  AppCenter: fddcbac6e4baae3d93a196ceb0bfe0e4ce407dec
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
@@ -215,6 +226,6 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
 
-PODFILE CHECKSUM: 1c5264fe82469bb3b043840032b7e58de45ff51e
+PODFILE CHECKSUM: a3de125e034eda3f34277b78b9ff7d6655debe71
 
 COCOAPODS: 1.7.5
