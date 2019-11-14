@@ -76,6 +76,7 @@ class MainViewController: UIViewController {
         })
         self.view.addSubview(floaty)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         storage = Storage.storage()
         storageRef = storage.reference()
