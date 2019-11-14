@@ -148,7 +148,7 @@ class SettingsViewController: UIViewController {
             //update icon in local
             let iconData:NSData = image.pngData()! as NSData
             UserDefaults.standard.set(iconData, forKey: "icon")
-           
+            
             
             //upload image to storage
             var data = Data()
@@ -180,16 +180,21 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController!.navigationBar.isTranslucent = true
         
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
         storage = Storage.storage()
         storageRef = storage.reference(withPath: "gs://millionaire-94030.appspot.com")
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+        self.navigationController!.navigationBar.isTranslucent = true
         
-        
+        self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
         storage = Storage.storage()
@@ -211,23 +216,23 @@ class SettingsViewController: UIViewController {
         if let iconData = UserDefaults.standard.object(forKey: "icon")  {
             let icon = UIImage(data: iconData as! Data)
             iconButton.setBackgroundImage(icon, for: .normal)
-                  
+            
         }
         
         
-//        refUsers.child(userID!).observe(.value, with: { (snapshot) in
-//            // check if user has photo
-//            if snapshot.hasChild("userPhoto"){
-//                // set image locatin
-//                let filePath = "\(userID!)/\("userPhoto")"
-//                // Assuming a < 10MB file, though you can change that
-//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-//
-//                    let userPhoto = UIImage(data: data!)
-//                    self.iconButton.setBackgroundImage(userPhoto, for: .normal)
-//                })
-//            }
-//        })
+        //        refUsers.child(userID!).observe(.value, with: { (snapshot) in
+        //            // check if user has photo
+        //            if snapshot.hasChild("userPhoto"){
+        //                // set image locatin
+        //                let filePath = "\(userID!)/\("userPhoto")"
+        //                // Assuming a < 10MB file, though you can change that
+        //                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+        //
+        //                    let userPhoto = UIImage(data: data!)
+        //                    self.iconButton.setBackgroundImage(userPhoto, for: .normal)
+        //                })
+        //            }
+        //        })
         
     }
     
