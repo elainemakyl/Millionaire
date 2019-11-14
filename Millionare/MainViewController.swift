@@ -41,7 +41,29 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        refUsers = Database.database().reference().child("user");
+        // Do any additional setup after loading the view.
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
         
+        
+        //retrieve profile pic url
+        refUsers.child(userID!).observe(.value, with: { (snapshot) in
+            // check if user has photo
+            if snapshot.hasChild("userPhoto"){
+                // set image locatin
+                let filePath = "\(userID!)/\("userPhoto")"
+                // Assuming a < 10MB file, though you can change that
+                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+                    
+                    let userPhoto = UIImage(data: data!)
+                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
+                    UserDefaults.standard.set(data, forKey: "icon")
+                })
+            }
+        })
     }
     override func viewWillAppear(_ animated: Bool) {
         storage = Storage.storage()
@@ -50,7 +72,7 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         let user = Auth.auth().currentUser
         let userID = user?.uid
-       
+        
         let firstname = refUsers.child(userID!).child("first_name")
         let lastname = refUsers.child(userID!).child("last_name")
         
@@ -65,23 +87,15 @@ class MainViewController: UIViewController {
             }
         })
         
-        //retrieve profile pic url
-        refUsers.child(userID!).observe(.value, with: { (snapshot) in
-            // check if user has photo
-            if snapshot.hasChild("userPhoto"){
-                // set image locatin
-                let filePath = "\(userID!)/\("userPhoto")"
-                // Assuming a < 10MB file, though you can change that
-                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-                    
-                    let userPhoto = UIImage(data: data!)
-                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
-                    self.viewDidLoad()
-                    self.viewWillAppear(true)
-                })
-            }
-        })
-        self.userButton.reloadInputViews()
+        if let iconData = UserDefaults.standard.object(forKey: "icon")  {
+            //retrieve icon from local
+            let icon = UIImage(data: iconData as! Data)
+            userButton.setBackgroundImage(icon, for: .normal)
+            
+        }
+        
+        
+        
         
         // hide navigation bar on this page
         self.navigationController?.setNavigationBarHidden(true, animated: animated)

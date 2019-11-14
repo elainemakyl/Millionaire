@@ -142,9 +142,17 @@ class SettingsViewController: UIViewController {
         AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
         AttachmentHandler.shared.imagePickedBlock = { (image) in
             
+            //set icon
+            self.iconButton.setBackgroundImage(image, for: .normal)
             
+            //update icon in local
+            let iconData:NSData = image.pngData()! as NSData
+            UserDefaults.standard.set(iconData, forKey: "icon")
+           
+            
+            //upload image to storage
             var data = Data()
-            data = image.jpegData(compressionQuality: 0.8)!
+            data = image.jpegData(compressionQuality: 0.6)!
             // set upload path
             let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
             let metaData = StorageMetadata()
@@ -159,8 +167,8 @@ class SettingsViewController: UIViewController {
                     let downloadURL = metaData!.path!
                     //store downloadURL at database
                     self.refUsers.child(Auth.auth().currentUser!.uid).updateChildValues(["userPhoto": downloadURL as String])
-                   
-//                            self.view.setNeedsDisplay()
+                    
+                    //                            self.view.setNeedsDisplay()
                     //
                 }
                 
@@ -193,25 +201,34 @@ class SettingsViewController: UIViewController {
         let email = refUsers.child(userID!).child("email")
         
         
-     
+        
         email.observe(.value, with : {(Snapshot) in
             if let emailString = Snapshot.value as? String{ self.emailLabel.text? = emailString}
         })
         
-        refUsers.child(userID!).observe(.value, with: { (snapshot) in
-                  // check if user has photo
-                  if snapshot.hasChild("userPhoto"){
-                      // set image locatin
-                      let filePath = "\(userID!)/\("userPhoto")"
-                      // Assuming a < 10MB file, though you can change that
-                      self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-                          
-                          let userPhoto = UIImage(data: data!)
-                          self.iconButton.setBackgroundImage(userPhoto, for: .normal)
-                      })
-                  }
-              })
-      
+        
+        //load icon from local
+        if let iconData = UserDefaults.standard.object(forKey: "icon")  {
+            let icon = UIImage(data: iconData as! Data)
+            iconButton.setBackgroundImage(icon, for: .normal)
+                  
+        }
+        
+        
+//        refUsers.child(userID!).observe(.value, with: { (snapshot) in
+//            // check if user has photo
+//            if snapshot.hasChild("userPhoto"){
+//                // set image locatin
+//                let filePath = "\(userID!)/\("userPhoto")"
+//                // Assuming a < 10MB file, though you can change that
+//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+//
+//                    let userPhoto = UIImage(data: data!)
+//                    self.iconButton.setBackgroundImage(userPhoto, for: .normal)
+//                })
+//            }
+//        })
+        
     }
     
     func displayErrorMessage (title: String = "Error", message: String) {
