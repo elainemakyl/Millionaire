@@ -12,7 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import Floaty
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var refUsers: DatabaseReference!
     var storageRef: StorageReference!
@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet var userButton: UIButton!
     @IBOutlet weak var floaty: Floaty!
+    @IBOutlet weak var UITableView: UITableView!
     
     @IBAction func iconButton(_ sender: Any) {
         let optionMenu = UIAlertController(title: "Action", message: "Please select the action", preferredStyle: .actionSheet)
@@ -40,6 +41,23 @@ class MainViewController: UIViewController {
         self.present(optionMenu, animated: true, completion: nil)
     }
     @IBOutlet var usernameTextField: UILabel!
+    
+    // override table view with animation
+    let hardCode:[String] = ["This is a hard code:", "Food $20", "Drink $50", "Cloth $80", "Others $60", "Food $100", "Drink $80", "Food $20", "Drink $50", "Cloth $80", "Others $60", "Food $100", "Drink $80"]
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return hardCode.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
+        cell.textLabel?.text = hardCode[indexPath.row]
+        return cell
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,12 +124,29 @@ class MainViewController: UIViewController {
             
         }
         
-        
-        
+        // tableView animation
+        func animateTable() {
+            UITableView.reloadData()
+            let cells = UITableView.visibleCells
+            let tableViewWidth = UITableView.bounds.size.width
+            
+            for cell in cells {
+                cell.transform = CGAffineTransform(translationX: tableViewWidth, y: 0)
+            }
+            
+            var delayCounter: Double = 0
+            for cell in cells {
+                UIView.animate(withDuration: 0.5, delay: delayCounter * 0.5, options: .curveEaseIn, animations: {
+                    cell.transform = CGAffineTransform.identity
+                }, completion: nil)
+                delayCounter += 0.05
+            }
+        }
         
         // hide navigation bar on this page
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
+        animateTable()
     }
     
     // show navigation bar again on other pages
