@@ -18,16 +18,19 @@ class DetailRankViewController: UIViewController {
     @IBOutlet var saving: UILabel!
     @IBOutlet var ranking: UILabel!
     
-    var name:String? = ""
+    var name: String? = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //return the name of selected row
+        nameLabel.text = name
+        
+        
         let data = DatabaseUtil.data.getData()
         
-        nameLabel.text = name
         ranking.text = DatabaseUtil.data.getName()
         spending.text = data[0]
        

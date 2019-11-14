@@ -51,12 +51,16 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    
+    // to call detail view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier ==  "ShowRankSegue"{
+            
             let destination = segue.destination as! DetailRankViewController
             let rankindex = table.indexPathForSelectedRow?.row
+            
             destination.name = filterData[rankindex!]
+            
+            
         }
     }
     
@@ -113,11 +117,48 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
              filteremail = self.email
              
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         table.dataSource = self
         searchBar.delegate = self
+        var output : [String] = []
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        returnResult(completion: { (output) in })
+        print(output)
+        /*
+        refUsers = Database.database().reference().child("user")
+         refUsers.observe(.value, with: { (snapshot) in
+                              for child in snapshot.children {
+                                  let snap = child as! DataSnapshot
+                                  let placeDict = snap.value as! [String: AnyObject]
+                                  let name = placeDict["first_name"] as! String
+                                let email = placeDict["email"] as! String
+                                let userid = placeDict["id"] as! String
+                               // output.append(userid)
+                                self.items.append(name)
+                                self.email.append(email)
+                                self.uid.append(userid)
+                            
+                          //      print(name)
+                            //    print(self.items)
+                            
+                              }
+            self.filteruid = self.uid
+           self.filterData = self.items
+            self.filteremail = self.email
+            self.table.reloadData()
+          
+                          })*/
+        
+        
+     //   let Ranking = RankingCalc(inputname: items, inputemail: email)
+        filteruid = uid
+        filterData = self.items
+        filteremail = self.email
+        table.reloadData()
         
     }
     
