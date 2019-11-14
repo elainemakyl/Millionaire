@@ -10,6 +10,10 @@ import UIKit
 
 class BlogTableViewCell: UITableViewCell {
 
+    @IBOutlet var userIcon: UIImageView!
+    @IBOutlet var blogTitle: UILabel!
+    @IBOutlet var blogIcon: UIImageView!
+    @IBOutlet var username: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
