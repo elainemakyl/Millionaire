@@ -19,6 +19,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     //  let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com","abc@gmail.com", "noob@gmail.com"]
     var items:[String] = []//DatabaseUtil.data.getAllUser()
     var email:[String] = []
+    var ranking:[Int] = []
     
     @IBOutlet var table: UITableView!
     
@@ -41,8 +42,6 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
-        //  cell.textLabel?.text = items[indexPath.row]
-        
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
         cell.rankLabel.text = "Rank " + String(indexPath.row + 1)
@@ -53,17 +52,17 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     // to call detail view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier ==  "ShowRankSegue"{
+        if segue.identifier ==  "ShowRankSegue" {
             
             let destination = segue.destination as! DetailRankViewController
             let rankindex = table.indexPathForSelectedRow?.row
             
             destination.name = filterData[rankindex!]
-            
-            
+           
+            print(filterData)
+            print(email)
         }
     }
-    
     
     // Update filterdata when user type in searchbar
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -82,10 +81,14 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchBar.resignFirstResponder()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        DatabaseUtil.data.getAllUser(completion:{(names,emails) in
+        super.viewWillAppear(animated)
+       /* DatabaseUtil.data.getAllUser(completion:{(names,emails) in
             self.items = names
             self.email = emails
 
@@ -93,17 +96,12 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.filterData = self.items
         self.filteremail = self.email
         self.table.reloadData()
-
-        //   let Ranking = RankingCalc(inputna mbvme: items, inputemail: email)
-        filterData = self.items
-        filteremail = self.email
-
-        
-        table.reloadData()
+        print(filterData!)*/
         
     }
     override func viewDidAppear(_ animated: Bool) {
-           DatabaseUtil.data.getAllUser(completion:{(names,emails) in
+        super.viewDidAppear(animated)
+        DatabaseUtil.data.getAllUser(completion:{(names,emails) in
                  self.items = names
                  self.email = emails
                  
@@ -112,10 +110,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
              self.filteremail = self.email
              self.table.reloadData()
              
-             //   let Ranking = RankingCalc(inputna mbvme: items, inputemail: email)
              filterData = self.items
              filteremail = self.email
-             
     }
     
     override func viewDidLoad() {
@@ -123,41 +119,21 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         table.dataSource = self
         searchBar.delegate = self
-        var output : [String] = []
-        storage = Storage.storage()
-        storageRef = storage.reference()
-        returnResult(completion: { (output) in })
-        print(output)
-        /*
-        refUsers = Database.database().reference().child("user")
-         refUsers.observe(.value, with: { (snapshot) in
-                              for child in snapshot.children {
-                                  let snap = child as! DataSnapshot
-                                  let placeDict = snap.value as! [String: AnyObject]
-                                  let name = placeDict["first_name"] as! String
-                                let email = placeDict["email"] as! String
-                                let userid = placeDict["id"] as! String
-                               // output.append(userid)
-                                self.items.append(name)
-                                self.email.append(email)
-                                self.uid.append(userid)
-                            
-                          //      print(name)
-                            //    print(self.items)
-                            
-                              }
-            self.filteruid = self.uid
-           self.filterData = self.items
-            self.filteremail = self.email
-            self.table.reloadData()
-          
-                          })*/
-        
+       DatabaseUtil.data.getAllUser(completion:{(names,emails) in
+            self.items = names
+            self.email = emails
+        })
+        self.filterData = self.items
+        self.filteremail = self.email
+        self.table.reloadData()
         
      //   let Ranking = RankingCalc(inputname: items, inputemail: email)
-        filteruid = uid
+      //  filteruid = uid
         filterData = self.items
         filteremail = self.email
+      
+        
+        
         table.reloadData()
         
     }

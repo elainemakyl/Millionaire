@@ -37,7 +37,7 @@ class DatabaseUtil {
     //to return alluser in db
      func getAllUser(completion:@escaping (Array<String>, Array<String>) -> Void)  -> Void{
         var alluser: [String] = []
-        var allemail:[String]=[]
+        var allemail: [String] = []
        // alluser = ["test","456","ac","999","test123","yyy"]
      
        refUsers.observe(.value, with: { (snapshot) in
@@ -50,36 +50,11 @@ class DatabaseUtil {
                         allemail.append(email)
                        }
         completion(alluser,allemail)
+        
                    })
                 
-              /* alluser.append("12")
-               alluser.append("123")
-               alluser.append("1234")
-               alluser.append("12345")
-              alluser.append("123456")*/
    
     }
     
-    //to return allemail in db
-    func getAllEmail() -> [String] {
-         var allemail: [String] = []
-            
-          /*  refUsers.observeSingleEvent(of: .value, with: { snapshot in
-                for child in snapshot.children {
-                    let snap = child as! DataSnapshot
-                    let placeDict = snap.value as! [String: Any]
-                    let email = placeDict["email"] as! String
-                   
-                    allemail.append("123")
-                }
-            })*/
-         allemail.append("1q")
-        allemail.append("12")
-        allemail.append("123")
-        allemail.append("1234")
-        allemail.append("12345")
-       allemail.append("123456")
-        return allemail
-    }
     
 }
