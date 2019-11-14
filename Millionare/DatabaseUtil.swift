@@ -6,6 +6,11 @@
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
+//
+//
+// USELESS!!!!!!!!!!!!!!!!!!!!!
+//
+//
 import Foundation
 import FirebaseDatabase
 import FirebaseStorage
@@ -17,6 +22,7 @@ class DatabaseUtil {
     var storageRef: StorageReference!
     var storage: Storage!
     var name: String
+   // var allusers: [String]
     init() {
         // add things here
         name = ""
@@ -26,7 +32,6 @@ class DatabaseUtil {
         let user = Auth.auth().currentUser
         let userID = user?.uid
         let firstname = refUsers.child(userID!).child("first_name")
-    
         firstname.observe(.value, with : {(Snapshot) in
             if let first = Snapshot.value as? String{ self.name = first + " "}})
     }
@@ -45,15 +50,16 @@ class DatabaseUtil {
         var alluser: [String] = []
         
        // alluser = ["test","456","ac","999","test123","yyy"]
-        refUsers.observe(.value, with: { (snapshot) in
+       refUsers.observe(.value, with: { (snapshot) in
                        for child in snapshot.children {
                            let snap = child as! DataSnapshot
                            let placeDict = snap.value as! [String: AnyObject]
                            let name = placeDict["first_name"] as! String
-                           alluser.append(name)
+                        alluser.append(name)
                        }
+       // self.alluser = self.alluser
                    })
-                alluser.append("1")
+                
               /* alluser.append("12")
                alluser.append("123")
                alluser.append("1234")
@@ -75,7 +81,7 @@ class DatabaseUtil {
                     allemail.append("123")
                 }
             })*/
-         allemail.append("1")
+         allemail.append("1q")
         allemail.append("12")
         allemail.append("123")
         allemail.append("1234")

@@ -8,13 +8,18 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
+    var refUsers: DatabaseReference!
+       var storageRef: StorageReference!
+       var storage: Storage!
+    
     //let items:[String] = ["test","456","ac","999"]
  //  let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com","abc@gmail.com", "noob@gmail.com"]
-    let items:[String] = DatabaseUtil.data.getAllUser()
-  //  let email:[String] = DatabaseUtil.data.getAllEmail()
+    var items:[String] = []//DatabaseUtil.data.getAllUser()
+  var email:[String] = []
     
     @IBOutlet var table: UITableView!
     
@@ -22,6 +27,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var searchBar: UISearchBar!
     
     var filterData: [String]!
+    var filteremail: [String]!
+   
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -37,7 +45,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
    //  cell.textLabel?.text = items[indexPath.row]
         
        cell.nameLabel.text = filterData[indexPath.row]
-    //    cell.emailLabel.text = email[indexPath.row]
+        cell.emailLabel.text = filteremail[indexPath.row]
         cell.rankLabel.text = "Rank " + String(indexPath.row + 1)
         return cell
         
@@ -83,10 +91,31 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         table.dataSource = self
         searchBar.delegate = self
-        filterData = items
-        
+       
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        refUsers = Database.database().reference().child("user")
+        refUsers.observe(.value, with: { (snapshot) in
+                              for child in snapshot.children {
+                                  let snap = child as! DataSnapshot
+                                  let placeDict = snap.value as! [String: AnyObject]
+                                  let name = placeDict["first_name"] as! String
+                                let email = placeDict["email"] as! String
+                                self.items.append(name)
+                                self.email.append(email)
+                          //      print(name)
+                            //    print(self.items)
+                            
+                              }
+           self.filterData = self.items
+            self.filteremail = self.email
+            self.table.reloadData()
+                          })
      //   let Ranking = RankingCalc(inputname: items, inputemail: email)
-
+        filterData = self.items
+        filteremail = self.email
+        table.reloadData()
+        
     }
 
     
