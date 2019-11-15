@@ -13,7 +13,7 @@ import UIKit
 import FirebaseStorage
 
 class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
-
+    var refUsers: DatabaseReference!
     var dbRef: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
@@ -85,15 +85,45 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
     @IBAction func submit(_ sender: Any) {
         if let blogTitle = blogtitleInput.text, let blogContent = blogcontentInput.text, let Icon = blogIcon.image{
             
-               
-            
+            var download:String="none"
+            var username:String=""
                 storage = Storage.storage()
                 storageRef = storage.reference()
                // dbRef = Database.database().reference().child("user");
                 // Do any additional setup after loading the view.
-                let user = Auth.auth().currentUser
+            refUsers = Database.database().reference().child("user");
+            let user = Auth.auth().currentUser
                 let userID = user?.uid
                 
+            let firstname = refUsers.child(userID!).child("first_name")
+            let lastname = refUsers.child(userID!).child("last_name")
+            
+            
+            firstname.observe(.value, with : {(Snapshot) in
+                if let first = Snapshot.value as? String{ username = first + " "}})
+            lastname.observe(.value, with : {(Snapshot) in
+                if let last = Snapshot.value as? String{ username.append(last)}
+                else {
+                    let name = Auth.auth().currentUser?.displayName
+                    username = name!
+                }
+            })
+            
+            refUsers.child(userID!).observe(.value, with: { (snapshot) in
+                // check if user has photo
+                if snapshot.hasChild("userPhoto"){
+                    // set image locatin
+                    let filePath = "\(userID!)/\("userPhoto")"
+                    // Assuming a < 10MB file, though you can change that
+                    self.storageRef.child(filePath).downloadURL { (url, error) in
+                        guard let dlurl = url else {return}
+                        download = dlurl.absoluteString
+                    }
+                }
+            })
+            
+            
+            
                 //generating a new key inside artists node
                 //and also getting the generated key
                 dbRef = Database.database().reference().child("blog")
@@ -125,10 +155,12 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
                 }
            
             let blog = ["id": key,
-            "userID": String(userID!),
+            "UserID": String(userID!),
             "Title": blogTitle,
             "Content": blogContent,
             "Icon":url?.absoluteString,
+            "Username":username,
+            "UserIcon":download,
               ]
             self.dbRef.child(String(key!)).setValue(blog)
             
@@ -147,7 +179,6 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
             
         }
 
-        
     }
     
         func showAlert(){
