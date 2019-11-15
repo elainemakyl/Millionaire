@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let signout = UIAlertAction(title: "Sign Out", style: .default, handler: {(alert: UIAlertAction!) -> Void in
             //logout
             try! Auth.auth().signOut()
-            self.performSegue(withIdentifier: "mainToLogin", sender: nil)
+//            self.performSegue(withIdentifier: "mainToLogin", sender: nil)
             
         })
         let cancel = UIAlertAction(title:"Cancel", style: .cancel)

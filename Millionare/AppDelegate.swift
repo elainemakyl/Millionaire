@@ -24,16 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
         
         Database.database().isPersistenceEnabled = true
       
-//        // 1
-//        let storyboard = UIStoryboard(name: "Login", bundle: .main)
-//
-//              // 2
-//              if let initialViewController = storyboard.instantiateInitialViewController() {
-//                  // 3
-//                  window?.rootViewController = initialViewController
-//                  // 4
-//                  window?.makeKeyAndVisible()
-//              }
+        
         return true
     }
 

@@ -180,7 +180,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController!.navigationBar.isTranslucent = true
+        
         
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
@@ -189,8 +189,8 @@ class SettingsViewController: UIViewController {
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
         self.navigationController!.navigationBar.isTranslucent = true
-        
         self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -233,6 +233,11 @@ class SettingsViewController: UIViewController {
         //                })
         //            }
         //        })
+        
+        
+        
+        super.viewWillAppear(animated)
+        
         
     }
     
