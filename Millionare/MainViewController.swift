@@ -74,14 +74,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             // check if user has photo
             if snapshot.hasChild("userPhoto"){
                 // set image locatin
-                let filePath = "\(userID!)/\("userPhoto")"
-                // Assuming a < 10MB file, though you can change that
-                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-                    
-                    let userPhoto = UIImage(data: data!)
-                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
-                    UserDefaults.standard.set(data, forKey: "icon")
-                })
+//                let filePath = "\(userID!)/\("userPhoto")"
+//                // Assuming a < 10MB file, though you can change that
+//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+//
+//                    let userPhoto = UIImage(data: data!)
+//                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
+//                    UserDefaults.standard.set(data, forKey: "icon")
+//                })
+            } else {
+                //Offline -> load from local
+                if let iconData = UserDefaults.standard.object(forKey: "icon")  {
+                          let icon = UIImage(data: iconData as! Data)
+                    self.userButton.setBackgroundImage(icon, for: .normal)
+                          
+                      }
             }
         })
         
