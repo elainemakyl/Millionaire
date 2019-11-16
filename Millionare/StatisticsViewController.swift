@@ -28,9 +28,7 @@ class StatisticsViewController: UIViewController {
     var category: [String]!
     
     var sevenDaysDouble: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    var sevenDays: [String] = ["0", "0", "0", "0", "0", "0", "0"]
-    var sevenMonths: [String] = ["0", "0", "0", "0", "0", "0", "0"]
-    var sevenYears: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+    
     
     var spendingList = [SpendingModel]()
 
@@ -113,8 +111,10 @@ class StatisticsViewController: UIViewController {
                     self.monthPieChartGen()
                 } else if self.weekFlag{
                     self.weekLineChartGen()
+                    self.weekPieChartGen()
                 } else {
                     self.dayLineChartGen()
+                    self.dayPieChartGen()
                 }
                 
             }
@@ -187,11 +187,17 @@ class StatisticsViewController: UIViewController {
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Monthly Spending")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         //let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        lineChartDataSet.colors = [NSUIColor.green]
         lineChart.data = lineChartData
         lineChart.animate(yAxisDuration: 1.0)
+        lineChart.doubleTapToZoomEnabled = false
     }
     
     func weekLineChartGen(){
+        var sevenDays: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenMonths: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenYears: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        
         var weekValue: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         let cal = Calendar.current
         var date = cal.startOfDay(for: Date())
@@ -228,47 +234,58 @@ class StatisticsViewController: UIViewController {
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Current 7 Days Spending")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         //let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
+        lineChartDataSet.colors = [NSUIColor.red]
         lineChart.data = lineChartData
         lineChart.animate(yAxisDuration: 1.0)
+        lineChart.doubleTapToZoomEnabled = false
     }
     
     func dayLineChartGen(){
-        var dayValue: Double = 0.0
-        let date = Date()
-        let calendar = Calendar.current
-        let currentYear = String(calendar.component(.year, from: date))
-        let currentMonth = String(calendar.component(.month, from: date))
-        let currentDay = String(calendar.component(.day, from: date))
+        var sevenDays: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenMonths: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenYears: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        
+        var dayValue: [Double] = [0.0, 0.0]
+        
+        let cal = Calendar.current
+        var date = cal.startOfDay(for: Date())
+        var tmp = 1
+        for _ in 0 ... 1 {
+            let dayDouble = Double(cal.component(.day, from: date))
+            let day = String(cal.component(.day, from: date))
+            let month = String(cal.component(.month, from: date))
+            let year = String(cal.component(.year, from: date))
+            sevenDaysDouble[tmp] = dayDouble
+            sevenDays[tmp] = day
+            sevenMonths[tmp] = month
+            sevenYears[tmp] = year
+            date = cal.date(byAdding: .day, value: -1, to: date)!
+            tmp = tmp - 1
+        }
         
         for spending in spendingList{
-            if spending.year == currentYear && spending.month == currentMonth && spending.day == currentDay{
-                dayValue += Double(spending.value!)!
+            for i in 0...1{
+                if spending.year == sevenYears[i] && spending.month == sevenMonths[i] && spending.day == sevenDays[i]{
+                    dayValue[i] += Double(spending.value!)!
+                }
             }
         }
         
-        /*
-        print(dayValue)
-        
         var dataEntries = [ChartDataEntry]()
         
-        let value = ChartDataEntry(x: Double(currentDay)! , y: dayValue)
-        //print(monthValue[i])
-        dataEntries.append(value)
+        for i in 0...1 {
+            let value = ChartDataEntry(x: sevenDaysDouble[i] , y: dayValue[i])
+            //print(monthValue[i])
+            dataEntries.append(value)
+        }
         
-        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Today Spending")
+        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Today Spending comparing with Yesterday")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         //let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         lineChartDataSet.colors = [NSUIColor.blue]
         lineChart.data = lineChartData
         lineChart.animate(yAxisDuration: 1.0)
-        */
- 
-        if dayValue > 0.0 {
-            lineChart.noDataText = "You have spent $ \(dayValue) today."
-        } else {
-            lineChart.noDataText = "You have no spending today."
-        }
-        
+        lineChart.doubleTapToZoomEnabled = false
     }
     
     func monthPieChartGen(){
@@ -363,6 +380,263 @@ class StatisticsViewController: UIViewController {
         
         for i in 0..<categoryList.count {
             let dataEntry = PieChartDataEntry(value: monthValue[i], label: categoryList[i], data: categoryList[i] as AnyObject)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Monthly Spending in Categories")
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        pieChartData.setValueFormatter(formatter)
+        // 4. Assign it to the chart’s data
+        pieChart.data = pieChartData
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0...5 {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        pieChart.animate(yAxisDuration: 1.0)
+    }
+    
+    func weekPieChartGen(){
+        var sevenDays: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenMonths: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        var sevenYears: [String] = ["0", "0", "0", "0", "0", "0", "0"]
+        
+        var foodFlag = false
+        var clothFlag = false
+        var trafFlag = false
+        var neceFlag = false
+        var enterFlag = false
+        var othFlag = false
+        
+        var catIndexNum = -1
+        
+        var foodIndex = -1
+        var clothIndex = -1
+        var trafIndex = -1
+        var neceIndex = -1
+        var enterIndex = -1
+        var othIndex = -1
+        var categoryList = [String]()
+        
+        var weekValue: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        let cal = Calendar.current
+        var date = cal.startOfDay(for: Date())
+        var tmp = 6
+        for _ in 0 ... 6 {
+            let dayDouble = Double(cal.component(.day, from: date))
+            let day = String(cal.component(.day, from: date))
+            let month = String(cal.component(.month, from: date))
+            let year = String(cal.component(.year, from: date))
+            sevenDaysDouble[tmp] = dayDouble
+            sevenDays[tmp] = day
+            sevenMonths[tmp] = month
+            sevenYears[tmp] = year
+            date = cal.date(byAdding: .day, value: -1, to: date)!
+            tmp = tmp - 1
+        }
+        
+        for spending in spendingList{
+            for i in 0...6{
+                if spending.year == sevenYears[i] && spending.month == sevenMonths[i] && spending.day == sevenDays[i]{
+                    switch spending.category {
+                    case "food":
+                        if !foodFlag {
+                            foodFlag = true
+                            categoryList.append("Food")
+                            catIndexNum = catIndexNum + 1
+                            foodIndex = catIndexNum
+                        }
+                        weekValue[foodIndex] += Double(spending.value!)!
+                        break
+                    case "cloth":
+                        if !clothFlag {
+                            clothFlag = true
+                            categoryList.append("Cloth")
+                            catIndexNum = catIndexNum + 1
+                            clothIndex = catIndexNum
+                        }
+                        weekValue[clothIndex] += Double(spending.value!)!
+                        break
+                    case "traffics":
+                        if !trafFlag {
+                            trafFlag = true
+                            categoryList.append("Traffics")
+                            catIndexNum = catIndexNum + 1
+                            trafIndex = catIndexNum
+                        }
+                        weekValue[trafIndex] += Double(spending.value!)!
+                        break
+                    case "necessary":
+                        if !neceFlag {
+                            neceFlag = true
+                            categoryList.append("Necessary")
+                            catIndexNum = catIndexNum + 1
+                            neceIndex = catIndexNum
+                        }
+                        weekValue[neceIndex] += Double(spending.value!)!
+                        break
+                    case "entertainment":
+                        if !enterFlag {
+                            enterFlag = true
+                            categoryList.append("Entertainment")
+                            catIndexNum = catIndexNum + 1
+                            enterIndex = catIndexNum
+                        }
+                        weekValue[enterIndex] += Double(spending.value!)!
+                        break
+                    case "others":
+                        if !othFlag {
+                            othFlag = true
+                            categoryList.append("Others")
+                            catIndexNum = catIndexNum + 1
+                            othIndex = catIndexNum
+                        }
+                        weekValue[othIndex] += Double(spending.value!)!
+                        break
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+        
+        var dataEntries = [ChartDataEntry]()
+        
+        
+        for i in 0..<categoryList.count {
+            let dataEntry = PieChartDataEntry(value: weekValue[i], label: categoryList[i], data: categoryList[i] as AnyObject)
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Monthly Spending in Categories")
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        let format = NumberFormatter()
+        format.numberStyle = .none
+        let formatter = DefaultValueFormatter(formatter: format)
+        pieChartData.setValueFormatter(formatter)
+        // 4. Assign it to the chart’s data
+        pieChart.data = pieChartData
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0...5 {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        pieChart.animate(yAxisDuration: 1.0)
+    }
+    
+    func dayPieChartGen(){
+        let date = Date()
+        let calendar = Calendar.current
+        let currentYear = String(calendar.component(.year, from: date))
+        let currentMonth = String(calendar.component(.month, from: date))
+        let currentDay = String(calendar.component(.day, from: date))
+        
+        var foodFlag = false
+        var clothFlag = false
+        var trafFlag = false
+        var neceFlag = false
+        var enterFlag = false
+        var othFlag = false
+        
+        var catIndexNum = -1
+        
+        var foodIndex = -1
+        var clothIndex = -1
+        var trafIndex = -1
+        var neceIndex = -1
+        var enterIndex = -1
+        var othIndex = -1
+        var categoryList = [String]()
+        var dayValue: [Double] = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        
+        for spending in spendingList{
+            if spending.year == currentYear && spending.month == currentMonth && spending.day == currentDay{
+                switch spending.category {
+                case "food":
+                    if !foodFlag {
+                        foodFlag = true
+                        categoryList.append("Food")
+                        catIndexNum = catIndexNum + 1
+                        foodIndex = catIndexNum
+                    }
+                    dayValue[foodIndex] += Double(spending.value!)!
+                    break
+                case "cloth":
+                    if !clothFlag {
+                        clothFlag = true
+                        categoryList.append("Cloth")
+                        catIndexNum = catIndexNum + 1
+                        clothIndex = catIndexNum
+                    }
+                    dayValue[clothIndex] += Double(spending.value!)!
+                    break
+                case "traffics":
+                    if !trafFlag {
+                        trafFlag = true
+                        categoryList.append("Traffics")
+                        catIndexNum = catIndexNum + 1
+                        trafIndex = catIndexNum
+                    }
+                    dayValue[trafIndex] += Double(spending.value!)!
+                    break
+                case "necessary":
+                    if !neceFlag {
+                        neceFlag = true
+                        categoryList.append("Necessary")
+                        catIndexNum = catIndexNum + 1
+                        neceIndex = catIndexNum
+                    }
+                    dayValue[neceIndex] += Double(spending.value!)!
+                    break
+                case "entertainment":
+                    if !enterFlag {
+                        enterFlag = true
+                        categoryList.append("Entertainment")
+                        catIndexNum = catIndexNum + 1
+                        enterIndex = catIndexNum
+                    }
+                    dayValue[enterIndex] += Double(spending.value!)!
+                    break
+                case "others":
+                    if !othFlag {
+                        othFlag = true
+                        categoryList.append("Others")
+                        catIndexNum = catIndexNum + 1
+                        othIndex = catIndexNum
+                    }
+                    dayValue[othIndex] += Double(spending.value!)!
+                    break
+                default:
+                    break
+                }
+            }
+        }
+        
+        var dataEntries = [ChartDataEntry]()
+        
+        
+        for i in 0..<categoryList.count {
+            let dataEntry = PieChartDataEntry(value: dayValue[i], label: categoryList[i], data: categoryList[i] as AnyObject)
             dataEntries.append(dataEntry)
         }
         
