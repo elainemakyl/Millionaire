@@ -37,21 +37,22 @@ class RankingCalc {
      }
     
     
-    
+    // This is used to calc the rating of user
     func saveRating(_ income: Double, _ spending: Double) -> Double {
        //If income/ spening < 1,  rating = income/spending
        //If income/spending > 1, rating = Sqrt(sqrt(income))/sqrt(sqrt(spending))
-        var rating: Double
-        if (spending == 0){
-            return 0
+        var rating: Double = 0.0
+        var temp:Double = spending
+        if (temp == 0){
+            temp = temp + 1
         }
-        else{
-        if (income / spending) <= 1{
-            rating = income / spending
+        else {
+        if (income / temp) <= 1{
+            rating = income / temp
         }
         else
         {
-            rating = sqrt(sqrt(income)) / sqrt(sqrt(spending))
+            rating = sqrt(sqrt(income)) / sqrt(sqrt(temp))
         }
     }
        // print(rating)

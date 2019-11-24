@@ -171,6 +171,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(animated)
         animateTable()
         
+        print(spendings)
     }
     
     // show navigation bar again on other pages
