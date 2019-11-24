@@ -19,16 +19,15 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     //  let email:[String] = ["hi@gmail.com", "you@gmail.com", "test@gmail.com", "ac@gmail.com","abc@gmail.com", "noob@gmail.com"]
     var items:[String] = []//DatabaseUtil.data.getAllUser()
     var email:[String] = []
-    var ranking:[Int] = []
+    var ranking:[String] = []
     
     @IBOutlet var table: UITableView!
-    
     
     @IBOutlet var searchBar: UISearchBar!
     
     var filterData: [String]!
     var filteremail: [String]!
-    
+    var filterranking: [String]!
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,7 +43,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
-        cell.rankLabel.text = "Rank " + String(indexPath.row + 1)
+        cell.rankLabel.text = "Rank " + filterranking[indexPath.row]
         return cell
         
     }
@@ -58,9 +57,12 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             let rankindex = table.indexPathForSelectedRow?.row
             
             destination.name = filterData[rankindex!]
-           
-            print(filterData)
+            destination.Sranking = filterranking[rankindex!]
+            print(filterData!)
             print(email)
+            
+            RankingCalc.data.saveRating(12333, 1123)
+            
         }
     }
     
@@ -68,7 +70,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterData = searchText.isEmpty ? items : items.filter({(dataString: String) -> Bool in return dataString.range(of: searchText, options: .caseInsensitive) != nil })
         //
+       
         table.reloadData()
+        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -101,17 +105,20 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DatabaseUtil.data.getAllUser(completion:{(names,emails) in
+        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking) in
                  self.items = names
                  self.email = emails
+            self.ranking = ranking
                  
              })
              self.filterData = self.items
              self.filteremail = self.email
+            self.filterranking = self.ranking
              self.table.reloadData()
              
              filterData = self.items
-             filteremail = self.email
+        //     filteremail = self.email
+       // filterranking = self.ranking
     }
     
     override func viewDidLoad() {
@@ -119,20 +126,21 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         table.dataSource = self
         searchBar.delegate = self
-       DatabaseUtil.data.getAllUser(completion:{(names,emails) in
+       DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking) in
             self.items = names
             self.email = emails
+        self.ranking = ranking
         })
         self.filterData = self.items
-        self.filteremail = self.email
+      //  self.filteremail = self.email
+      //  self.filterranking = self.ranking
         self.table.reloadData()
         
      //   let Ranking = RankingCalc(inputname: items, inputemail: email)
       //  filteruid = uid
         filterData = self.items
-        filteremail = self.email
-      
-        
+      //  filteremail = self.email
+      //  filterranking = self.ranking
         
         table.reloadData()
         
