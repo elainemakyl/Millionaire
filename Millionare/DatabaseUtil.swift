@@ -56,6 +56,54 @@ class DatabaseUtil {
      //  print(ranking)
     }
     
+    func getUserIncome(completion:@escaping (Double) -> Void)  -> Void{
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
+        let ref = Database.database().reference().child("income").child(String(userID!))
+
+        var num: Double = 0.0
+         var temp: [String] = []
+       // alluser = ["test","456","ac","999","test123","yyy"]
+     
+       ref.observe(.value, with: { (snapshot) in
+                       for child in snapshot.children {
+                           let snap = child as! DataSnapshot
+                           let placeDict = snap.value as! [String: AnyObject]
+                           let value = placeDict["value"] as! String
+                        temp.append(value)
+                       }
+        for item in temp{
+            num += Double(item)!
+        }
+        completion(num)
+       // print(num)
+                   })
+     // print(num)
+    }
     
+    func getUserSpending(completion:@escaping (Double) -> Void)  -> Void{
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
+        let ref = Database.database().reference().child("spending").child(String(userID!))
+
+        var num: Double = 0.0
+         var temp: [String] = []
+       // alluser = ["test","456","ac","999","test123","yyy"]
+     
+       ref.observe(.value, with: { (snapshot) in
+                       for child in snapshot.children {
+                           let snap = child as! DataSnapshot
+                           let placeDict = snap.value as! [String: AnyObject]
+                           let value = placeDict["value"] as! String
+                        temp.append(value)
+                       }
+        for item in temp{
+            num += Double(item)!
+        }
+        completion(num)
+       // print(num)
+                   })
+     // print(num)
+    }
     
 }

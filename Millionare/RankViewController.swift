@@ -20,6 +20,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     var items:[String] = []//DatabaseUtil.data.getAllUser()
     var email:[String] = []
     var ranking:[String] = []
+    var incomes: Double = 0.0
+    var spendings: Double = 0.0
     
     @IBOutlet var table: UITableView!
     
@@ -63,6 +65,11 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             print(filterData!)
             print(email)
              RankingCalc.data.saveRating(12333, 1123)
+            
+            // test
+            destination.Ssaving = String(incomes)
+            print(incomes)
+            print(spendings)
             
         }
     }
@@ -144,7 +151,17 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
       //  filterranking = self.ranking
         
         table.reloadData()
+     
         
+        //test
+        DatabaseUtil.data.getUserIncome(completion:{(income) in
+            self.incomes = income
+        })
+        DatabaseUtil.data.getUserSpending(completion:{(spending) in
+            self.spendings = spending
+        })
+        // get user income
+         
     }
     
     
