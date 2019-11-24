@@ -12,7 +12,7 @@ import FirebaseDatabase
 import UIKit
 import FirebaseStorage
 
-class SpendingViewController: UIViewController {
+class SpendingViewController: UIViewController, UITextFieldDelegate {
     
     var refUser: DatabaseReference!
     var storageRef: StorageReference!
@@ -78,6 +78,9 @@ class SpendingViewController: UIViewController {
         }
         addSpendingRecord()
         
+        valueText.resignFirstResponder()
+        titleText.resignFirstResponder()
+        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -126,9 +129,21 @@ class SpendingViewController: UIViewController {
         refUser.child(String(key!)).setValue(spending)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        valueText.delegate = self
+        titleText.delegate = self
     }
 
 

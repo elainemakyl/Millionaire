@@ -12,7 +12,7 @@ import FirebaseDatabase
 import UIKit
 import FirebaseStorage
 
-class IncomeViewController: UIViewController {
+class IncomeViewController: UIViewController, UITextFieldDelegate {
     
     var refUser: DatabaseReference!
     var storageRef: StorageReference!
@@ -68,6 +68,9 @@ class IncomeViewController: UIViewController {
         }
         addIncomeRecord()
         
+        valueText.resignFirstResponder()
+        titleText.resignFirstResponder()
+        
         navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)
     }
@@ -120,9 +123,21 @@ class IncomeViewController: UIViewController {
         refUser.child(String(key!)).setValue(income)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        valueText.delegate = self
+        titleText.delegate = self
     }
 
 
