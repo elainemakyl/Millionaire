@@ -49,12 +49,15 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         DispatchQueue.global(qos: .default).async{
             
             let myurl = URL(string: self.blogs[indexPath.row].usericon)
-            let data = try? Data(contentsOf: myurl!)
-            let final_img = UIImage(data:data!)
-            self.cache.setObject(final_img!, forKey: self.blogs[indexPath.row].usericon as AnyObject)
+            print(self.blogs[indexPath.row].usericon)
+            if let data = try? Data(contentsOf: myurl!){
+            let final_img = UIImage(data:data)
+                self.cache.setObject(final_img!, forKey: self.blogs[indexPath.row].usericon as AnyObject)
             DispatchQueue.main.async{
             cell.userIcon.image = final_img
+                }
             }
+            
         }
             }
             
