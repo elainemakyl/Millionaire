@@ -43,7 +43,7 @@ class DatabaseUtil {
                            let snap = child as! DataSnapshot
                            let placeDict = snap.value as! [String: AnyObject]
                            let name = placeDict["first_name"] as! String
-                        let email = placeDict["email"] as! String
+                            let email = placeDict["email"] as! String
                         alluser.append(name)
                         allemail.append(email)
                         num = num + 1

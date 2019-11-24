@@ -18,6 +18,11 @@ class DetailRankViewController: UIViewController {
     @IBOutlet var saving: UILabel!
     @IBOutlet var ranking: UILabel!
     
+    @IBAction func CrossButton(_ sender: Any) {
+     self.dismiss(animated:true, completion:nil)
+    }
+    
+    
     var name: String? = ""
     var Sranking: String? = ""
     var Sspending: String? = ""
