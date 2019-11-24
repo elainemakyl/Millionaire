@@ -125,7 +125,7 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             destination.blogContent = blogs[blogIndex].content
             destination.blogTitle = blogs[blogIndex].title
             destination.blogIcon = blogs[blogIndex].icon
-            
+            destination.cache=cache
         }
         
         

@@ -12,6 +12,7 @@ class BlogDetailViewController: UIViewController {
     var blogIcon=String()
     var blogTitle=String()
     var blogContent=String()
+    var cache=NSCache<AnyObject,AnyObject>()
     
     @IBOutlet var mTitle: UILabel!
     
@@ -26,9 +27,21 @@ class BlogDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         mTitle.text=blogTitle
         mContent.text=blogContent
-        let myurl = URL(string: blogIcon)
-        let data = try? Data(contentsOf: myurl!)
-        mIcon.image = UIImage(data:data!)
+      if let img = cache.object(forKey: blogIcon as AnyObject) as? UIImage{
+            mIcon.image = img
+            
+        }else{
+        DispatchQueue.global(qos: .default).async{
+            
+            let myurl = URL(string: self.blogIcon)
+            let data = try? Data(contentsOf: myurl!)
+            let final_img = UIImage(data:data!)
+            self.cache.setObject(final_img!, forKey: self.blogIcon as AnyObject)
+            DispatchQueue.main.async{
+                self.mIcon.image = final_img
+            }
+        }
+        }
         
     }
     
