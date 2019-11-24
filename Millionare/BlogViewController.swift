@@ -14,8 +14,7 @@ import FirebaseStorage
 
 class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    
-    
+     private let cache = NSCache<AnyObject,AnyObject>()
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,17 +24,37 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BlogTableViewCell
         
-        let myurl = URL(string: blogs[indexPath.row].icon)
-        let data = try? Data(contentsOf: myurl!)
-        cell.blogIcon.image = UIImage(data:data!)
+        if let img = cache.object(forKey: self.blogs[indexPath.row].icon as AnyObject) as? UIImage{
+            cell.blogIcon.image = img
+            
+        }else{
+        DispatchQueue.global(qos: .default).async{
+            
+            let myurl = URL(string: self.blogs[indexPath.row].icon)
+            let data = try? Data(contentsOf: myurl!)
+            let final_img = UIImage(data:data!)
+            self.cache.setObject(final_img!, forKey: self.blogs[indexPath.row].icon as AnyObject)
+            DispatchQueue.main.async{
+            cell.blogIcon.image = final_img
+            }
+        }
+        }
         cell.blogTitle.text = blogs[indexPath.row].title
         cell.username.text = blogs[indexPath.row].username
         if blogs[indexPath.row].usericon.elementsEqual("none"){}
-        else if let myurl_2 = URL(string: blogs[indexPath.row].usericon){
-        if let data_2 = try? Data(contentsOf: myurl_2){
+        else if let img = cache.object(forKey: self.blogs[indexPath.row].usericon as AnyObject) as? UIImage{
+            cell.userIcon.image = img
             
-            cell.userIcon.image = UIImage(data:data_2)
+        }else{
+        DispatchQueue.global(qos: .default).async{
             
+            let myurl = URL(string: self.blogs[indexPath.row].usericon)
+            let data = try? Data(contentsOf: myurl!)
+            let final_img = UIImage(data:data!)
+            self.cache.setObject(final_img!, forKey: self.blogs[indexPath.row].usericon as AnyObject)
+            DispatchQueue.main.async{
+            cell.userIcon.image = final_img
+            }
         }
         }
         return cell
@@ -87,7 +106,9 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
             
       blogTable.reloadData()        // Do any additional setup after loading the view.
-        }
+        
+            
+    }
         
 
         /*
@@ -110,5 +131,9 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
     }
         
-
-    }
+  
+    
+    
+    
+    
+}
