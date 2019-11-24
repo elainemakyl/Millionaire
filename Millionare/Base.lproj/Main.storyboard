@@ -11,7 +11,7 @@
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" title="MainViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9pv-A4-QxB" customClass="MainViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xM8-oo-SSN" customClass="Main">
+                    <view key="view" contentMode="scaleToFill" id="xM8-oo-SSN" userLabel="Main">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -109,6 +109,10 @@
                                                 </tableViewCellContentView>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="9pv-A4-QxB" id="fPi-rL-4KB"/>
+                                            <outlet property="delegate" destination="9pv-A4-QxB" id="Dbh-g1-i9K"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="0.0" trailing="15"/>
@@ -131,6 +135,9 @@
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="iconButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="496-xJ-X82"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llO-zT-KhK" customClass="Floaty" customModule="Floaty">
                                 <rect key="frame" x="305" y="548" width="55" height="55"/>
@@ -181,6 +188,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="pur-a7-wLa"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="UITableView" destination="lhm-mB-vz2" id="3gQ-G5-B8c"/>
+                        <outlet property="floaty" destination="llO-zT-KhK" id="eov-KQ-pbn"/>
+                        <outlet property="userButton" destination="20R-3O-Wgm" id="Ha1-Ia-ud2"/>
+                        <outlet property="usernameTextField" destination="UbP-Jg-8Uw" id="Vrk-qN-4yL"/>
                         <segue destination="eKH-1e-Xbs" kind="modal" identifier="mainToLogin" modalPresentationStyle="fullScreen" id="us6-xZ-7Oo"/>
                         <segue destination="Shu-AG-a7p" kind="show" identifier="MainToSpending" id="FkT-2d-vbL"/>
                         <segue destination="pOW-uK-5KL" kind="show" identifier="MainToIncome" id="6RD-vR-QYW"/>
@@ -307,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="2377" y="-323"/>
         </scene>
-        <!--Spending View Controller-->
+        <!--Spending-->
         <scene sceneID="vo0-WO-vDn">
             <objects>
-                <viewController id="Shu-AG-a7p" customClass="SpendingViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Spending" id="Shu-AG-a7p" customClass="SpendingViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5w0-Ne-yab">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1245,10 +1256,10 @@
             </objects>
             <point key="canvasLocation" x="3077.5999999999999" y="1124.8875562218891"/>
         </scene>
-        <!--Income View Controller-->
+        <!--Income-->
         <scene sceneID="NQk-eJ-drF">
             <objects>
-                <viewController id="pOW-uK-5KL" customClass="IncomeViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Income" id="pOW-uK-5KL" customClass="IncomeViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGX-Kd-YRT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
