@@ -42,10 +42,10 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.blogTitle.text = blogs[indexPath.row].title
         cell.username.text = blogs[indexPath.row].username
         if blogs[indexPath.row].usericon.elementsEqual("none"){}
-        else if let img = cache.object(forKey: self.blogs[indexPath.row].usericon as AnyObject) as? UIImage{
+        else {
+            if let img = cache.object(forKey: self.blogs[indexPath.row].usericon as AnyObject) as? UIImage{
             cell.userIcon.image = img
-            
-        }else{
+            }else{
         DispatchQueue.global(qos: .default).async{
             
             let myurl = URL(string: self.blogs[indexPath.row].usericon)
@@ -56,6 +56,8 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             cell.userIcon.image = final_img
             }
         }
+            }
+            
         }
         return cell
     }
