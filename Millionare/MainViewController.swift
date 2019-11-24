@@ -184,6 +184,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.isTranslucent = true
         super.viewWillDisappear(animated)
         refUsers = Database.database().reference().child("user");
+        saveUserData()
         // Do any additional setup after loading the view.
         /*
         
