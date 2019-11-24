@@ -31,7 +31,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let signout = UIAlertAction(title: "Sign Out", style: .default, handler: {(alert: UIAlertAction!) -> Void in
             //logout
             try! Auth.auth().signOut()
-//            self.performSegue(withIdentifier: "mainToLogin", sender: nil)
+            self.performSegue(withIdentifier: "mainToLogin", sender: nil)
             
         })
         let cancel = UIAlertAction(title:"Cancel", style: .cancel)
@@ -73,15 +73,15 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         refUsers.child(userID!).observe(.value, with: { (snapshot) in
             // check if user has photo
             if snapshot.hasChild("userPhoto"){
-                // set image locatin
-//                let filePath = "\(userID!)/\("userPhoto")"
-//                // Assuming a < 10MB file, though you can change that
-//                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
-//
-//                    let userPhoto = UIImage(data: data!)
-//                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
-//                    UserDefaults.standard.set(data, forKey: "icon")
-//                })
+//                 set image locatin
+                let filePath = "\(userID!)/\("userPhoto")"
+                // Assuming a < 10MB file, though you can change that
+                self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
+
+                    let userPhoto = UIImage(data: data!)
+                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
+                    UserDefaults.standard.set(data, forKey: "icon")
+                })
             } else {
                 //Offline -> load from local
                 if let iconData = UserDefaults.standard.object(forKey: "icon")  {
