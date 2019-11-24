@@ -67,8 +67,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
              RankingCalc.data.saveRating(12333, 1123)
             
             // test
-            destination.Ssaving = String(incomes)
-            destination.Sspending = String(spendings)
+           // destination.Ssaving = String(incomes)
+           // destination.Sspending = String(spendings)
             print(incomes)
             print(spendings)
             

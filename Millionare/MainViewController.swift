@@ -17,6 +17,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var refUsers: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
+    var incomes: Double = 0.0
+    var spendings: Double = 0.0
+    var ratings: Double = 0.0
+    var issave = false
     
     @IBOutlet var userButton: UIButton!
     @IBOutlet weak var floaty: Floaty!
@@ -59,6 +63,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         return cell
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         storage = Storage.storage()
@@ -92,6 +97,16 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         })
         
+        //by leo
+        DatabaseUtil.data.getUserIncome(completion:{(income) in
+            self.incomes = income
+        })
+        DatabaseUtil.data.getUserSpending(completion:{(spending) in
+            self.spendings = spending
+        })
+      
+         //by leo
+        
         // Floating Action Button
         floaty.addItem(title: "Add Spending Record", handler: {_ in
             self.performSegue(withIdentifier: "MainToSpending", sender: self)
@@ -100,6 +115,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.performSegue(withIdentifier: "MainToIncome", sender: self)
         })
         self.view.addSubview(floaty)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -154,6 +170,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
         super.viewWillAppear(animated)
         animateTable()
+        
     }
     
     // show navigation bar again on other pages
@@ -163,6 +180,23 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         super.viewWillDisappear(animated)
+        refUsers = Database.database().reference().child("user");
+        // Do any additional setup after loading the view.
+        let user = Auth.auth().currentUser
+        //let userid = user?.uid
+        if (issave == false){
+        // calc the rating for current user
+        ratings = RankingCalc.data.saveRating(incomes, spendings)
+        print(ratings)
+            issave = true
+            let userid = Auth.auth().currentUser?.uid
+            //getting the input values from user
+             self.refUsers.child(userid!).child("spending").setValue(spendings)
+                self.refUsers.child(userid!).child("income").setValue(incomes)
+            self.refUsers.child(userid!).child("rating").setValue(ratings)
+            
+        }
+        
     }
 }
 

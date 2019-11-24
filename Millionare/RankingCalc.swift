@@ -38,10 +38,14 @@ class RankingCalc {
     
     
     
-    func saveRating(_ income: Double, _ spending: Double) -> Void {
+    func saveRating(_ income: Double, _ spending: Double) -> Double {
        //If income/ spening < 1,  rating = income/spending
        //If income/spending > 1, rating = Sqrt(sqrt(income))/sqrt(sqrt(spending))
         var rating: Double
+        if (spending == 0){
+            return 0
+        }
+        else{
         if (income / spending) <= 1{
             rating = income / spending
         }
@@ -49,8 +53,10 @@ class RankingCalc {
         {
             rating = sqrt(sqrt(income)) / sqrt(sqrt(spending))
         }
-        
-        print(rating)
+    }
+       // print(rating)
+        rating = (round(100*rating)/100)
+        return  rating
     }
     
 
