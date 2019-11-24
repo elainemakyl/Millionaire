@@ -142,8 +142,8 @@ class SettingsViewController: UIViewController {
         AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
         AttachmentHandler.shared.imagePickedBlock = { (raw_image) in
          
-            let image = self.cropImageToSquare(image: raw_image)
-            
+            var image = self.cropImageToSquare(image: raw_image)
+            image = self.fixOrientation(image!)
             
             //set icon
             self.iconButton.setBackgroundImage(image, for: .normal)
@@ -293,5 +293,19 @@ class SettingsViewController: UIViewController {
         }
 
         return nil
+    }
+    func fixOrientation(_ img: UIImage) -> UIImage {
+        if (img.imageOrientation == .up) {
+            return img
+        }
+
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return normalizedImage
     }
 }
