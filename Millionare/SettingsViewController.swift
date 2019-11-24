@@ -140,23 +140,27 @@ class SettingsViewController: UIViewController {
     
     @IBAction func changeIconButton(_ sender: Any) {
         AttachmentHandler.shared.showAttachmentActionSheet(vc: self)
-        AttachmentHandler.shared.imagePickedBlock = { (image) in
+        AttachmentHandler.shared.imagePickedBlock = { (raw_image) in
+         
+            let image = self.cropImageToSquare(image: raw_image)
+            
             
             //set icon
             self.iconButton.setBackgroundImage(image, for: .normal)
             
             //update icon in local
-            let iconData:NSData = image.pngData()! as NSData
+            let iconData:NSData = image!.pngData()! as NSData
             UserDefaults.standard.set(iconData, forKey: "icon")
             
             
             //upload image to storage
             var data = Data()
-            data = image.jpegData(compressionQuality: 0.6)!
+            data = image!.jpegData(compressionQuality: 0.6)!
             // set upload path
             let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpg"
+            
             self.storageRef.child(filePath).putData(data, metadata: metaData){(metaData,error) in
                 if let error = error {
                     print(error.localizedDescription)
@@ -263,5 +267,31 @@ class SettingsViewController: UIViewController {
      }
      */
     
-    
+    //crop image
+    func cropImageToSquare(image: UIImage) -> UIImage? {
+        var imageHeight = image.size.height
+        var imageWidth = image.size.width
+
+        if imageHeight > imageWidth {
+            imageHeight = imageWidth
+        }
+        else {
+            imageWidth = imageHeight
+        }
+
+        let size = CGSize(width: imageWidth, height: imageHeight)
+
+        let refWidth : CGFloat = CGFloat(image.cgImage!.width)
+        let refHeight : CGFloat = CGFloat(image.cgImage!.height)
+
+        let x = (refWidth - size.width) / 2
+        let y = (refHeight - size.height) / 2
+
+        let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
+        if let imageRef = image.cgImage!.cropping(to: cropRect) {
+            return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
+        }
+
+        return nil
+    }
 }
