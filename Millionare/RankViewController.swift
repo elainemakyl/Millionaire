@@ -68,6 +68,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             // test
             destination.Ssaving = String(incomes)
+            destination.Sspending = String(spendings)
             print(incomes)
             print(spendings)
             

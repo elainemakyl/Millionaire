@@ -40,10 +40,10 @@ class DetailRankViewController: UIViewController {
         saving.text = Ssaving
         
         
-        let data = DatabaseUtil.data.getData()
+       // let data = DatabaseUtil.data.getData()
         
        // ranking.text = DatabaseUtil.data.getName()
-        spending.text = data[0]
+       // spending.text = data[0]
        
     }
     
