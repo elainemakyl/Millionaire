@@ -38,7 +38,7 @@ class DatabaseUtil {
         var num = 0
        // alluser = ["test","456","ac","999","test123","yyy"]
      
-       refUsers.observe(.value, with: { (snapshot) in
+        refUsers.queryOrdered(byChild: "rating").observe(.value, with: { (snapshot) in
                        for child in snapshot.children {
                            let snap = child as! DataSnapshot
                            let placeDict = snap.value as! [String: AnyObject]
@@ -49,7 +49,7 @@ class DatabaseUtil {
                         num = num + 1
                         ranking.append(String(num))
                        }
-        completion(alluser,allemail,ranking)
+            completion(alluser.reversed(),allemail.reversed(),ranking)
        // print(ranking)
                    })
                 
