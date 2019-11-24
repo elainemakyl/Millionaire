@@ -52,8 +52,8 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         var storageRef: StorageReference!
            
         var storage: Storage!
-        
-         var refUsers: DatabaseReference!
+    
+        var refUsers: DatabaseReference!
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -99,7 +99,16 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             // Pass the selected object to the new view controller.
         }
         */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "blogSegue",let destination = segue.destination as? BlogDetailViewController, let blogIndex = blogTable.indexPathForSelectedRow?.row{
+            destination.blogContent = blogs[blogIndex].content
+            destination.blogTitle = blogs[blogIndex].title
+            destination.blogIcon = blogs[blogIndex].icon
+            
+        }
         
+        
+    }
         
 
     }

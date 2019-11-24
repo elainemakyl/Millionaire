@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eKH-1e-Xbs">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -392,7 +392,7 @@
                                                                 <fragment content="Entertainment">
                                                                     <attributes>
                                                                         <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <font key="NSFont" metaFont="label" size="13"/>
+                                                                        <font key="NSFont" metaFont="system"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -827,7 +827,7 @@
                                                     <outlet property="blogTitle" destination="0RE-sm-4Ga" id="SI1-gA-xG3"/>
                                                     <outlet property="userIcon" destination="eRt-h2-UNh" id="5lF-6t-uNZ"/>
                                                     <outlet property="username" destination="fFV-V2-Pw5" id="edO-a4-YpK"/>
-                                                    <segue destination="f1l-WX-cvr" kind="show" id="guJ-OP-Hve"/>
+                                                    <segue destination="f1l-WX-cvr" kind="show" identifier="blogSegue" id="guJ-OP-Hve"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1096,7 +1096,7 @@
                                             <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="Exit:" destination="olo-tm-atK" eventType="touchUpInside" id="UsR-3N-7i7"/>
+                                            <action selector="exitBtn:" destination="f1l-WX-cvr" eventType="touchUpInside" id="Jnh-tY-PiE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1123,7 +1123,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-p0-aF9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7eh-p0-aF9">
                                         <rect key="frame" x="102.5" y="31" width="170" height="170"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="170" id="zza-oj-n2t"/>
@@ -1156,6 +1156,11 @@
                         <viewLayoutGuide key="safeArea" id="RgF-B9-wDH"/>
                     </view>
                     <navigationItem key="navigationItem" id="bel-mw-Tbf"/>
+                    <connections>
+                        <outlet property="mContent" destination="buA-jG-6Xb" id="tQA-Qh-TjX"/>
+                        <outlet property="mIcon" destination="7eh-p0-aF9" id="bCo-Y0-5cd"/>
+                        <outlet property="mTitle" destination="YcZ-eh-UIy" id="ZRB-Sa-fzF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8f9-Ug-Gcd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1312,7 +1317,7 @@
                                                                         <fragment content="Investment">
                                                                             <attributes>
                                                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                                <font key="NSFont" metaFont="label" size="13"/>
+                                                                                <font key="NSFont" metaFont="system"/>
                                                                                 <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                             </attributes>
                                                                         </fragment>
