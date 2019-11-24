@@ -25,6 +25,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet var searchBar: UISearchBar!
     
+   
+    
     var filterData: [String]!
     var filteremail: [String]!
     var filterranking: [String]!
@@ -60,8 +62,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             destination.Sranking = filterranking[rankindex!]
             print(filterData!)
             print(email)
-            
-            RankingCalc.data.saveRating(12333, 1123)
+             RankingCalc.data.saveRating(12333, 1123)
             
         }
     }

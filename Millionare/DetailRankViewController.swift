@@ -23,10 +23,10 @@ class DetailRankViewController: UIViewController {
     }
     
     
-    var name: String? = ""
-    var Sranking: String? = ""
-    var Sspending: String? = ""
-    var Ssaving: String? = ""
+    var name: String? = "-----"
+    var Sranking: String? = "-----"
+    var Sspending: String? = "-----"
+    var Ssaving: String? = "-----"
     
     
     override func viewDidLoad() {
