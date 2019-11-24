@@ -67,6 +67,9 @@ class IncomeViewController: UIViewController {
             year = String(yearGet)
         }
         addIncomeRecord()
+        
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: AnyObject){

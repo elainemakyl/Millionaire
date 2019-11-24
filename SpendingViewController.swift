@@ -77,6 +77,9 @@ class SpendingViewController: UIViewController {
             year = String(yearGet)
         }
         addSpendingRecord()
+        
+        navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     func showAlert(){
