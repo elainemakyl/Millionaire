@@ -34,6 +34,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         let signout = UIAlertAction(title: "Sign Out", style: .default, handler: {(alert: UIAlertAction!) -> Void in
             //logout
+            self.saveUserData()
             try! Auth.auth().signOut()
             self.performSegue(withIdentifier: "mainToLogin", sender: nil)
             
@@ -183,6 +184,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillDisappear(animated)
         refUsers = Database.database().reference().child("user");
         // Do any additional setup after loading the view.
+        /*
+        
         let user = Auth.auth().currentUser
         //let userid = user?.uid
         if (issave == false){
@@ -197,7 +200,27 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.refUsers.child(userid!).child("rating").setValue(ratings)
             
         }
+         */
         
+    }
+    
+    func saveUserData(){
+        refUsers = Database.database().reference().child("user");
+        // Do any additional setup after loading the view.
+        //let user = Auth.auth().currentUser
+        //let userid = user?.uid
+        if (issave == false){
+        // calc the rating for current user
+        ratings = RankingCalc.data.saveRating(incomes, spendings)
+        print(ratings)
+            issave = true
+            let userid = Auth.auth().currentUser?.uid
+            //getting the input values from user
+             self.refUsers.child(userid!).child("spending").setValue(spendings)
+                self.refUsers.child(userid!).child("income").setValue(incomes)
+            self.refUsers.child(userid!).child("rating").setValue(ratings)
+            
+        }
     }
 }
 
