@@ -8,23 +8,50 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class RankingCalc {
-
-    var name: [String]
-    var email: [String]
-    var Rating: Double
-    var Ranking: String
-
-    init(inputname: [String], inputemail: [String]){
-        name = inputname
-        email = inputemail
-        Rating = 1.0
-        Ranking = "1"
-}
     
-    func getRanking() ->String {
-        return Ranking
-}
+    static let data = RankingCalc()
+    var refUsers :  DatabaseReference!
+    //var name: [String]
+    //var email: [String]
+    //var Rating: Double
+    //var Ranking: String
+    // var allusers: [String]
+     private init() {
+        let user = Auth.auth().currentUser
+        let userID = user?.uid
+        refUsers = Database.database().reference().child("user")
+     }
+     
+     
+     //remove later
+      func getData() -> [String]{
+         return ["test"]
+     }
+    
+      func getName() -> String {
+         print("get name method")
+         return "eeeeeeee"
+     }
+    
+    
+    
+    func saveRating(_ income: Double, _ spending: Double) -> Void {
+       //If income/ spening < 1,  rating = income/spending
+       //If income/spending > 1, rating = Sqrt(sqrt(income))/sqrt(sqrt(spending))
+        var rating: Double
+        if (income / spending) <= 1{
+            rating = income / spending
+        }
+        else
+        {
+            rating = sqrt(sqrt(income)) / sqrt(sqrt(spending))
+        }
+        
+        print(rating)
+    }
+    
 
 }
