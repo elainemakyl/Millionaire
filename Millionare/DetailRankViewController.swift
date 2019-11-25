@@ -34,17 +34,11 @@ class DetailRankViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //return the name of selected row
         nameLabel.text = name
         ranking.text = Sranking
         spending.text = Sspending
         saving.text = Ssaving
         rating.text = Srating
-        
-       // let data = DatabaseUtil.data.getData()
-        
-       // ranking.text = DatabaseUtil.data.getName()
-       // spending.text = data[0]
        
     }
     
