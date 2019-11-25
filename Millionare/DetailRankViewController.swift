@@ -27,6 +27,7 @@ class DetailRankViewController: UIViewController {
     var Sranking: String? = "-----"
     var Sspending: String? = "-----"
     var Ssaving: String? = "-----"
+    var Srating: String? = "-----"
     
     
     override func viewDidLoad() {
@@ -38,7 +39,7 @@ class DetailRankViewController: UIViewController {
         ranking.text = Sranking
         spending.text = Sspending
         saving.text = Ssaving
-        
+        rating.text = Srating
         
        // let data = DatabaseUtil.data.getData()
         

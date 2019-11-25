@@ -20,8 +20,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     var items:[String] = []//DatabaseUtil.data.getAllUser()
     var email:[String] = []
     var ranking:[String] = []
-    var incomes: Double = 0.0
-    var spendings: Double = 0.0
+    var incomes: [String] = []
+    var spendings: [String] = []
+    var rating: [String] = []
     
     @IBOutlet var table: UITableView!
     
@@ -67,8 +68,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
              RankingCalc.data.saveRating(12333, 1123)
             
             // test
-           // destination.Ssaving = String(incomes)
-           // destination.Sspending = String(spendings)
+            destination.Ssaving = incomes[rankindex!]
+            destination.Sspending = spendings[rankindex!]
+            destination.Srating = rating[rankindex!]
             print(incomes)
             print(spendings)
             
@@ -114,10 +116,13 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking) in
+        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating) in
                  self.items = names
                  self.email = emails
             self.ranking = ranking
+            self.incomes = income
+            self.spendings = spending
+            self.rating = rating
                  
              })
              self.filterData = self.items
@@ -135,10 +140,13 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Do any additional setup after loading the view.
         table.dataSource = self
         searchBar.delegate = self
-       DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking) in
+       DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating) in
             self.items = names
             self.email = emails
         self.ranking = ranking
+        self.incomes = income
+        self.spendings = spending
+        self.rating = rating
         })
         self.filterData = self.items
       //  self.filteremail = self.email
@@ -153,16 +161,14 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         table.reloadData()
      
-        
-        //test
-        DatabaseUtil.data.getUserIncome(completion:{(income) in
+       /* DatabaseUtil.data.getUserIncome(completion:{(income) in
             self.incomes = income
         })
         DatabaseUtil.data.getUserSpending(completion:{(spending) in
             self.spendings = spending
         })
         // get user income
-         
+         */
     }
     
     

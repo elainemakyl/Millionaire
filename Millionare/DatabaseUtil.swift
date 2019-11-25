@@ -31,10 +31,13 @@ class DatabaseUtil {
     }
     
     //to return alluser in db
-     func getAllUser(completion:@escaping (Array<String>, Array<String>, Array<String>) -> Void)  -> Void{
+     func getAllUser(completion:@escaping (Array<String>, Array<String>, Array<String>, Array<String>, Array<String>, Array<String>) -> Void)  -> Void{
         var alluser: [String] = []
         var allemail: [String] = []
         var ranking: [String] = []
+        var allincome: [String] = []
+        var allspending: [String] = []
+        var allrating: [String] = []
         var num = 0
        // alluser = ["test","456","ac","999","test123","yyy"]
      
@@ -44,15 +47,20 @@ class DatabaseUtil {
                            let placeDict = snap.value as! [String: AnyObject]
                            let name = placeDict["first_name"] as! String
                             let email = placeDict["email"] as! String
+                        let income = placeDict["income"] as! Double
+                        let spending = placeDict["spending"] as! Double
+                        let rating = placeDict["rating"] as! Double
                         alluser.append(name)
                         allemail.append(email)
+                        allincome.append(String(income))
+                        allspending.append(String(spending))
+                        allrating.append(String(rating))
                         num = num + 1
                         ranking.append(String(num))
                        }
-            completion(alluser.reversed(),allemail.reversed(),ranking)
+            completion(alluser.reversed(),allemail.reversed(),ranking, allincome.reversed(), allspending.reversed(), allrating.reversed())
        // print(ranking)
                    })
-                
      //  print(ranking)
     }
     
