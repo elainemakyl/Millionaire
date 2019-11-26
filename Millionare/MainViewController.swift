@@ -99,9 +99,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // Assuming a < 10MB file, though you can change that
                 self.storageRef.child(filePath).getData(maxSize: 10*1024*1024, completion: { (data, error) in
 
-//                    let userPhoto = UIImage(data: data!)
-//                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
-//                    UserDefaults.standard.set(data, forKey: "icon")
+                    let userPhoto = UIImage(data: data!)
+                    self.userButton.setBackgroundImage(userPhoto, for: .normal)
+                    UserDefaults.standard.set(data, forKey: "icon")
                 })
             } else {
                 //Offline -> load from local
@@ -324,5 +324,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
     }
+    
 }
 
