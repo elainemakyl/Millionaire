@@ -46,27 +46,32 @@ class IncomeViewController: UIViewController, UITextFieldDelegate {
     var titleOp: String = ""
     var id = 0
     var value:Double = 0.0
+    var categoryFlag = false
     
     @IBAction func save(_ sender:AnyObject){
         if let tmp = Double(valueText.text!) {              //value input is a value
-            if titleText.text == ""{                        //have no title
-                titleOp = "nil"
-            } else {
-                titleOp = titleText.text!                   //have title
+            if categoryFlag{
+                if titleText.text == ""{                        //have no title
+                    titleOp = "nil"
+                } else {
+                    titleOp = titleText.text!                   //have title
+                }
+                value = tmp
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.day,.month,.year], from: date.date)
+                if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
+                    day = String(dayGet)
+                    month = String(monthGet)
+                    year = String(yearGet)
+                }
+                addIncomeRecord()
+            }                                                //update database
+            else {
+                showAlert()
             }
-            value = tmp
-                                                            //update database
         } else {
             showAlert()                                     //value input is not value
         }
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day,.month,.year], from: date.date)
-        if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
-            day = String(dayGet)
-            month = String(monthGet)
-            year = String(yearGet)
-        }
-        addIncomeRecord()
         
         valueText.resignFirstResponder()
         titleText.resignFirstResponder()
@@ -85,11 +90,12 @@ class IncomeViewController: UIViewController, UITextFieldDelegate {
     }
     
     func categoryInput(input: String){
+        categoryFlag = true
         category = input
     }
     
     func showAlert(){
-        let alert = UIAlertController(title: "Data Validation Error", message: "There was an error.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Data Validation Error", message: "There was an error of not proper input or no category chose.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
         present(alert, animated: true, completion: nil)
     }

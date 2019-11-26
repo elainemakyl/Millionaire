@@ -30,6 +30,7 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     var id = 0
     var value:Double = 0.0
     var count = 0
+    var categoryFlag = false
     
     @IBOutlet var buttonSelected: [UIButton]!
     
@@ -49,34 +50,33 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     @IBAction func others(_ sender:AnyObject) {categoryInput(input: "others")}
     
     func categoryInput(input: String){
+        categoryFlag = true
         category = input
     }
     
     @IBAction func save(_ sender:AnyObject){
-        if let tmp = Double(valueText.text!) {            //value input is a value
-            if category != "" {
+        if let tmp = Double(valueText.text!) {              //value input is a value
+            if categoryFlag{
                 if titleText.text == ""{                    //have no title
                     titleOp = "nil"
                 } else {
                     titleOp = titleText.text!               //have title
                 }
                 value = tmp
-                                                            //update to database
-                
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.day,.month,.year], from: date.date)
+                if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
+                    day = String(dayGet)
+                    month = String(monthGet)
+                    year = String(yearGet)
+                }
+                addSpendingRecord()                         //update to database
             } else {                                        //no category input
                 showAlert()
             }
         } else {                                            //value input is not value
             showAlert()
         }
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day,.month,.year], from: date.date)
-        if let dayGet = components.day, let monthGet = components.month, let yearGet = components.year {
-            day = String(dayGet)
-            month = String(monthGet)
-            year = String(yearGet)
-        }
-        addSpendingRecord()
         
         valueText.resignFirstResponder()
         titleText.resignFirstResponder()
@@ -86,9 +86,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     }
     
     func showAlert(){
-        let alert = UIAlertController(title: "Data Validation Error", message: "There was an error.", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
-        present(alert, animated: true, completion: nil)
+        let alert = UIAlertController(title: "Data Validation Error", message: "There was an error of not proper input or no category chose.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func cancel(_ sender: AnyObject){

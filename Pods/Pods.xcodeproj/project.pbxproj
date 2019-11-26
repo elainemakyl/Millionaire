@@ -10616,6 +10616,23 @@
 			};
 			name = Release;
 		};
+		2DA0028CA0ACB27AB5E7E762EF6726E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB66E09CF1ADD2796BB88415E5363BC3 /* FirebaseUI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
+				IBSC_MODULE = FirebaseUI;
+				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = FirebaseAuthUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		321E97CFA397F87E7AC0235B5B1F26AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 576507CEE281F552D345D6E3CAA25F9A /* GoogleAppMeasurement.xcconfig */;
@@ -11708,6 +11725,23 @@
 			};
 			name = Release;
 		};
+		C62D6B31C3300F24035A7F33AF142AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB66E09CF1ADD2796BB88415E5363BC3 /* FirebaseUI.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
+				IBSC_MODULE = FirebaseUI;
+				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = FirebaseAuthUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		CB5921A2836E651B3295C786DE64EB19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 849D81B687F96C78EBEB487C61CF6DC7 /* FirebaseInstanceID.xcconfig */;
@@ -11933,22 +11967,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E3F80CFD93E60221FB9A0B28C81DAAF4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB66E09CF1ADD2796BB88415E5363BC3 /* FirebaseUI.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
-				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = FirebaseAuthUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -12268,22 +12286,6 @@
 			};
 			name = Release;
 		};
-		FB8E03035B704D66F03492B65DA3AB91 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB66E09CF1ADD2796BB88415E5363BC3 /* FirebaseUI.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FirebaseUI";
-				INFOPLIST_FILE = "Target Support Files/FirebaseUI/ResourceBundle-FirebaseAuthUI-FirebaseUI-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				PRODUCT_NAME = FirebaseAuthUI;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		FC048DA2FFE8B66CF650FCE761372B85 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 519061AC6C008BACA593AA590B33B1E4 /* GoogleDataTransport.xcconfig */;
@@ -12568,8 +12570,8 @@
 		BFE62588E159371E5D0C9AC2CEBF42FF /* Build configuration list for PBXNativeTarget "FirebaseUI-FirebaseAuthUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FB8E03035B704D66F03492B65DA3AB91 /* Debug */,
-				E3F80CFD93E60221FB9A0B28C81DAAF4 /* Release */,
+				2DA0028CA0ACB27AB5E7E762EF6726E6 /* Debug */,
+				C62D6B31C3300F24035A7F33AF142AB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

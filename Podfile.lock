@@ -155,7 +155,7 @@ DEPENDENCIES:
   - Hero
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AppAuth
     - Charts
     - FacebookCore
@@ -221,4 +221,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 945000a566595fbe4312d33bf2417967ba05e00d
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
