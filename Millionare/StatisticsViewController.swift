@@ -333,10 +333,10 @@ class StatisticsViewController: UIViewController {
                     }
                     monthValue[clothIndex] += Double(spending.value!)!
                     break
-                case "traffics":
+                case "traffic":
                     if !trafFlag {
                         trafFlag = true
-                        categoryList.append("Traffics")
+                        categoryList.append("Traffic")
                         catIndexNum = catIndexNum + 1
                         trafIndex = catIndexNum
                     }
@@ -469,10 +469,10 @@ class StatisticsViewController: UIViewController {
                         }
                         weekValue[clothIndex] += Double(spending.value!)!
                         break
-                    case "traffics":
+                    case "traffic":
                         if !trafFlag {
                             trafFlag = true
-                            categoryList.append("Traffics")
+                            categoryList.append("Traffic")
                             catIndexNum = catIndexNum + 1
                             trafIndex = catIndexNum
                         }
@@ -590,10 +590,10 @@ class StatisticsViewController: UIViewController {
                     }
                     dayValue[clothIndex] += Double(spending.value!)!
                     break
-                case "traffics":
+                case "traffic":
                     if !trafFlag {
                         trafFlag = true
-                        categoryList.append("Traffics")
+                        categoryList.append("Traffic")
                         catIndexNum = catIndexNum + 1
                         trafIndex = catIndexNum
                     }

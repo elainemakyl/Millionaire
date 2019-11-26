@@ -44,7 +44,7 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func food(_ sender:AnyObject) {categoryInput(input: "food")}
     @IBAction func cloth(_ sender:AnyObject) {categoryInput(input: "cloth")}
-    @IBAction func trafics(_ sender:AnyObject) {categoryInput(input: "traffics")}
+    @IBAction func trafics(_ sender:AnyObject) {categoryInput(input: "traffic")}
     @IBAction func necessary(_ sender:AnyObject) {categoryInput(input: "necessary")}
     @IBAction func entertainment(_ sender:AnyObject) {categoryInput(input: "entertainment")}
     @IBAction func others(_ sender:AnyObject) {categoryInput(input: "others")}
