@@ -46,7 +46,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
-        cell.rankLabel.text = "Rank " + filterranking[indexPath.row]
+        cell.rankLabel.text = filterranking[indexPath.row]
         return cell
         
     }
