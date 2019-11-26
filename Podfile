@@ -23,5 +23,6 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'Floaty'
+pod 'Hero'
 
 end
