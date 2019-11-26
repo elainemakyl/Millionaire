@@ -11,11 +11,13 @@ import FirebaseAuth
 import FirebaseDatabase
 import UIKit
 import FirebaseStorage
+import Floaty
 
 class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     private let cache = NSCache<AnyObject,AnyObject>()
     
+    @IBOutlet weak var floaty: Floaty!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return blogs.count
@@ -119,6 +121,12 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             self.blogTable.reloadData()
         }
         
+        // Floating Action Button
+        floaty.addItem(title: "Add New Blog", handler: {_ in
+            self.performSegue(withIdentifier: "addNewBlog", sender: self)
+        })
+        self.view.addSubview(floaty)
+        
         blogTable.reloadData()        // Do any additional setup after loading the view.
         
         
@@ -141,8 +149,6 @@ class BlogViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             destination.blogIcon = blogs[blogIndex].icon
             destination.cache=cache
         }
-        
-        
     }
     
     func displayErrorMessage (title: String = "Error", message: String) {
