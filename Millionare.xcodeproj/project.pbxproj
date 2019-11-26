@@ -32,6 +32,7 @@
 		57CAA1A5427CC82A0154F9ED /* Pods_Millionare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35A9311AA2F5AED7C7C19CA3 /* Pods_Millionare.framework */; };
 		6F50712D237C0A8200726F84 /* AddBlogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F50712C237C0A8200726F84 /* AddBlogViewController.swift */; };
 		6F53FFE3237D054A006D03D8 /* BlogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F53FFE2237D054A006D03D8 /* BlogDetailViewController.swift */; };
+		6F54FDEF238D171F00A10193 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F54FDEE238D171F00A10193 /* MainTableViewCell.swift */; };
 		6F57B86D237ED5F700A8C610 /* Blog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F57B86C237ED5F700A8C610 /* Blog.swift */; };
 		6FEE0632237C770C0082B690 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FEE0631237C770C0082B690 /* BlogTableViewCell.swift */; };
 		EA03826F237BF20C00EA2FED /* RankingCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA03826E237BF20C00EA2FED /* RankingCalc.swift */; };
@@ -70,6 +71,7 @@
 		5F1A92396FF0C0BBE05C8999 /* Pods-Millionare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Millionare.release.xcconfig"; path = "Target Support Files/Pods-Millionare/Pods-Millionare.release.xcconfig"; sourceTree = "<group>"; };
 		6F50712C237C0A8200726F84 /* AddBlogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlogViewController.swift; sourceTree = "<group>"; };
 		6F53FFE2237D054A006D03D8 /* BlogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogDetailViewController.swift; sourceTree = "<group>"; };
+		6F54FDEE238D171F00A10193 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		6F57B86C237ED5F700A8C610 /* Blog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blog.swift; sourceTree = "<group>"; };
 		6FEE0631237C770C0082B690 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewCell.swift; sourceTree = "<group>"; };
 		EA03826E237BF20C00EA2FED /* RankingCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingCalc.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				26B971CD23740C11002E1E55 /* FirebaseAuthManager.swift */,
 				26B971CF23740D08002E1E55 /* SignupViewController.swift */,
 				26B971B523715C02002E1E55 /* Main.storyboard */,
+				6F54FDEE238D171F00A10193 /* MainTableViewCell.swift */,
 				6F53FFE2237D054A006D03D8 /* BlogDetailViewController.swift */,
 				6FEE0631237C770C0082B690 /* BlogTableViewCell.swift */,
 				EA038272237C2D4A00EA2FED /* DatabaseUtil.swift */,
@@ -298,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F54FDEF238D171F00A10193 /* MainTableViewCell.swift in Sources */,
 				4056EB33237C4EF50032E2BC /* SpendingModel.swift in Sources */,
 				26C6BEBB237B2141004DF6B0 /* RoundButton.swift in Sources */,
 				6F57B86D237ED5F700A8C610 /* Blog.swift in Sources */,

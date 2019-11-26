@@ -65,8 +65,18 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        cell.textLabel?.text = "\(record[indexPath.row].day!)-\(record[indexPath.row].month!)-\(record[indexPath.row].year!)   \(record[indexPath.row].category!)   \(record[indexPath.row].value!)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath) as! MainTableViewCell
+      
+        cell.date.text = "\(record[indexPath.row].day!)-\(record[indexPath.row].month!)-\(record[indexPath.row].year!)"
+        cell.categoryName.text = record[indexPath.row].category
+        cell.value.text = record[indexPath.row].value
+        if let img = UIImage(named:"spending-\(record[indexPath.row].category!)"){
+            cell.categoryImage.image = img
+        }
+        if let img = UIImage(named:"income-\(record[indexPath.row].category!)"){
+            cell.categoryImage.image = img
+        }
+        
         return cell
     }
     
