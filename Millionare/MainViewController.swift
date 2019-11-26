@@ -14,6 +14,8 @@ import Floaty
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var refSpending: DatabaseReference!
+    var refIncome: DatabaseReference!
     var refUsers: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
@@ -22,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var ratings: Double = 0.0
     var issave = false
     var canSave = true
+    var record:[SpendingModel]=[]
     
     @IBOutlet var spendingLabel: UILabel!
     @IBOutlet var incomeLabel: UILabel!
@@ -58,12 +61,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return hardCode.count
+        return record.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath as IndexPath)
-        cell.textLabel?.text = hardCode[indexPath.row]
+        cell.textLabel?.text = "\(record[indexPath.row].day!)-\(record[indexPath.row].month!)-\(record[indexPath.row].year!)   \(record[indexPath.row].category!)   \(record[indexPath.row].value!)"
         return cell
     }
     
@@ -120,6 +123,95 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.performSegue(withIdentifier: "MainToIncome", sender: self)
         })
         self.view.addSubview(floaty)
+      
+        refIncome = Database.database().reference().child("income").child(userID!)
+        var temp_income:[SpendingModel] = []
+        refIncome.observe(.value)
+        {   (DataSnapshot) in
+            for child in DataSnapshot.children{
+                let snap = child as! DataSnapshot
+                let placeDict = snap.value as! [String: AnyObject]
+                let category = placeDict["category"] as! String
+                let day = placeDict["day"] as! String
+                let id = placeDict["id"] as! String
+                let month = placeDict["month"] as! String
+                let title = placeDict["title"] as! String
+                let userID = placeDict["userID"] as! String
+                let value = "+ $\(placeDict["value"] as! String)"
+                let year = placeDict["year"] as! String
+                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
+                print(temp.id)
+                temp_income.append(temp)
+                print("\(temp_income.count)")
+            }
+         //   self.record.removeAll()
+            self.record += temp_income
+            temp_income.removeAll()
+            print("\(self.record.count)")
+            self.UITableView.reloadData()
+        }
+        
+        refSpending = Database.database().reference().child("spending").child(userID!)
+        var temp_spending:[SpendingModel] = []
+        refSpending.observe(.value)
+        {   (DataSnapshot) in
+            for child in DataSnapshot.children{
+                let snap = child as! DataSnapshot
+                let placeDict = snap.value as! [String: AnyObject]
+                let category = placeDict["category"] as! String
+                let day = placeDict["day"] as! String
+                let id = placeDict["id"] as! String
+                let month = placeDict["month"] as! String
+                let title = placeDict["title"] as! String
+                let userID = placeDict["userID"] as! String
+                let value = "- $\(placeDict["value"] as! String)"
+                let year = placeDict["year"] as! String
+                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
+                print(temp.id)
+                temp_spending.append(temp)
+                print("\(temp_spending.count)")
+            }
+            self.record += temp_spending
+            temp_spending.removeAll()
+            self.record = self.record.sorted { (a, b) -> Bool in
+                if a.year! == b.year!{
+                    if a.month! == b.month!{
+                        if a.day! == b.day!{
+                        return true
+                        }
+                        else{
+                            return Int(a.day!)! > Int(b.day!)!
+                        }
+                    }else{
+                        return Int(a.month!)! > Int(b.month!)!
+                    }
+                }
+                else{
+                    return Int(a.year!)! > Int(b.year!)!
+                }
+            }
+            
+            print("\(self.record.count)")
+            self.UITableView.reloadData()
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
     
