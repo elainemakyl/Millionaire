@@ -846,28 +846,57 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-d6-6Ti">
-                                                    <rect key="frame" x="15" y="11" width="202" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCF-d6-6Ti">
+                                                    <rect key="frame" x="101" y="28" width="202" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="202" id="1E0-kK-oPJ"/>
+                                                        <constraint firstAttribute="height" constant="27" id="BoW-uG-DAF"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij8-6X-jH0">
-                                                    <rect key="frame" x="15" y="58" width="202" height="27"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-Wm-A3A">
+                                                    <rect key="frame" x="315" y="28" width="45" height="45"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuL-Wm-A3A">
-                                                    <rect key="frame" x="225" y="26" width="142" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_usericon" translatesAutoresizingMaskIntoConstraints="NO" id="QCe-VX-ulM">
+                                                    <rect key="frame" x="23" y="15" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="70" id="Fui-xQ-VgD"/>
+                                                        <constraint firstAttribute="height" constant="70" id="WDk-yF-YUF"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="19.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij8-6X-jH0">
+                                                    <rect key="frame" x="101" y="58" width="202" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="xUo-HY-dWl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QCe-VX-ulM" firstAttribute="leading" secondItem="UcQ-KY-a3U" secondAttribute="leadingMargin" constant="8" id="4mU-9i-T4l"/>
+                                                <constraint firstItem="QCe-VX-ulM" firstAttribute="centerY" secondItem="UcQ-KY-a3U" secondAttribute="centerY" id="72l-bS-Ymy"/>
+                                                <constraint firstItem="Ij8-6X-jH0" firstAttribute="trailing" secondItem="eCF-d6-6Ti" secondAttribute="trailing" id="K2v-Lr-NYD"/>
+                                                <constraint firstItem="DuL-Wm-A3A" firstAttribute="centerY" secondItem="QCe-VX-ulM" secondAttribute="centerY" id="N2S-DB-nmm"/>
+                                                <constraint firstItem="Ij8-6X-jH0" firstAttribute="top" secondItem="eCF-d6-6Ti" secondAttribute="bottom" constant="3" id="VbD-45-mbO"/>
+                                                <constraint firstItem="DuL-Wm-A3A" firstAttribute="leading" secondItem="eCF-d6-6Ti" secondAttribute="trailing" constant="12" id="X57-Om-X4P"/>
+                                                <constraint firstItem="DuL-Wm-A3A" firstAttribute="trailing" secondItem="UcQ-KY-a3U" secondAttribute="trailingMargin" id="Xwl-So-VhW"/>
+                                                <constraint firstItem="eCF-d6-6Ti" firstAttribute="leading" secondItem="QCe-VX-ulM" secondAttribute="trailing" constant="12" id="dhp-Vz-4jb"/>
+                                                <constraint firstItem="eCF-d6-6Ti" firstAttribute="top" secondItem="DuL-Wm-A3A" secondAttribute="top" id="gM7-xT-uCW"/>
+                                                <constraint firstItem="Ij8-6X-jH0" firstAttribute="leading" secondItem="eCF-d6-6Ti" secondAttribute="leading" id="ur6-ob-P0H"/>
+                                                <constraint firstItem="Ij8-6X-jH0" firstAttribute="bottom" secondItem="QCe-VX-ulM" secondAttribute="bottom" id="vpS-Rb-Tlg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="emailLabel" destination="Ij8-6X-jH0" id="1Jl-El-aq5"/>
@@ -2335,7 +2364,6 @@ Edit record Statistic reports Ranking Blog    </string>
         <image name="statistics" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="k8c-O9-9k1"/>
         <segue reference="us6-xZ-7Oo"/>
         <segue reference="3FG-HS-iJ9"/>
     </inferredMetricsTieBreakers>
