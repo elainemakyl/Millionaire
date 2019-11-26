@@ -10,6 +10,7 @@
 		266315F82374458B00F17CB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266315F72374458B00F17CB0 /* GoogleService-Info.plist */; };
 		2693F262237E5429001C97AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2693F261237E5429001C97AC /* Assets.xcassets */; };
 		2693F264237E6813001C97AC /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693F263237E6812001C97AC /* ResetPasswordViewController.swift */; };
+		26983857238CE8550053801A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26983855238CE8540053801A /* Model.xcdatamodeld */; };
 		26B971AE23715C02002E1E55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971AD23715C02002E1E55 /* AppDelegate.swift */; };
 		26B971B023715C02002E1E55 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971AF23715C02002E1E55 /* SceneDelegate.swift */; };
 		26B971B223715C02002E1E55 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B971B123715C02002E1E55 /* MainViewController.swift */; };
@@ -43,6 +44,7 @@
 		266315F72374458B00F17CB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2693F261237E5429001C97AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2693F263237E6812001C97AC /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		26983856238CE8550053801A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		26B971AA23715C02002E1E55 /* Millionare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26B971AD23715C02002E1E55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26B971AF23715C02002E1E55 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		26B971AC23715C02002E1E55 /* Millionare */ = {
 			isa = PBXGroup;
 			children = (
+				26983855238CE8540053801A /* Model.xcdatamodeld */,
 				2693F263237E6812001C97AC /* ResetPasswordViewController.swift */,
 				2693F261237E5429001C97AC /* Assets.xcassets */,
 				400853BB2377E2E90071C95D /* SpendingViewController.swift */,
@@ -305,6 +308,7 @@
 				404BAA22237BE7020095BCE6 /* IncomeModel.swift in Sources */,
 				400853BC2377E2E90071C95D /* SpendingViewController.swift in Sources */,
 				26B971CC2373E220002E1E55 /* LoginViewController.swift in Sources */,
+				26983857238CE8550053801A /* Model.xcdatamodeld in Sources */,
 				26B971B423715C02002E1E55 /* RankViewController.swift in Sources */,
 				26B971CE23740C11002E1E55 /* FirebaseAuthManager.swift in Sources */,
 				26C6BEB9237B1FC5004DF6B0 /* AttachmentHandler.swift in Sources */,
@@ -520,6 +524,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26983855238CE8540053801A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26983856238CE8550053801A /* Model.xcdatamodel */,
+			);
+			currentVersion = 26983856238CE8550053801A /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 26B971A223715C02002E1E55 /* Project object */;
 }
