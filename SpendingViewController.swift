@@ -71,6 +71,8 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
                     year = String(yearGet)
                 }
                 addSpendingRecord()                         //update to database
+                navigationController?.popViewController(animated: true)
+                dismiss(animated: true, completion: nil)
             } else {                                        //no category input
                 showAlert()
             }
@@ -80,9 +82,6 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
         
         valueText.resignFirstResponder()
         titleText.resignFirstResponder()
-        
-        navigationController?.popViewController(animated: true)
-        dismiss(animated: true, completion: nil)
     }
     
     func showAlert(){
