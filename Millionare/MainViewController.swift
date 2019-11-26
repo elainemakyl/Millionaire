@@ -42,6 +42,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             //logout
             self.canSave = false
             try! Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "icon")
             self.performSegue(withIdentifier: "mainToLogin", sender: nil)
             
         })

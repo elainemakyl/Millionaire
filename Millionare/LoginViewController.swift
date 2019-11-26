@@ -42,7 +42,7 @@ class LoginViewController: UIViewController, GIDSignInDelegate {
         let password = pwTextField.text!
         
         if !(email == "" || password == ""){
-            print("the fuck \(email)")
+            
             Auth.auth().fetchSignInMethods(forEmail: email, completion: { (providers, error) in
                 if providers == nil {
                        // user doesn't exist
