@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234F98D0238D0EB400CD22A8 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 234F98CF238D0EB400CD22A8 /* logo.png */; };
 		266315F82374458B00F17CB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266315F72374458B00F17CB0 /* GoogleService-Info.plist */; };
 		2693F262237E5429001C97AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2693F261237E5429001C97AC /* Assets.xcassets */; };
 		2693F264237E6813001C97AC /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2693F263237E6812001C97AC /* ResetPasswordViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		234F98CF238D0EB400CD22A8 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		266315F72374458B00F17CB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2693F261237E5429001C97AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2693F263237E6812001C97AC /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 				26B971B123715C02002E1E55 /* MainViewController.swift */,
 				26B971C32373CDB6002E1E55 /* StatisticsViewController.swift */,
 				26B971B323715C02002E1E55 /* RankViewController.swift */,
+				234F98CF238D0EB400CD22A8 /* logo.png */,
 				26B971C52373CE38002E1E55 /* SettingsViewController.swift */,
 				26B971CB2373E220002E1E55 /* LoginViewController.swift */,
 				EA03826E237BF20C00EA2FED /* RankingCalc.swift */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26B971BC23715C0B002E1E55 /* LaunchScreen.storyboard in Resources */,
+				234F98D0238D0EB400CD22A8 /* logo.png in Resources */,
 				266315F82374458B00F17CB0 /* GoogleService-Info.plist in Resources */,
 				2693F262237E5429001C97AC /* Assets.xcassets in Resources */,
 				26B971B723715C02002E1E55 /* Main.storyboard in Resources */,
