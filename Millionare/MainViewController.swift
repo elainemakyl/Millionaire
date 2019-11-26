@@ -102,7 +102,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                       }
             }
         })
-        
         //by leo
         DatabaseUtil.data.getUserIncome(completion:{(income) in
             self.incomes = income
@@ -124,98 +123,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         self.view.addSubview(floaty)
       
-        refIncome = Database.database().reference().child("income").child(userID!)
-        var temp_income:[SpendingModel] = []
-        refIncome.observe(.value)
-        {   (DataSnapshot) in
-            for child in DataSnapshot.children{
-                let snap = child as! DataSnapshot
-                let placeDict = snap.value as! [String: AnyObject]
-                let category = placeDict["category"] as! String
-                let day = placeDict["day"] as! String
-                let id = placeDict["id"] as! String
-                let month = placeDict["month"] as! String
-                let title = placeDict["title"] as! String
-                let userID = placeDict["userID"] as! String
-                let value = "+ $\(placeDict["value"] as! String)"
-                let year = placeDict["year"] as! String
-                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
-                print(temp.id)
-                temp_income.append(temp)
-                print("\(temp_income.count)")
-            }
-         //   self.record.removeAll()
-            self.record += temp_income
-            temp_income.removeAll()
-            print("\(self.record.count)")
-            self.UITableView.reloadData()
-        }
-        
-        refSpending = Database.database().reference().child("spending").child(userID!)
-        var temp_spending:[SpendingModel] = []
-        refSpending.observe(.value)
-        {   (DataSnapshot) in
-            for child in DataSnapshot.children{
-                let snap = child as! DataSnapshot
-                let placeDict = snap.value as! [String: AnyObject]
-                let category = placeDict["category"] as! String
-                let day = placeDict["day"] as! String
-                let id = placeDict["id"] as! String
-                let month = placeDict["month"] as! String
-                let title = placeDict["title"] as! String
-                let userID = placeDict["userID"] as! String
-                let value = "- $\(placeDict["value"] as! String)"
-                let year = placeDict["year"] as! String
-                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
-                print(temp.id)
-                temp_spending.append(temp)
-                print("\(temp_spending.count)")
-            }
-            self.record += temp_spending
-            temp_spending.removeAll()
-            self.record = self.record.sorted { (a, b) -> Bool in
-                if a.year! == b.year!{
-                    if a.month! == b.month!{
-                        if a.day! == b.day!{
-                        return true
-                        }
-                        else{
-                            return Int(a.day!)! > Int(b.day!)!
-                        }
-                    }else{
-                        return Int(a.month!)! > Int(b.month!)!
-                    }
-                }
-                else{
-                    return Int(a.year!)! > Int(b.year!)!
-                }
-            }
-            
-            print("\(self.record.count)")
-            self.UITableView.reloadData()
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.record.removeAll()
         storage = Storage.storage()
         storageRef = storage.reference()
         refUsers = Database.database().reference().child("user");
@@ -225,7 +137,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let firstname = refUsers.child(userID!).child("first_name")
         let lastname = refUsers.child(userID!).child("last_name")
-        
         firstname.observe(.value, with : {(Snapshot) in
             if let first = Snapshot.value as? String{ self.usernameTextField.text = first + " "}})
         lastname.observe(.value, with : {(Snapshot) in
@@ -268,6 +179,88 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         animateTable()
         
         print(spendings)
+        
+                refIncome = Database.database().reference().child("income").child(userID!)
+        var temp_income:[SpendingModel] = []
+        refIncome.observeSingleEvent(of:.value)
+        {   (DataSnapshot) in
+            for child in DataSnapshot.children{
+                let snap = child as! DataSnapshot
+                let placeDict = snap.value as! [String: AnyObject]
+                let category = placeDict["category"] as! String
+                let day = placeDict["day"] as! String
+                let id = placeDict["id"] as! String
+                let month = placeDict["month"] as! String
+                let title = placeDict["title"] as! String
+                let userID = placeDict["userID"] as! String
+                let value = "+ $\(placeDict["value"] as! String)"
+                let year = placeDict["year"] as! String
+                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
+               // print(temp.id)
+                temp_income.append(temp)
+                print("\(temp_income.count)")
+            }
+            self.record += temp_income
+           
+            temp_income.removeAll()
+            print("\(self.record.count)")
+            self.UITableView.reloadData()
+        }
+        
+        refSpending = Database.database().reference().child("spending").child(userID!)
+        var temp_spending:[SpendingModel] = []
+        refSpending.observeSingleEvent(of:.value)
+        {   (DataSnapshot) in
+            for child in DataSnapshot.children{
+                let snap = child as! DataSnapshot
+                let placeDict = snap.value as! [String: AnyObject]
+                let category = placeDict["category"] as! String
+                let day = placeDict["day"] as! String
+                let id = placeDict["id"] as! String
+                let month = placeDict["month"] as! String
+                let title = placeDict["title"] as! String
+                let userID = placeDict["userID"] as! String
+                let value = "- $\(placeDict["value"] as! String)"
+                let year = placeDict["year"] as! String
+                let temp = SpendingModel(userID: userID, title: title, value: value, day: day, month: month, year: year, category: category, id: id)
+             //   print(temp.id)
+                temp_spending.append(temp)
+                print("\(temp_spending.count)")
+            }
+            self.record += temp_spending
+            temp_spending.removeAll()
+            self.record = self.record.sorted { (a, b) -> Bool in
+                if a.year! == b.year!{
+                    if a.month! == b.month!{
+                        if a.day! == b.day!{
+                        return true
+                        }
+                        else{
+                            return Int(a.day!)! > Int(b.day!)!
+                        }
+                    }else{
+                        return Int(a.month!)! > Int(b.month!)!
+                    }
+                }
+                else{
+                    return Int(a.year!)! > Int(b.year!)!
+                }
+            }
+            print("\(self.record.count)")
+            self.UITableView.reloadData()
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     // show navigation bar again on other pages
