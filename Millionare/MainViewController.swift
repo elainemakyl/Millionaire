@@ -23,6 +23,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var issave = false
     var canSave = true
     
+    @IBOutlet var spendingLabel: UILabel!
+    @IBOutlet var incomeLabel: UILabel!
     @IBOutlet var userButton: UIButton!
     @IBOutlet weak var floaty: Floaty!
     @IBOutlet weak var UITableView: UITableView!
@@ -75,7 +77,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         let user = Auth.auth().currentUser
         let userID = user?.uid
         
-        
         //retrieve profile pic url
         refUsers.child(userID!).observe(.value, with: { (snapshot) in
             // check if user has photo
@@ -102,11 +103,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         //by leo
         DatabaseUtil.data.getUserIncome(completion:{(income) in
             self.incomes = income
+            self.incomeLabel.text = "$ \(income)"
         })
         DatabaseUtil.data.getUserSpending(completion:{(spending) in
             self.spendings = spending
+            self.spendingLabel.text = "$ \(spending)"
         })
-      
+        
          //by leo
         
         // Floating Action Button
@@ -130,7 +133,6 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let firstname = refUsers.child(userID!).child("first_name")
         let lastname = refUsers.child(userID!).child("last_name")
-        
         
         firstname.observe(.value, with : {(Snapshot) in
             if let first = Snapshot.value as? String{ self.usernameTextField.text = first + " "}})
