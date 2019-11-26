@@ -11,14 +11,20 @@ import FirebaseAuth
 import FirebaseDatabase
 import UIKit
 import FirebaseStorage
+import CoreData
 
 class IncomeViewController: UIViewController, UITextFieldDelegate {
     
     var refUser: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
-    
+    var incomes: [Incomes] = []
     @IBOutlet var buttonSelected: [UIButton]!
+    
+    
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     // Grey one button if user pressed
     @IBAction func greySelectedButton(_ sender: UIButton) {
@@ -121,6 +127,19 @@ class IncomeViewController: UIViewController, UITextFieldDelegate {
     
         //adding the income record inside the generated unique key
         refUser.child(String(key!)).setValue(income)
+        
+        //add local data
+        let l_income = Incomes(context: context)
+        l_income.id = key
+        l_income.userID = String(userID!)
+        l_income.title = titleOp
+        l_income.value = String(value)
+        l_income.day = day
+        l_income.month = month
+        l_income.year = year
+        l_income.category = category
+        
+        appDelegate.saveContext()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -11,12 +11,14 @@ import FirebaseAuth
 import FirebaseDatabase
 import UIKit
 import FirebaseStorage
+import CoreData
 
 class SpendingViewController: UIViewController, UITextFieldDelegate {
     
     var refUser: DatabaseReference!
     var storageRef: StorageReference!
     var storage: Storage!
+    var spendings: [Spendings] = []
     
     @IBOutlet var valueText: UITextField!
     @IBOutlet var date: UIDatePicker!
@@ -30,6 +32,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     var id = 0
     var value:Double = 0.0
     var count = 0
+    
+    let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var buttonSelected: [UIButton]!
     
@@ -61,7 +66,7 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
                     titleOp = titleText.text!               //have title
                 }
                 value = tmp
-                                                            //update to database
+                //update to database
                 
             } else {                                        //no category input
                 showAlert()
@@ -114,6 +119,9 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
         refUser = Database.database().reference().child("spending").child(String(userID!))
         
         let key = refUser.childByAutoId().key
+        
+        
+        
         //creating artist with the given values
         let spending = ["id": key,
                         "userID": String(userID!),
@@ -123,10 +131,23 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
                         "day": day,
                         "month": month,
                         "year": year
-                        ]
-    
+        ]
+        
         //adding the artist inside the generated unique key
         refUser.child(String(key!)).setValue(spending)
+        
+        //local data storage
+        let l_spending = Spendings(context: context)
+        l_spending.id = key
+        l_spending.userID = String(userID!)
+        l_spending.category = category
+        l_spending.title = titleOp
+        l_spending.value = String(value)
+        l_spending.day = day
+        l_spending.month = month
+        l_spending.year = year
+        appDelegate.saveContext()
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -145,6 +166,6 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
         valueText.delegate = self
         titleText.delegate = self
     }
-
-
+    
+    
 }
