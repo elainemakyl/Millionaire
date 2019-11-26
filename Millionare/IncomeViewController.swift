@@ -67,10 +67,10 @@ class IncomeViewController: UIViewController, UITextFieldDelegate {
                 addIncomeRecord()
             }                                                //update database
             else {
-                showAlert()
+                displayErrorMessage()
             }
         } else {
-            showAlert()                                     //value input is not value
+            displayErrorMessage()                                     //value input is not value
         }
         
         valueText.resignFirstResponder()
@@ -98,6 +98,15 @@ class IncomeViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertController(title: "Data Validation Error", message: "There was an error of not proper input or no category chose.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
         present(alert, animated: true, completion: nil)
+    }
+    
+    func displayErrorMessage () {
+        let alertController = UIAlertController(title: "Data Validation Error", message: "There was an error of not proper input or no category chose.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addAction(cancelAction)
+        //finally presenting the dialog box
+        self.present(alertController, animated: false, completion: nil)
     }
     
     func addIncomeRecord(){
