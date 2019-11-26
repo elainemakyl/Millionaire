@@ -6,21 +6,25 @@
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseStorage
 
 
 class RankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
+    private let cache = NSCache<AnyObject,AnyObject>()
+    
     var refUsers: DatabaseReference!
-    
-    
+
     var items:[String] = []
     var email:[String] = []
     var ranking:[String] = []
     var incomes: [String] = []
     var spendings: [String] = []
     var rating: [String] = []
+    var icon: [String] = []
     
     @IBOutlet var table: UITableView!
     
@@ -29,8 +33,12 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
    
     
     var filterData: [String]!
-    var filteremail: [String]!
-    var filterranking: [String]!
+    var filteremail: [String] = []
+    var filterranking: [String] = []
+    var filterincomes: [String] = []
+    var filterspendings: [String] = []
+    var filterrating: [String] = []
+    var filtericon: [String] = []
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,9 +52,32 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
+        
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
         cell.rankLabel.text = filterranking[indexPath.row]
+      /*
+        if icon[indexPath.row] == "none" {}
+        else {
+            if let img = cache.object(forKey: self.icon[indexPath.row] as AnyObject) as? UIImage{
+                cell.UserIcon.image = img
+            }
+            else{
+                DispatchQueue.global(qos: .default).async{
+                    let myurl = URL(string: self.icon[indexPath.row])
+                    print(self.icon[indexPath.row])
+                    if let data = try? Data(contentsOf: myurl!){
+                    let final_img = UIImage(data:data)
+                    self.cache.setObject(final_img!, forKey: self.icon[indexPath.row] as AnyObject)
+                    DispatchQueue.main.async{
+                    cell.UserIcon.image = final_img
+                        }
+                    }
+                }
+            }
+        }
+ */
+        
         return cell
         
     }
@@ -62,11 +93,12 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             // the following are to pass the selected user data to detailrankview
             destination.name = filterData[rankindex!]
             destination.Sranking = filterranking[rankindex!]
-            destination.Ssaving = incomes[rankindex!]
-            destination.Sspending = spendings[rankindex!]
-            destination.Srating = rating[rankindex!]
+            destination.Ssaving = filterincomes[rankindex!]
+            destination.Sspending = filterspendings[rankindex!]
+            destination.Srating = filterrating[rankindex!]
            //print(incomes)
            // print(spendings)
+            print(icon)
             
         }
     }
@@ -75,6 +107,29 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterData = searchText.isEmpty ? items : items.filter({(dataString: String) -> Bool in return dataString.range(of: searchText, options: .caseInsensitive) != nil })
        
+        filteremail = []
+        filterincomes = []
+        filterrating = []
+        filterranking = []
+        filterspendings = []
+        var isfound = false
+        
+        for info in filterData {
+            for i in 0 ... items.count {
+              
+                if info == items[i] && isfound == false {
+                    filterincomes.append(incomes[i])
+                    filterspendings.append(spendings[i])
+                    filterrating.append(rating[i])
+                    filteremail.append(email[i])
+                    filterranking.append(ranking[i])
+                    print(filterranking)
+                    isfound = true
+                    break
+                }
+                isfound = false
+            }
+        }
         table.reloadData()
         
     }
@@ -100,18 +155,22 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating) in
+        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating,usericon) in
                  self.items = names
                  self.email = emails
             self.ranking = ranking
             self.incomes = income
             self.spendings = spending
             self.rating = rating
+            self.icon = usericon
             self.table.reloadData()
              })
              self.filterData = self.items
              self.filteremail = self.email
             self.filterranking = self.ranking
+        self.filterspendings = self.spendings
+        self.filterrating = self.rating
+        self.filterincomes = self.incomes
              self.table.reloadData()
              
              filterData = self.items
@@ -126,24 +185,21 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         searchBar.delegate = self
         
       // the following is uses to search the users with their data
-        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating) in
+        DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating,usericon) in
             self.items = names
             self.email = emails
         self.ranking = ranking
         self.incomes = income
         self.spendings = spending
         self.rating = rating
+            self.icon = usericon
         })
         self.filterData = self.items
-      //  self.filteremail = self.email
-      //  self.filterranking = self.ranking
+        
+
         self.table.reloadData()
         
-     //   let Ranking = RankingCalc(inputname: items, inputemail: email)
-      //  filteruid = uid
         filterData = self.items
-      //  filteremail = self.email
-      //  filterranking = self.ranking
         table.reloadData()
     }
     
@@ -151,6 +207,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
     
 }
 

@@ -10,10 +10,13 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 class DatabaseUtil {
     static let data = DatabaseUtil()
     var refUsers :  DatabaseReference!
+    var storageRef: StorageReference!
+    var storage: Storage!
     
    // var allusers: [String]
     private init() {
@@ -21,35 +24,43 @@ class DatabaseUtil {
     }
     
     
-    //remove later
-     func getData() -> [String]{
-        return ["test"]
-    }
-     func getName() -> String {
-        print("get name method")
-        return "eeeeeeee"
-    }
     
     //to return alluser in db
-     func getAllUser(completion:@escaping (Array<String>, Array<String>, Array<String>, Array<String>, Array<String>, Array<String>) -> Void)  -> Void{
+     func getAllUser(completion:@escaping (Array<String>, Array<String>, Array<String>, Array<String>, Array<String>, Array<String>, Array<String>) -> Void)  -> Void{
+        
         var alluser: [String] = []
         var allemail: [String] = []
         var ranking: [String] = []
         var allincome: [String] = []
         var allspending: [String] = []
         var allrating: [String] = []
+        var allicon: [String] = []
         var num = 0
-       // alluser = ["test","456","ac","999","test123","yyy"]
-     
+  
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        
         refUsers.queryOrdered(byChild: "rating").observe(.value, with: { (snapshot) in
                        for child in snapshot.children {
                            let snap = child as! DataSnapshot
                            let placeDict = snap.value as! [String: AnyObject]
-                           let name = placeDict["first_name"] as! String
+                           let name1 = placeDict["first_name"] as! String
+                        let name2 = placeDict["last_name"] as! String
+                        let name = name1 + " " + name2
                             let email = placeDict["email"] as! String
                         let income = placeDict["income"] as! Double
                         let spending = placeDict["spending"] as! Double
                         let rating = placeDict["rating"] as! Double
+                
+                        if let icon = placeDict["userPhoto"] as? String {
+                            allicon.append(icon)
+                        }
+                        else {
+                            allicon.append("none")
+                        }
+                        print("1")
+                        print(allicon)
+                        print("2")
                         alluser.append(name)
                         allemail.append(email)
                         allincome.append(String(income))
@@ -58,7 +69,7 @@ class DatabaseUtil {
                         num = num + 1
                         ranking.append(String(num))
                        }
-            completion(alluser.reversed(),allemail.reversed(),ranking, allincome.reversed(), allspending.reversed(), allrating.reversed())
+            completion(alluser.reversed(),allemail.reversed(),ranking, allincome.reversed(), allspending.reversed(), allrating.reversed(), allicon.reversed())
        // print(ranking)
                    })
      //  print(ranking)

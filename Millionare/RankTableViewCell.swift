@@ -13,6 +13,7 @@ class RankTableViewCell: UITableViewCell {
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var rankLabel: UILabel!
     
+    @IBOutlet var UserIcon: UIImageView!
     
     
     
