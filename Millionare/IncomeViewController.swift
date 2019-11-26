@@ -2,7 +2,7 @@
 //  IncomeViewController.swift
 //  Millionare
 //
-//  Created by mat on 10/11/2019.
+//  Created by Kanon on 10/11/2019.
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 

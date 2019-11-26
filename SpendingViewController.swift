@@ -2,7 +2,7 @@
 //  SpendingViewController.swift
 //  Millionare
 //
-//  Created by mat on 10/11/2019.
+//  Created by Kanon on 10/11/2019.
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
@@ -44,7 +44,7 @@ class SpendingViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func food(_ sender:AnyObject) {categoryInput(input: "food")}
     @IBAction func cloth(_ sender:AnyObject) {categoryInput(input: "cloth")}
-    @IBAction func trafics(_ sender:AnyObject) {categoryInput(input: "trafics")}
+    @IBAction func trafics(_ sender:AnyObject) {categoryInput(input: "traffics")}
     @IBAction func necessary(_ sender:AnyObject) {categoryInput(input: "necessary")}
     @IBAction func entertainment(_ sender:AnyObject) {categoryInput(input: "entertainment")}
     @IBAction func others(_ sender:AnyObject) {categoryInput(input: "others")}

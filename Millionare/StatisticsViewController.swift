@@ -2,7 +2,7 @@
 //  StatisticsViewController.swift
 //  Millionare
 //
-//  Created by delta on 7/11/2019.
+//  Created by Kanon on 7/11/2019.
 //  Copyright © 2019 EE4304. All rights reserved.
 //
 
