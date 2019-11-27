@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JUv-zI-Vkq">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1396,7 +1396,7 @@
             <objects>
                 <viewController title="Income" id="pOW-uK-5KL" customClass="IncomeViewController" customModule="Millionare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fGX-Kd-YRT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="6RQ-wt-sbf">
@@ -1430,7 +1430,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NUz-hZ-ZNO" userLabel="content">
-                                        <rect key="frame" x="0.0" y="133.5" width="375" height="533.5"/>
+                                        <rect key="frame" x="0.0" y="133.5" width="375" height="484.5"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input your income" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezm-Qd-afK">
                                                 <rect key="frame" x="20" y="20" width="335" height="50"/>
@@ -1450,7 +1450,7 @@
                                                 </constraints>
                                             </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XB-oL-FCv">
-                                                <rect key="frame" x="20" y="489.5" width="335" height="34"/>
+                                                <rect key="frame" x="20" y="440.5" width="335" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -2187,10 +2187,10 @@ Edit record Statistic reports Ranking Blog    </string>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orsymbol" translatesAutoresizingMaskIntoConstraints="NO" id="mao-qa-Qu1">
-                                <rect key="frame" x="200" y="295" width="151.5" height="57"/>
+                                <rect key="frame" x="207.5" y="295" width="144" height="57"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRP-1j-Xo6">
-                                <rect key="frame" x="177" y="309" width="23" height="29"/>
+                                <rect key="frame" x="169.5" y="309" width="38" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="rYW-pF-l8N"/>
                                 </constraints>
@@ -2211,7 +2211,7 @@ Edit record Statistic reports Ranking Blog    </string>
                                 <rect key="frame" x="130" y="259" width="115" height="30"/>
                                 <state key="normal" title="Forgot password"/>
                                 <connections>
-                                    <segue destination="CLm-tf-Goa" kind="show" id="6BG-lM-hfN"/>
+                                    <segue destination="CLm-tf-Goa" kind="presentation" id="6BG-lM-hfN"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-NF-c7A">
@@ -2223,6 +2223,7 @@ Edit record Statistic reports Ranking Blog    </string>
                         <constraints>
                             <constraint firstItem="mao-qa-Qu1" firstAttribute="centerY" secondItem="hRP-1j-Xo6" secondAttribute="centerY" id="0mN-uE-1Wy"/>
                             <constraint firstItem="IW2-8H-JZe" firstAttribute="top" secondItem="Bx4-QX-ME4" secondAttribute="bottom" constant="28" id="5om-Kd-KMW"/>
+                            <constraint firstItem="mao-qa-Qu1" firstAttribute="height" secondItem="xKS-O0-MUF" secondAttribute="height" id="7AO-cv-49g"/>
                             <constraint firstItem="G5B-iR-PxT" firstAttribute="leading" secondItem="Mjs-k4-PVZ" secondAttribute="leading" id="8Yn-n6-eM6"/>
                             <constraint firstItem="IKj-Iz-uyj" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oCd-kF-fzR" secondAttribute="trailing" symbolic="YES" id="8Zm-5f-zXQ"/>
                             <constraint firstItem="oCd-kF-fzR" firstAttribute="leading" secondItem="fAN-4F-Owq" secondAttribute="leadingMargin" id="9Wn-5W-CAv"/>
@@ -2243,6 +2244,7 @@ Edit record Statistic reports Ranking Blog    </string>
                             <constraint firstItem="xKS-O0-MUF" firstAttribute="leading" secondItem="IKj-Iz-uyj" secondAttribute="leading" constant="24" id="QTH-gl-9lG"/>
                             <constraint firstItem="hRP-1j-Xo6" firstAttribute="centerX" secondItem="eP0-4C-38S" secondAttribute="centerX" constant="1" id="Sae-LK-hbW"/>
                             <constraint firstItem="0Ty-NF-c7A" firstAttribute="top" secondItem="G5B-iR-PxT" secondAttribute="bottom" constant="22" id="ShF-46-IMD"/>
+                            <constraint firstItem="mao-qa-Qu1" firstAttribute="width" secondItem="xKS-O0-MUF" secondAttribute="width" id="UK3-3f-oZZ"/>
                             <constraint firstItem="hRP-1j-Xo6" firstAttribute="centerX" secondItem="UrH-7G-E5E" secondAttribute="centerX" constant="1" id="UzK-Ok-85y"/>
                             <constraint firstItem="G5B-iR-PxT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mjs-k4-PVZ" secondAttribute="trailing" id="VtH-PA-zlg"/>
                             <constraint firstItem="UrH-7G-E5E" firstAttribute="top" secondItem="oCd-kF-fzR" secondAttribute="bottom" constant="17" id="WhV-2V-Kg7"/>
@@ -2420,6 +2422,6 @@ Edit record Statistic reports Ranking Blog    </string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="us6-xZ-7Oo"/>
-        <segue reference="3FG-HS-iJ9"/>
+        <segue reference="LSh-1o-QPW"/>
     </inferredMetricsTieBreakers>
 </document>

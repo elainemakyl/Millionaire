@@ -84,7 +84,7 @@ class SettingsViewController: UIViewController {
                         self.displayErrorMessage(message:"Password incorrect.")
                     } else {
                         //set a new password
-                        let alertController = UIAlertController(title: "Error", message: "Please enter your new password", preferredStyle: .alert)
+                        let alertController = UIAlertController(title: "Change Password", message: "Please enter your new password", preferredStyle: .alert)
                         alertController.addTextField()
                         alertController.textFields?[0].placeholder = "New Password"
                         alertController.textFields?[0].isSecureTextEntry = true
