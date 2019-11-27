@@ -55,36 +55,38 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
- 
+        
         
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
         cell.rankLabel.text = filterranking[indexPath.row]
         
-        if icon[indexPath.row].elementsEqual("none")  {}
+        if filtericon[indexPath.row].elementsEqual("none")  {}
         else {
-            if let img = cache.object(forKey: self.icon[indexPath.row] as AnyObject) as? UIImage{
+            if let img = cache.object(forKey: self.filtericon[indexPath.row] as AnyObject) as? UIImage{
                 cell.UserIcon.image = img
             }
             else{
                 DispatchQueue.global(qos: .default).async{
                     
-                    let filepath =  self.icon[indexPath.row]
+                    self.storageRef = Storage.storage().reference()
+                    let filepath =  self.filtericon[indexPath.row]
                     self.storageRef.child(filepath).downloadURL { (url, error) in
-                                   guard let dlurl = url else {return}
-                                   self.icon[indexPath.row] = dlurl.absoluteString
-                               }
-                     let myurl = URL(string: self.icon[indexPath.row])
-                    print(self.icon[indexPath.row])
-                    if let data = try? Data(contentsOf: myurl!){
-                        let final_img = UIImage(data:data)
-                        self.cache.setObject(final_img!, forKey: self.icon[indexPath.row] as AnyObject)
-                        DispatchQueue.main.async{
-                          
-                            cell.UserIcon.image = final_img
-                            
+                        guard let dlurl = url else {return}
+                        self.filtericon[indexPath.row] = dlurl.absoluteString
+                        let myurl = URL(string: self.filtericon[indexPath.row])
+//                        print(self.icon[indexPath.row])
+                        if let data = try? Data(contentsOf: myurl!){
+                            let final_img = UIImage(data:data)
+                            self.cache.setObject(final_img!, forKey: self.filtericon[indexPath.row] as AnyObject)
+                            DispatchQueue.main.async{
+                                
+                                cell.UserIcon.image = final_img
+                                
+                            }
                         }
                     }
+                    
                 }
             }
         }
@@ -98,7 +100,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     // to call detail view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier ==  "ShowRankSegue" {
-            
+            view.endEditing(true)
             let destination = segue.destination as! DetailRankViewController
             let rankindex = table.indexPathForSelectedRow?.row
             
@@ -108,9 +110,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             destination.Ssaving = filterincomes[rankindex!]
             destination.Sspending = filterspendings[rankindex!]
             destination.Srating = filterrating[rankindex!]
-            //print(incomes)
-            // print(spendings)
-            print(icon)
+            
+            
             
         }
     }
@@ -124,6 +125,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         filterrating = []
         filterranking = []
         filterspendings = []
+        filtericon = []
         var isfound = false
         
         for info in filterData {
@@ -135,7 +137,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
                     filterrating.append(rating[i])
                     filteremail.append(email[i])
                     filterranking.append(ranking[i])
-                    print(filterranking)
+                    filtericon.append(icon[i])
+                    //                    print(filterranking)
                     isfound = true
                     break
                 }
@@ -147,13 +150,13 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
+        self.searchBar.showsCancelButton = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
+        self.searchBar.showsCancelButton = false
+        self.searchBar.text = ""
+        self.searchBar.resignFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -174,12 +177,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.incomes = income
             self.spendings = spending
             self.rating = rating
-            self.table.reloadData()
-            
-            //retrieve icon
-            
             self.icon = usericon
-            
+            self.table.reloadData()
         })
         self.filterData = self.items
         self.filteremail = self.email
@@ -187,6 +186,7 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.filterspendings = self.spendings
         self.filterrating = self.rating
         self.filterincomes = self.incomes
+        self.filtericon = self.icon
         self.table.reloadData()
         
         filterData = self.items
@@ -200,6 +200,8 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.dataSource = self
         searchBar.delegate = self
         
+        searchBar.resignFirstResponder()    //hide keyboard
+        
         storage = Storage.storage()
         storageRef = storage.reference()
         
@@ -212,9 +214,6 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.spendings = spending
             self.rating = rating
             self.icon = usericon
-            
-            
-           
         })
         self.filterData = self.items
         
@@ -239,6 +238,13 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.present(alertController, animated: false, completion: nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
+        searchBar.resignFirstResponder()
+    }
     
 }
 
