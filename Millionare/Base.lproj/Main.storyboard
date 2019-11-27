@@ -2075,7 +2075,7 @@ Edit record Statistic reports Ranking Blog    </string>
                                 </connections>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="H95-Bc-fJm">
-                                <rect key="frame" x="-29" y="517.33333333333337" width="500.00000000000011" height="110"/>
+                                <rect key="frame" x="-29" y="517.33333333333337" width="500" height="220"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k2-N8-MRS">
                                 <rect key="frame" x="23.666666666666671" y="410.33333333333331" width="107.00000000000001" height="30"/>
@@ -2187,14 +2187,14 @@ Edit record Statistic reports Ranking Blog    </string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eP0-4C-38S">
-                                <rect key="frame" x="120" y="251" width="174" height="30"/>
+                                <rect key="frame" x="120" y="251" width="174" height="15"/>
                                 <state key="normal" title="No Account? Create One!"/>
                                 <connections>
                                     <segue destination="5O4-s5-rxv" kind="presentation" destinationCreationSelector="goToSignup" id="k8c-O9-9k1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjs-k4-PVZ">
-                                <rect key="frame" x="62" y="386.66666666666669" width="292" height="56"/>
+                                <rect key="frame" x="62" y="371.66666666666669" width="292" height="56"/>
                                 <color key="backgroundColor" red="0.23529411764705882" green="0.3529411764705882" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="bzs-JO-kA0"/>
@@ -2212,7 +2212,7 @@ Edit record Statistic reports Ranking Blog    </string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5B-iR-PxT">
-                                <rect key="frame" x="62" y="450.66666666666669" width="292" height="58"/>
+                                <rect key="frame" x="62" y="435.66666666666669" width="292" height="58"/>
                                 <color key="backgroundColor" red="0.8666666666666667" green="0.29411764705882354" blue="0.22352941176470587" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="PfR-kT-gmq"/>
@@ -2230,16 +2230,16 @@ Edit record Statistic reports Ranking Blog    </string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orsymbol" translatesAutoresizingMaskIntoConstraints="NO" id="xKS-O0-MUF">
-                                <rect key="frame" x="24" y="295" width="144" height="117"/>
+                                <rect key="frame" x="24" y="295" width="144" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="gx2-sl-PNm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orsymbol" translatesAutoresizingMaskIntoConstraints="NO" id="mao-qa-Qu1">
-                                <rect key="frame" x="219.66666666666663" y="295" width="171" height="117"/>
+                                <rect key="frame" x="246.66666666666663" y="295" width="144" height="87"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRP-1j-Xo6">
-                                <rect key="frame" x="196.66666666666666" y="339" width="23" height="29"/>
+                                <rect key="frame" x="169.66666666666666" y="324" width="77" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="rYW-pF-l8N"/>
                                 </constraints>
@@ -2257,20 +2257,21 @@ Edit record Statistic reports Ranking Blog    </string>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y39-Xu-H6Q">
-                                <rect key="frame" x="149.66666666666666" y="289" width="114.99999999999997" height="30"/>
+                                <rect key="frame" x="149.66666666666666" y="274" width="114.99999999999997" height="30"/>
                                 <state key="normal" title="Forgot password"/>
                                 <connections>
-                                    <segue destination="CLm-tf-Goa" kind="show" id="6BG-lM-hfN"/>
+                                    <segue destination="CLm-tf-Goa" kind="presentation" id="6BG-lM-hfN"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Symbol 21 – 2" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-NF-c7A">
-                                <rect key="frame" x="-32" y="530.66666666666663" width="500.00000000000011" height="205"/>
+                                <rect key="frame" x="-32" y="515.66666666666663" width="500" height="220"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.16862745098039217" green="0.1764705882352941" blue="0.35686274509803922" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mao-qa-Qu1" firstAttribute="centerY" secondItem="hRP-1j-Xo6" secondAttribute="centerY" id="0mN-uE-1Wy"/>
+                            <constraint firstItem="mao-qa-Qu1" firstAttribute="width" secondItem="xKS-O0-MUF" secondAttribute="width" id="5Cq-yg-zZO"/>
                             <constraint firstItem="IW2-8H-JZe" firstAttribute="top" secondItem="Bx4-QX-ME4" secondAttribute="bottom" constant="28" id="5om-Kd-KMW"/>
                             <constraint firstItem="G5B-iR-PxT" firstAttribute="leading" secondItem="Mjs-k4-PVZ" secondAttribute="leading" id="8Yn-n6-eM6"/>
                             <constraint firstItem="IKj-Iz-uyj" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oCd-kF-fzR" secondAttribute="trailing" symbolic="YES" id="8Zm-5f-zXQ"/>
@@ -2480,6 +2481,6 @@ Edit record Statistic reports Ranking Blog    </string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="us6-xZ-7Oo"/>
-        <segue reference="3FG-HS-iJ9"/>
+        <segue reference="LSh-1o-QPW"/>
     </inferredMetricsTieBreakers>
 </document>

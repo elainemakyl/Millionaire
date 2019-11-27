@@ -155,7 +155,7 @@ class SettingsViewController: UIViewController {
             
             //upload image to storage
             var data = Data()
-            data = image!.jpegData(compressionQuality: 0.6)!
+            data = image!.jpegData(compressionQuality: 0.3)!
             // set upload path
             let filePath = "\(Auth.auth().currentUser!.uid)/\("userPhoto")"
             let metaData = StorageMetadata()
