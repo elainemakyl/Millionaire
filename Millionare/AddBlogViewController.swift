@@ -29,55 +29,55 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
     @IBOutlet var blogIcon: UIImageView!
     
     @IBAction func uploadphoto(_ sender: Any) {
-     //   let image = UIImagePickerController()
-      //  image.delegate = self
-       // image.sourceType = UIImagePickerController.SourceType.photoLibrary
-       // image.allowsEditing = true
-       // self.present(image,animated:true){}
-       
-             let imagePickerController = UIImagePickerController()
+        //   let image = UIImagePickerController()
+        //  image.delegate = self
+        // image.sourceType = UIImagePickerController.SourceType.photoLibrary
+        // image.allowsEditing = true
+        // self.present(image,animated:true){}
         
-             
-             imagePickerController.delegate = self
+        let imagePickerController = UIImagePickerController()
         
+        
+        imagePickerController.delegate = self
+        
+        
+        let imagePickerAlertController = UIAlertController(title: "Image Upload", message: "Please select the image to upload", preferredStyle: .actionSheet)
+        
+        
+        let imageFromLibAction = UIAlertAction(title: "Gallery", style: .default) { (Void) in
             
-             let imagePickerAlertController = UIAlertController(title: "Image Upload", message: "Please select the image to upload", preferredStyle: .actionSheet)
-        
             
-             let imageFromLibAction = UIAlertAction(title: "Gallery", style: .default) { (Void) in
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                
+                
+                imagePickerController.sourceType = .photoLibrary
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
+        }
+        let imageFromCameraAction = UIAlertAction(title: "Camera", style: .default) { (Void) in
+            
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                
+                
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController, animated: true, completion: nil)
+            }
+        }
         
-               
-                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
         
-                     
-                     imagePickerController.sourceType = .photoLibrary
-                     self.present(imagePickerController, animated: true, completion: nil)
-                 }
-             }
-             let imageFromCameraAction = UIAlertAction(title: "Camera", style: .default) { (Void) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (Void) in
+            
+            imagePickerAlertController.dismiss(animated: true, completion: nil)
+        }
         
-                 
-                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
         
-                     
-                     imagePickerController.sourceType = .camera
-                     self.present(imagePickerController, animated: true, completion: nil)
-                 }
-             }
+        imagePickerAlertController.addAction(imageFromLibAction)
+        imagePickerAlertController.addAction(imageFromCameraAction)
+        imagePickerAlertController.addAction(cancelAction)
         
-             
-             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (Void) in
         
-                 imagePickerAlertController.dismiss(animated: true, completion: nil)
-             }
-        
-             
-             imagePickerAlertController.addAction(imageFromLibAction)
-             imagePickerAlertController.addAction(imageFromCameraAction)
-             imagePickerAlertController.addAction(cancelAction)
-        
-             
-             present(imagePickerAlertController, animated: true, completion: nil)
+        present(imagePickerAlertController, animated: true, completion: nil)
         
         
     }
@@ -87,14 +87,14 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
             
             var download:String="none"
             var username:String=""
-                storage = Storage.storage()
-                storageRef = storage.reference()
-               // dbRef = Database.database().reference().child("user");
-                // Do any additional setup after loading the view.
+            storage = Storage.storage()
+            storageRef = storage.reference()
+            // dbRef = Database.database().reference().child("user");
+            // Do any additional setup after loading the view.
             refUsers = Database.database().reference().child("user");
             let user = Auth.auth().currentUser
-                let userID = user?.uid
-                
+            let userID = user?.uid
+            
             let firstname = refUsers.child(userID!).child("first_name")
             let lastname = refUsers.child(userID!).child("last_name")
             
@@ -124,48 +124,48 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
             
             
             
-                //generating a new key inside artists node
-                //and also getting the generated key
-                dbRef = Database.database().reference().child("blog")
+            //generating a new key inside artists node
+            //and also getting the generated key
+            dbRef = Database.database().reference().child("blog")
             
-                let key = dbRef.childByAutoId().key
-                //creating artist with the given values
+            let key = dbRef.childByAutoId().key
+            //creating artist with the given values
             let iconpath = "\(String(key!))/\("blogIcon")"
-                let metadata = StorageMetadata()
-                metadata.contentType = "image/jpg"
-             
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpg"
+            
             // Data in memory
             var data = Data()
             data = Icon.jpegData(compressionQuality: 0.8)!            // Create a reference to the file you want to upload
             let imageref = storageRef.child(iconpath)
-
+            
             // Upload the file to the path "images/rivers.jpg"
             let uploadTask = imageref.putData(data, metadata: metadata) { (metadata, error) in
-              guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-              }
-              // Metadata contains file metadata such as size, content-type.
-              let size = metadata.size
-              // You can also access to download URL after upload.
-           imageref.downloadURL { (url, error) in
-                guard let downloadURL = url else {
-                  // Uh-oh, an error occurred!
-                  return
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    return
                 }
-           
-            let blog = ["id": key,
-            "UserID": String(userID!),
-            "Title": blogTitle,
-            "Content": blogContent,
-            "Icon":url?.absoluteString,
-            "Username":username,
-            "UserIcon":download,
-              ]
-            self.dbRef.child(String(key!)).setValue(blog)
-            
+                // Metadata contains file metadata such as size, content-type.
+                let size = metadata.size
+                // You can also access to download URL after upload.
+                imageref.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                        // Uh-oh, an error occurred!
+                        return
+                    }
+                    
+                    let blog = ["id": key,
+                                "UserID": String(userID!),
+                                "Title": blogTitle,
+                                "Content": blogContent,
+                                "Icon":url?.absoluteString,
+                                "Username":username,
+                                "UserIcon":download,
+                    ]
+                    self.dbRef.child(String(key!)).setValue(blog)
+                    
                 }
-                 
+                
             }
             
             showComplete()
@@ -178,21 +178,21 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
             showAlert()
             
         }
-
+        
     }
     
-        func showAlert(){
+    func showAlert(){
         let alert = UIAlertController(title: "Data Validation Error", message: "Please make sure you have input all information.", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Data Validation Checking Completed")}))
         present(alert, animated: true, completion: nil)
     }
     
-      func showComplete(){
-          let alert = UIAlertController(title: "Blog Uploaded", message: "Thank you for writing a blog.", preferredStyle: UIAlertController.Style.alert)
-          alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Complete")}))
+    func showComplete(){
+        let alert = UIAlertController(title: "Blog Uploaded", message: "Thank you for writing a blog.", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .default, handler: {(action: UIAlertAction!) in print("Complete")}))
         present(alert, animated: true, completion: nil)
-       
-      }
+        
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             blogIcon.image = image
@@ -203,23 +203,23 @@ class AddBlogViewController: UIViewController,UINavigationControllerDelegate,UII
         }
         self.dismiss(animated: true, completion: nil)
     }
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

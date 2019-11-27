@@ -68,13 +68,21 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
             else{
                 DispatchQueue.global(qos: .default).async{
-                    let myurl = URL(string: self.icon[indexPath.row])
+                    
+                    let filepath =  self.icon[indexPath.row]
+                    self.storageRef.child(filepath).downloadURL { (url, error) in
+                                   guard let dlurl = url else {return}
+                                   self.icon[indexPath.row] = dlurl.absoluteString
+                               }
+                     let myurl = URL(string: self.icon[indexPath.row])
                     print(self.icon[indexPath.row])
                     if let data = try? Data(contentsOf: myurl!){
                         let final_img = UIImage(data:data)
                         self.cache.setObject(final_img!, forKey: self.icon[indexPath.row] as AnyObject)
                         DispatchQueue.main.async{
+                          
                             cell.UserIcon.image = final_img
+                            
                         }
                     }
                 }
@@ -166,8 +174,12 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.incomes = income
             self.spendings = spending
             self.rating = rating
-            self.icon = usericon
             self.table.reloadData()
+            
+            //retrieve icon
+            
+            self.icon = usericon
+            
         })
         self.filterData = self.items
         self.filteremail = self.email
@@ -188,6 +200,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
         table.dataSource = self
         searchBar.delegate = self
         
+        storage = Storage.storage()
+        storageRef = storage.reference()
+        
         // the following is uses to search the users with their data
         DatabaseUtil.data.getAllUser(completion:{(names,emails,ranking,income,spending,rating,usericon) in
             self.items = names
@@ -197,6 +212,9 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.spendings = spending
             self.rating = rating
             self.icon = usericon
+            
+            
+           
         })
         self.filterData = self.items
         
