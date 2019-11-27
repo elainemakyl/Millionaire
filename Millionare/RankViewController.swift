@@ -56,17 +56,17 @@ class RankViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! RankTableViewCell
-        
+        cell.UserIcon.image = UIImage(named: "default_usericon")
         
         cell.nameLabel.text = filterData[indexPath.row]
         cell.emailLabel.text = filteremail[indexPath.row]
         cell.rankLabel.text = filterranking[indexPath.row]
         
         if filtericonURL[indexPath.row].elementsEqual("none")  {
-            cell.UserIcon.image = UIImage(named: "default_usericon")
+//            cell.UserIcon.image = UIImage(named: "default_usericon")
         }
         else {
-            if (self.filtericonURL.count == self.icon.count){  //not searching
+            if (self.filtericonURL.count == self.icon.count && self.filtericonURL.count != 0){  //not searching
                 if let img = cache.object(forKey: self.iconURL[indexPath.row] as AnyObject) as? UIImage{
                     cell.UserIcon.image = img   //already in cache
                 }
